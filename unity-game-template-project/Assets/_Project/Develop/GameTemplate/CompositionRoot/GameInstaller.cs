@@ -12,7 +12,7 @@ using GameTemplate.Services.SaveLoad;
 using GameTemplate.Services.StaticData;
 using UnityEngine;
 using Zenject;
-using GameTemplate.Infrastructure.LanguageSystem;
+using GameTemplate.Infrastructure.Language;
 using GameTemplate.Services.Localization;
 using GameTemplate.Services.PlayerAccountInfo;
 using Sirenix.OdinInspector;
@@ -32,6 +32,8 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.UI.Services.Popups.Factories;
 using GameTemplate.UI.Serices.Popups.Factories;
 using GameTemplate.Infrastructure.Bootstrap;
+using GameTemplate.Infrastructure.Language.Detectors;
+using GameTemplate.Infrastructure.Language.Processors;
 
 namespace GameTemplate.CompositionRoot
 {

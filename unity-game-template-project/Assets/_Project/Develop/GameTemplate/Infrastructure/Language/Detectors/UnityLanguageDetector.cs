@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.LanguageSystem
+namespace GameTemplate.Infrastructure.Language.Detectors
 {
     public class UnitytLanguageDetector : LanguageDetector
     {

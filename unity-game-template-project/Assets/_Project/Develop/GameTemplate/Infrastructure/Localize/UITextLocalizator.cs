@@ -1,4 +1,4 @@
-using GameTemplate.Infrastructure.LanguageSystem;
+using GameTemplate.Infrastructure.Language.Processors;
 using GameTemplate.UI.Core;
 using Sirenix.OdinInspector;
 using UnityEngine;

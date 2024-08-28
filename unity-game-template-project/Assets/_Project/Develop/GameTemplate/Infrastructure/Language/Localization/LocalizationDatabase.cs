@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.LanguageSystem
+namespace GameTemplate.Infrastructure.Language.Localization
 {
     [CreateAssetMenu(fileName = "new LocalizationDatabase", menuName = "GameTemplate/Localization/LocalizationDatabase")]
     public class LocalizationDatabase : ScriptableObject

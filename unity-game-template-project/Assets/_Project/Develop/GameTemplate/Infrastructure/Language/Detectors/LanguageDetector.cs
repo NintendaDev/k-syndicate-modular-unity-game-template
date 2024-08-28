@@ -1,6 +1,4 @@
-using System;
-
-namespace GameTemplate.Infrastructure.LanguageSystem
+namespace GameTemplate.Infrastructure.Language.Detectors
 {
     public abstract class LanguageDetector : ILanguageDetector
     {

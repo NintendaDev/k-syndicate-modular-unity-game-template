@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.LanguageSystem;
+using GameTemplate.Infrastructure.Language.Processors;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Services.StaticData;

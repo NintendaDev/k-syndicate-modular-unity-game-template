@@ -1,4 +1,6 @@
-using GameTemplate.Infrastructure.LanguageSystem;
+using GameTemplate.Infrastructure.Language;
+using GameTemplate.Infrastructure.Language.Detectors;
+using GameTemplate.Infrastructure.Language.Localization;
 using GameTemplate.Services.StaticData;
 using System;
 

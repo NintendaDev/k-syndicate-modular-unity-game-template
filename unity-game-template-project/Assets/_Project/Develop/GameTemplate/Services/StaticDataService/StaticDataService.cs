@@ -13,8 +13,8 @@ using GameTemplate.Level.Configurations;
 using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.Data;
 using GameTemplate.Services.Wallet;
-using GameTemplate.Infrastructure.LanguageSystem;
 using GameTemplate.UI.Services.Popups;
+using GameTemplate.Infrastructure.Language.Localization;
 
 namespace GameTemplate.Services.StaticData
 {

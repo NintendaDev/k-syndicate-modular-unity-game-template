@@ -3,7 +3,7 @@ using GameTemplate.UI.Core.Buttons;
 using System;
 using TMPro;
 
-namespace GameTemplate.Infrastructure.LanguageSystem
+namespace GameTemplate.Infrastructure.Language.Processors
 {
     public class LocalizedTermProcessorLinker
     {

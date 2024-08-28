@@ -1,8 +1,9 @@
+using GameTemplate.Infrastructure.Language.Processors;
 using GameTemplate.Services.Localization;
 using System;
 using System.Collections.Generic;
 
-namespace GameTemplate.Infrastructure.LanguageSystem
+namespace GameTemplate.Infrastructure.Language
 {
     public class LocalizedTermProcessorFactory : IDisposable
     {
