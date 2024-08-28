@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Wallets
+  m_EditorClassIdentifier: 
+  m_GroupName: Wallets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c04ccccc9658cc1469fbba1199d4c40e
+  m_SerializeEntries:
+  - m_GUID: b67dcf7acb6587742b4a2029f791551f
+    m_Address: WalletView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bcf1ccdb0faab4146931cbfb0fc86fc9, type: 2}
+    - {fileID: 11400000, guid: 81e9c353984f324429e6661ec9420221, type: 2}

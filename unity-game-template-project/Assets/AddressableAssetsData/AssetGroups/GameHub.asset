@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GameHub
+  m_EditorClassIdentifier: 
+  m_GroupName: GameHub
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 819a4c23ae816f549bd91b55ccdb4e54
+  m_SerializeEntries:
+  - m_GUID: df8112eda9106604c99dc495161f4c0d
+    m_Address: LevelView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc59c44bb2e0a3f4dbb4283c5cb0a911
+    m_Address: GameHub
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cd0e3c50bc67245498a1c672ffb73512, type: 2}
+    - {fileID: 11400000, guid: 98213d09ad24b234c9b17967c894e730, type: 2}

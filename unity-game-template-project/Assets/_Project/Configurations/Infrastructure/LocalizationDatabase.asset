@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9365b98e7ccdb0b45a3609d575debcdb, type: 3}
+  m_Name: LocalizationDatabase
+  m_EditorClassIdentifier: 
+  _defaultLanguage: 1
+  _termTranslations:
+  - _term: Ok
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: "\u041E\u043A"
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0425\u043E\u0440\u043E\u0448\u043E"
+  - _term: Info
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Info
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0418\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F"
+  - _term: SuccessAuthorizationMessage
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Authorization successful
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F
+        \u043F\u0440\u043E\u0448\u043B\u0430 \u0443\u0441\u043F\u0435\u0448\u043D\u043E"
+  - _term: Error
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Error
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u041E\u0448\u0438\u0431\u043A\u0430"
+  - _term: ErrorAuthorizationMessage
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: An unknown error occurred during authorization
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0412\u043E \u0432\u0440\u0435\u043C\u044F \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438
+        \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u0430 \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u0430\u044F
+        \u043E\u0448\u0438\u0431\u043A\u0430"
+  - _term: Levels
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Levels
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0423\u0440\u043E\u0432\u043D\u0438"
+  - _term: Login
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Login
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F"
+  - _term: Pause
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Pause
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u041F\u0430\u0443\u0437\u0430"
+  - _term: First Level
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: First Level
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u041F\u0435\u0440\u0432\u044B\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C"
+  - _term: Second Level
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Second Level
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u0412\u0442\u043E\u0440\u043E\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C"
+  - _term: Settings
+    _localizedText:
+    - <Language>k__BackingField: 1
+      <Text>k__BackingField: Settings
+    - <Language>k__BackingField: 2
+      <Text>k__BackingField: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"

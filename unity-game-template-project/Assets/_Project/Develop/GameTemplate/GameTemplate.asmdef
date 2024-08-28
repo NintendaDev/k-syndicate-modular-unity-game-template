@@ -1,0 +1,26 @@
+{
+    "name": "GameTemplate",
+    "rootNamespace": "GameTemplate",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:5361b5298d0b00543a69826b4c3732bc",
+        "GUID:6392dcebce03e0e44a75b92a72cdd8fe",
+        "GUID:b373334a8cf85824794495d6c1277263",
+        "GUID:9688c2499a3bc5149bafe445a702eea1",
+        "GUID:60b4005883a7af84698681e14aa2af15",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:593a5b492d29ac6448b1ebf7f035ef33"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

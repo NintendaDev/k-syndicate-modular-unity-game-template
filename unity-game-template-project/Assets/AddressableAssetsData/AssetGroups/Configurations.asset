@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Configurations
+  m_EditorClassIdentifier: 
+  m_GroupName: Configurations
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5b8aaba617d52c2418aa528dc9b6bd08
+  m_SerializeEntries:
+  - m_GUID: 3ddf7bc18879b6d47a98704f33d60ddf
+    m_Address: LevelsConfigurationsHub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c632607076411044b1d2ee2214e6640
+    m_Address: DevicesPerformanceConfigurations
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cf3f9411d4be5541bf2cdc35d600d50
+    m_Address: GameHubConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 819990bb740596a49be92c05614c32dd
+    m_Address: GameLoadingAssetsConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8ed42ce920fcdc4ba6cc80932fdb687
+    m_Address: InfrastructureAssetsConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a30ad85dbb308cf4b934a1f2adf40f89
+    m_Address: PopupsAssetsConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06f128c7d17c68c4b841070ee2082540
+    m_Address: StaticDataServiceConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf274cdd91b06184ca56954fb57fb930
+    m_Address: AdvertisimentsConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6b79d2aebb2c14bb6153ff844daae6
+    m_Address: AnalyticsConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 537b53a802ad6734a831a001220dd5e5
+    m_Address: AudioMixerConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 110769c62b66f664080789ef165858ca
+    m_Address: EasySaveConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 940a5ea0f0b96434f96334900c28fcdd
+    m_Address: DefaultProgressConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65b2e43e89312b641a9c17380b4ff9bd
+    m_Address: WalletSpritesConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f913d70d5846cdd48a11e94965db9517
+    m_Address: LocalizationDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9ccf5ed21ceacf24ab342a9db90469cd, type: 2}
+    - {fileID: 11400000, guid: 6dd64c7fe3d04ed4c99c536f83253080, type: 2}

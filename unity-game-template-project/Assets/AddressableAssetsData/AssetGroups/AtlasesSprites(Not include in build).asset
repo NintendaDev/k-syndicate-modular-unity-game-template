@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AtlasesSprites(Not include in build)
+  m_EditorClassIdentifier: 
+  m_GroupName: AtlasesSprites(Not include in build)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ee9c76aa7017fa641af47438a9762e4d
+  m_SerializeEntries:
+  - m_GUID: 21a720df3e95d4e9cbf40d621813f806
+    m_Address: Assets/_Project/Game/Art/Buttons/Btn_IconButton_Circle_121_White.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31556e634a9844453a3799478e2f1b39
+    m_Address: Assets/_Project/Game/Art/Buttons/Btn_MenuButton_Rectangle03_White1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a093cb6459e9a447e85a2e5dc818fdca
+    m_Address: Assets/_Project/Game/Art/Buttons/Btn_Rectangle02_White1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c649a74c95a81c943b1709956643069d
+    m_Address: Assets/_Project/Game/Art/Frames/Frame_BasicFrame_Square08.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6149d61b75189464d83b86784c028c88
+    m_Address: Assets/_Project/Game/Art/Icons/Icon_ImageIcon_Gem02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e940498e956a994488ccd7c968748964
+    m_Address: Assets/_Project/Game/Art/Icons/Icon_ImageIcon_Glod01_s.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6267015c48b92b24884f0ebce5bff7d5
+    m_Address: Assets/_Project/Game/Art/Patterns/pattern_0026.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7ff124b0b5a543319d1c49c1783d70d
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Arrow_Left.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db91871917b4640a9ba9fa3538366344
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Player_Pause.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9a6908c90a9a435d9de815ab9712058
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Player_Play.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 572e17a64d18c49129f19a8b9817c2cb
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Quit.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53d61d76d78c44c5589aea83193875d3
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Setting_2.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92089cdcc92d244dc8c07ddbe087b3c5
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Sfx_Off.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ef8427e453024116bb42b07a39932bf
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Sfx_On.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df5761a03f63648dbb87ff27ef1cf249
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Sound_Off.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac9f98a71ee4d4c76af1c0274a88fc5f
+    m_Address: Assets/_Project/Game/Art/Pictograms/PictoIcon_Sound_On.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 526227ee4c96e4c52820924261964651
+    m_Address: Assets/_Project/Game/Art/Slider/Slider01~06_White_Icon01_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd1605a167b6f4538b94e7fe8fe96b02
+    m_Address: Assets/_Project/Game/Art/Slider/Slider23_White_Fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3aa8bc4fb716401ca32ee9904a18bb0
+    m_Address: Assets/_Project/Game/Art/Slider/SliderGroup_Pass_White_Fill.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bbf3cae932f445e419a277603cc87793, type: 2}
+    - {fileID: 11400000, guid: cb886f67a9ed8be46b3fad75bcf62bb0, type: 2}

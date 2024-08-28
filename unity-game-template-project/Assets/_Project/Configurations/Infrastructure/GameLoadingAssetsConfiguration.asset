@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1cd036e669e5f4abd9a59d97b24058, type: 3}
+  m_Name: GameLoadingAssetsConfiguration
+  m_EditorClassIdentifier: 
+  <Curtain>k__BackingField:
+    m_AssetGUID: 1fbfad4f9d4a4c94e855040c300fc37d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  <GameHubScene>k__BackingField:
+    m_AssetGUID: dc59c44bb2e0a3f4dbb4283c5cb0a911
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  <GameLoadingScene>k__BackingField:
+    m_AssetGUID: 1b834031672733a4189898ac9e6d21ef
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  <GameBootstraperResourcePath>k__BackingField: Infrastructure/GameBootstrapper

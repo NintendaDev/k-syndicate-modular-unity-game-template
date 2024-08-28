@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AudioMixer
+  m_EditorClassIdentifier: 
+  m_GroupName: AudioMixer
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cf81959d160b9ec44932bae8d756b13d
+  m_SerializeEntries:
+  - m_GUID: 52e78bd0bc9495c4fad930dc466308a6
+    m_Address: Assets/_Project/Game/Audio/Mixer/AudioMixer.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a14512d91fb547944ae7a22615b7b647, type: 2}
+    - {fileID: 11400000, guid: 6195223e5b129394a9a0f6c230d5c3ca, type: 2}

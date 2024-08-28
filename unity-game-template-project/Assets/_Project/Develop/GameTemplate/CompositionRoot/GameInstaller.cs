@@ -1,0 +1,184 @@
+using GameTemplate.Infrastructure.Configurations;
+using GameTemplate.Infrastructure.AssetManagement;
+using GameTemplate.Services.Advertisiments;
+using GameTemplate.Services.Analytics;
+using GameTemplate.Services.AudioMixer;
+using GameTemplate.Services.Authorization;
+using GameTemplate.Services.GameLevelLoader;
+using GameTemplate.Services.Log;
+using GameTemplate.Services.PlayerStatistics;
+using GameTemplate.Services.Progress;
+using GameTemplate.Services.SaveLoad;
+using GameTemplate.Services.StaticData;
+using UnityEngine;
+using Zenject;
+using GameTemplate.Infrastructure.LanguageSystem;
+using GameTemplate.Services.Localization;
+using GameTemplate.Services.PlayerAccountInfo;
+using Sirenix.OdinInspector;
+using GameTemplate.Services.Popups;
+using GameTemplate.Infrastructure.DevicesDetecting;
+using GameTemplate.Systems;
+using GameTemplate.UI.Services.Popups;
+using GameTemplate.Systems.Performance;
+using GameTemplate.UI.LoadingCurtain;
+using GameTemplate.Infrastructure.StateMachineComponents.Installers;
+using GameTemplate.Infrastructure.Advertisements;
+using ExternalLibraries.SceneManagement;
+using GameTemplate.Infrastructure.Data;
+using GameTemplate.Infrastructure.Inputs;
+using GameTemplate.Services.Wallet;
+using GameTemplate.Infrastructure.Signals;
+using GameTemplate.UI.Services.Popups.Factories;
+using GameTemplate.UI.Serices.Popups.Factories;
+using GameTemplate.Infrastructure.Bootstrap;
+
+namespace GameTemplate.CompositionRoot
+{
+    public class GameInstaller : MonoInstaller
+    {
+        [SerializeField, Required] private GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
+        [SerializeField, Required] private StaticDataServiceConfiguration _staticDataServiceConfiguration;
+        [SerializeField, Required] private PopupsAssetsConfiguration _popupsAssetsConfiguration;
+
+        public override void InstallBindings()
+        {
+            BindInfrastructureAssetsConfiguration();
+            BindLogService();
+            BindAssetProviders();
+            BindStaticDataService();
+            BindDeviceDetector();
+            BindTouchDetector();
+            BindDevicePerformanceConfigurationGetter();
+            BindSystemPerformanceSetter();
+            BindPopupsService();
+            BindPlayerAccountInfoService();
+            BindLanguageDetector();
+            BindLocalizationService();
+            BindSceneLoader();
+            BindInfrastructureUI();
+            BindPersistentProgressService();
+            BindWalletsService();
+            BindPlayerStatisticsService();
+            BindAdvertisimentsService();
+            BindGameLevelLoaderService();
+            BindAuthorizationService();
+            BindAnalyticsService();
+            BindAdvertisimentsShowers();
+            BindAudioMixerService();
+            BindDefaultPlayerProgress();
+            BindSaveLoadService();
+            BindLocalizedTermProcessorLinker();
+            BindGameBootstrapperFactory();
+            BindEventBus();
+            BindGameStatemachine();
+        }
+
+        private void BindInfrastructureAssetsConfiguration() =>
+            Container.Bind<GameLoadingAssetsConfiguration>().FromInstance(_gameLoadingAssetsConfiguration);
+
+        private void BindLogService() =>
+            Container.BindInterfacesTo<LogService>().AsSingle();
+
+        private void BindAssetProviders()
+        {
+            Container.BindInterfacesTo<AssetProvider>().AsSingle();
+            Container.BindInterfacesTo<ComponentAssetProvider>().AsSingle();
+        }
+            
+        private void BindStaticDataService() =>
+            Container.BindInterfacesTo<StaticDataService>().AsSingle().WithArguments(_staticDataServiceConfiguration);
+
+        private void BindDeviceDetector() =>
+            Container.BindInterfacesTo<UnityDeviceDetector>().AsSingle();
+
+        private void BindTouchDetector() =>
+            Container.BindInterfacesTo<LegacyTouchDetector>().AsSingle();
+
+        private void BindDevicePerformanceConfigurationGetter() =>
+            Container.BindInterfacesTo<DevicePerformaceConfigurationGetter>().AsSingle();
+
+        private void BindSystemPerformanceSetter() =>
+            Container.Bind<SystemPerformanceSetter>().AsSingle();
+
+        private void BindPopupsService()
+        {
+            Container.BindInterfacesAndSelfTo<InfoPopupFabric>().AsSingle().WhenInjectedInto<PopupFactory>();
+            Container.BindInterfacesAndSelfTo<ErrorPopupFabric>().AsSingle().WhenInjectedInto<PopupFactory>();
+            Container.Bind<IPopupFactory>().To<PopupFactory>().AsSingle();
+
+            Container.BindInterfacesTo<PopupsService>().AsSingle();
+        }
+
+        private void BindPlayerAccountInfoService() =>
+            Container.BindInterfacesTo<DummyPlayerAccountInfoService>().AsSingle();
+
+        private void BindLanguageDetector() =>
+            Container.BindInterfacesTo<UnitytLanguageDetector>().AsSingle();
+
+        private void BindLocalizationService() =>
+            Container.BindInterfacesTo<SimpleLocalizationService>().AsSingle();
+
+        private void BindSceneLoader() =>
+            Container.BindInterfacesTo<SceneLoader>().AsSingle();
+            
+        private void BindInfrastructureUI()
+        {
+            Container.BindInterfacesAndSelfTo<LoadingCurtainFabric>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingCurtainProxy>().AsSingle();
+        }
+
+        private void BindPersistentProgressService() =>
+            Container.BindInterfacesTo<PersistentProgressService>().AsSingle();
+
+        private void BindWalletsService() =>
+            Container.BindInterfacesTo<WalletService>().AsSingle();
+
+        private void BindPlayerStatisticsService() =>
+            Container.BindInterfacesAndSelfTo<PlayerStatisticsService>().AsSingle();
+
+        private void BindAdvertisimentsService() =>
+            Container.BindInterfacesTo<DummyAdvertisimentsService>().AsSingle();
+            
+        private void BindGameLevelLoaderService() =>
+            Container.BindInterfacesTo<LevelLoaderService>().AsSingle();
+
+        private void BindAuthorizationService() =>
+            Container.BindInterfacesTo<DummyAuthorizationService>().AsSingle();
+
+        private void BindAnalyticsService() =>
+            Container.BindInterfacesTo<DummyAnalyticsService>().AsSingle();
+
+        private void BindAdvertisimentsShowers()
+        {
+            Container.BindInterfacesTo<InterstitialAdvertisementShower>().AsTransient();
+        }
+
+        private void BindAudioMixerService() =>
+            Container.BindInterfacesTo<AudioMixerService>().AsSingle();
+
+        private void BindSaveLoadService() =>
+            Container.BindInterfacesTo<PlayerPrefsSaveLoadService>().AsSingle();
+
+        private void BindLocalizedTermProcessorLinker()
+        {
+            Container.BindInterfacesAndSelfTo<LocalizedTermProcessorFactory>()
+                .AsSingle()
+                .WhenInjectedInto<LocalizedTermProcessorLinker>();
+
+            Container.BindInterfacesAndSelfTo<LocalizedTermProcessorLinker>().AsSingle();
+        }
+            
+        private void BindDefaultPlayerProgress() =>
+            Container.BindInterfacesTo<DefaultPlayerProgressMaker>().AsSingle();
+
+        private void BindGameBootstrapperFactory() =>
+            Container.BindInterfacesAndSelfTo<GameBootstrapperFactory>().AsSingle();
+
+        private void BindEventBus() =>
+            Container.BindInterfacesTo<EventBus>().AsSingle();
+
+        private void BindGameStatemachine() =>
+            GameStateMachineInstaller.Install(Container);
+    }
+}
