@@ -36,6 +36,7 @@ This template is the result of working on a personal project [Geometry Dash](htt
 - EventBus
 - Factory
 - Model View Presenter Passive View
+- Model View Observable
 - Facade
 - Template Method
 - Proxy
