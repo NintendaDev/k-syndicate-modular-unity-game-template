@@ -15,6 +15,7 @@ namespace GameTemplate.Infrastructure.ContextInstallers
             BindResetObjects();
             BindMusicPlayService();
             BindAddressableAudioClipFactory();
+            BindLocalizationProcessors();
             BindStateMachine();
             BindSceneObjectsDisposable();
         }
@@ -32,6 +33,9 @@ namespace GameTemplate.Infrastructure.ContextInstallers
             Container.Bind<AddressableAudioClip>().AsTransient();
             Container.BindInterfacesAndSelfTo<AddressableAudioClipFactory>().AsSingle();
         }
+        
+        private void BindLocalizationProcessors() =>
+            LocalizationProcessorsInstaller.Install(Container);
 
         private void BindStateMachine()
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.Language.Localization
+namespace GameTemplate.Infrastructure.LanguageSystem.Localization
 {
     [System.Serializable]
     public class LocalizedText

@@ -1,39 +1,37 @@
-using GameTemplate.Infrastructure.Configurations;
+using ExternalLibraries.SceneManagement;
+using GameTemplate.Infrastructure.Advertisements;
 using GameTemplate.Infrastructure.AssetManagement;
+using GameTemplate.Infrastructure.Bootstrap;
+using GameTemplate.Infrastructure.Configurations;
+using GameTemplate.Infrastructure.Data;
+using GameTemplate.Infrastructure.DevicesDetecting;
+using GameTemplate.Infrastructure.Inputs;
+using GameTemplate.Infrastructure.LanguageSystem.Detectors;
+using GameTemplate.Infrastructure.Signals;
+using GameTemplate.Infrastructure.StateMachineComponents.Installers;
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.AudioMixer;
 using GameTemplate.Services.Authorization;
 using GameTemplate.Services.GameLevelLoader;
+using GameTemplate.Services.Localization;
 using GameTemplate.Services.Log;
+using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Services.PlayerStatistics;
+using GameTemplate.Services.Popups;
 using GameTemplate.Services.Progress;
 using GameTemplate.Services.SaveLoad;
 using GameTemplate.Services.StaticData;
-using UnityEngine;
-using Zenject;
-using GameTemplate.Infrastructure.Language;
-using GameTemplate.Services.Localization;
-using GameTemplate.Services.PlayerAccountInfo;
-using Sirenix.OdinInspector;
-using GameTemplate.Services.Popups;
-using GameTemplate.Infrastructure.DevicesDetecting;
+using GameTemplate.Services.Wallet;
 using GameTemplate.Systems;
-using GameTemplate.UI.Services.Popups;
 using GameTemplate.Systems.Performance;
 using GameTemplate.UI.LoadingCurtain;
-using GameTemplate.Infrastructure.StateMachineComponents.Installers;
-using GameTemplate.Infrastructure.Advertisements;
-using ExternalLibraries.SceneManagement;
-using GameTemplate.Infrastructure.Data;
-using GameTemplate.Infrastructure.Inputs;
-using GameTemplate.Services.Wallet;
-using GameTemplate.Infrastructure.Signals;
-using GameTemplate.UI.Services.Popups.Factories;
 using GameTemplate.UI.Serices.Popups.Factories;
-using GameTemplate.Infrastructure.Bootstrap;
-using GameTemplate.Infrastructure.Language.Detectors;
-using GameTemplate.Infrastructure.Language.Processors;
+using GameTemplate.UI.Services.Popups;
+using GameTemplate.UI.Services.Popups.Factories;
+using Sirenix.OdinInspector;
+using UnityEngine;
+using Zenject;
 
 namespace GameTemplate.CompositionRoot
 {
@@ -70,7 +68,6 @@ namespace GameTemplate.CompositionRoot
             BindAudioMixerService();
             BindDefaultPlayerProgress();
             BindSaveLoadService();
-            BindLocalizedTermProcessorLinker();
             BindGameBootstrapperFactory();
             BindEventBus();
             BindGameStatemachine();
@@ -116,7 +113,7 @@ namespace GameTemplate.CompositionRoot
             Container.BindInterfacesTo<DummyPlayerAccountInfoService>().AsSingle();
 
         private void BindLanguageDetector() =>
-            Container.BindInterfacesTo<UnitytLanguageDetector>().AsSingle();
+            Container.BindInterfacesTo<UnityLanguageDetector>().AsSingle();
 
         private void BindLocalizationService() =>
             Container.BindInterfacesTo<SimpleLocalizationService>().AsSingle();
@@ -161,15 +158,6 @@ namespace GameTemplate.CompositionRoot
 
         private void BindSaveLoadService() =>
             Container.BindInterfacesTo<PlayerPrefsSaveLoadService>().AsSingle();
-
-        private void BindLocalizedTermProcessorLinker()
-        {
-            Container.BindInterfacesAndSelfTo<LocalizedTermProcessorFactory>()
-                .AsSingle()
-                .WhenInjectedInto<LocalizedTermProcessorLinker>();
-
-            Container.BindInterfacesAndSelfTo<LocalizedTermProcessorLinker>().AsSingle();
-        }
             
         private void BindDefaultPlayerProgress() =>
             Container.BindInterfacesTo<DefaultPlayerProgressMaker>().AsSingle();

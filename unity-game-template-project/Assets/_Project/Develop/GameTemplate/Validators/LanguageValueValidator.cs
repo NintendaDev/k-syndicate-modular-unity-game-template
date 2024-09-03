@@ -1,5 +1,5 @@
 using System;
-using GameTemplate.Infrastructure.Language;
+using GameTemplate.Infrastructure.LanguageSystem;
 
 #if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor.Validation;

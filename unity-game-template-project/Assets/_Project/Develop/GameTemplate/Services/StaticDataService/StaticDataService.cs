@@ -14,7 +14,7 @@ using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.Data;
 using GameTemplate.Services.Wallet;
 using GameTemplate.UI.Services.Popups;
-using GameTemplate.Infrastructure.Language.Localization;
+using GameTemplate.Infrastructure.LanguageSystem.Localization;
 
 namespace GameTemplate.Services.StaticData
 {

@@ -1,4 +1,4 @@
-namespace GameTemplate.Infrastructure.Language
+namespace GameTemplate.Infrastructure.LanguageSystem
 {
     public enum Language
     {

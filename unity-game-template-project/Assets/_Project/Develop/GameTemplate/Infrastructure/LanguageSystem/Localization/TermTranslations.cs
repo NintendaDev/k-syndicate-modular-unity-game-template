@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.Language.Localization
+namespace GameTemplate.Infrastructure.LanguageSystem.Localization
 {
     [System.Serializable]
     public class TermTranslations

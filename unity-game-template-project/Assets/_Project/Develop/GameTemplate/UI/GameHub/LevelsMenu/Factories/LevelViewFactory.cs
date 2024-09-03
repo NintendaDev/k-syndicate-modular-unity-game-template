@@ -1,14 +1,16 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.Language.Processors;
+using GameTemplate.Infrastructure.LanguageSystem.Processors;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Services.StaticData;
 using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using GameTemplate.Core;
 using Zenject;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
@@ -17,18 +19,19 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IEventBus _eventBus;
-        private readonly LocalizedTermProcessorLinker _LocalizedTermProcessorLinker;
+        private readonly LocalizedTermProcessorLinker _localizedTermProcessorLinker;
+        private readonly DictionaryDatabase<LevelView, Action> _destroyCallbacks = new();
         private GameHubConfiguration _gameHubConfiguration;
         private List<IDisposable> _disposableObjects = new();
 
         public LevelViewFactory(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider,
             IStaticDataService staticDataService, IEventBus eventBus,
-            LocalizedTermProcessorLinker LocalizedTermProcessorLinker) 
+            LocalizedTermProcessorLinker localizedTermProcessorLinker) 
             : base(instantiator, componentAssetProvider)
         {
             _staticDataService = staticDataService;
             _eventBus = eventBus;
-            _LocalizedTermProcessorLinker = LocalizedTermProcessorLinker;
+            _localizedTermProcessorLinker = localizedTermProcessorLinker;
         }
 
         public override void Dispose()
@@ -47,10 +50,22 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
             var presenter = new LevelPresenter(levelView, _eventBus);
             _disposableObjects.Add(presenter);
 
-            _LocalizedTermProcessorLinker.Link(levelConfiguration.Title, levelView.SetTitle);
+            Action destroyCallback = () => OnLevelViewDestroy(levelView);
+            _destroyCallbacks.Add(levelView, destroyCallback);
+            levelView.Destroyed += destroyCallback;
+
+            _localizedTermProcessorLinker.Link(levelConfiguration.Title, levelView.SetTitle);
             levelView.Set(levelConfiguration.LevelCode);
 
             return levelView;
+        }
+
+        private void OnLevelViewDestroy(LevelView levelView)
+        {
+            if (_destroyCallbacks.TryPopValue(levelView, out Action destroyCallback))
+                levelView.Destroyed -= destroyCallback;
+            
+            _localizedTermProcessorLinker.Unlink(levelView.SetTitle);
         }
     }
 }

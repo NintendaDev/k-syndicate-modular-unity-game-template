@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.Language.Detectors
+namespace GameTemplate.Infrastructure.LanguageSystem.Detectors
 {
-    public class UnitytLanguageDetector : LanguageDetector
+    public class UnityLanguageDetector : LanguageDetector
     {
         public override Language GetCurrentLanguage()
         {

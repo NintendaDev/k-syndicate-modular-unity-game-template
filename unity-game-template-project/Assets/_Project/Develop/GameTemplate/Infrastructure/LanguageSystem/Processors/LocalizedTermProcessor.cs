@@ -1,7 +1,7 @@
 using GameTemplate.Services.Localization;
 using System;
 
-namespace GameTemplate.Infrastructure.Language.Processors
+namespace GameTemplate.Infrastructure.LanguageSystem.Processors
 {
     public class LocalizedTermProcessor : IDisposable
     {

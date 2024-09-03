@@ -1,9 +1,8 @@
 using GameTemplate.UI.Core;
 using GameTemplate.UI.Core.Buttons;
 using System;
-using TMPro;
 
-namespace GameTemplate.Infrastructure.Language.Processors
+namespace GameTemplate.Infrastructure.LanguageSystem.Processors
 {
     public class LocalizedTermProcessorLinker
     {
@@ -12,16 +11,22 @@ namespace GameTemplate.Infrastructure.Language.Processors
         public LocalizedTermProcessorLinker(LocalizedTermProcessorFactory localizedTermProcessorFactory) =>
             _localizedTermProcessorFactory = localizedTermProcessorFactory;
 
-        public void Link(TMP_Text label) =>
-            Link(label.text, (translation) => label.text = translation);
-
-        public void Link(UIText uiText) =>
-            Link(uiText.Text, (translation) => uiText.SetText(translation));
+        public void Link(UIText text) =>
+            Link(text.Text, text.SetText);
+        
+        public void Unlink(UIText uiText) =>
+            Unlink(uiText.SetText);
 
         public void Link(UITextButton textButton) =>
-            Link(textButton.Title, (translation) => textButton.SetTitle(translation));
+            Link(textButton.Title, textButton.SetTitle);
+
+        public void Unlink(UITextButton textButton) =>
+            Unlink(textButton.SetTitle);
 
         public void Link(string term, Action<string> onLocalizationChangeCallback) =>
             _localizedTermProcessorFactory.Create(term, onLocalizationChangeCallback);
+
+        public void Unlink(Action<string> onLocalizationChangeCallback) =>
+            _localizedTermProcessorFactory.DestroyProcessor(onLocalizationChangeCallback);
     }
 }
