@@ -6,6 +6,9 @@ This concept is proposed by the developers at Knowledge Syndicate. The implement
 
 The template includes a basic UI for level selection, game settings, and authorization, as well as a basic UI for gameplay scenes. The UI is implemented using the MVP Passive View pattern.
 
+This template is the result of working on a personal project [Geometry Dash](https://yandex.ru/games/app/361258)  for six months. The core structure was taken from it and refined into a universal template.
+
+
 **A foundation is prepared for:**
 
 - Integrating analytics (e.g., GameAnalytics)
@@ -33,6 +36,7 @@ The template includes a basic UI for level selection, game settings, and authori
 - EventBus
 - Factory
 - Model View Presenter Passive View
+- Model View Observable
 - Facade
 - Template Method
 - Proxy
@@ -59,6 +63,8 @@ This scene loads the game state before showing the player the main menu. If the 
 **Game Hub Scene**
 
 The main game menu. The scene's state begins with Bootstrap, where the necessary services for the game menu scene can be initialized. After the Bootstrap scene state, the Main scene state is activated, and the game menu appears. In this menu, the player can select a level to play, access settings, and perform authorization. If authorization is successful, the state transitions to Loading, the Loading Scene is loaded, and the game reloads data considering the player's authorization. If authorization fails, the game state does not change.
+
+To support loading player progress based on their authorization, the save service needs to be refined for the specific project.
 
 **Gameplay Scene**
 
