@@ -1,7 +1,7 @@
 using System;
-using GameTemplate.Core;
 using GameTemplate.Infrastructure.Levels;
-using GameTemplate.UI.Core.Buttons;
+using Modules.Core.Systems;
+using Modules.Core.UI;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Views
 {

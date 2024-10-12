@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Core;
 using GameTemplate.Infrastructure.Advertisements;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
@@ -9,6 +8,7 @@ using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.LoadingCurtain;
 using System.Collections.Generic;
+using Modules.Core.Systems;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates

@@ -1,5 +1,5 @@
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
-using GameTemplate.UI.GameHub.SettinsMenu.Views;
+using GameTemplate.UI.GameHub.SettingsMenu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ namespace GameTemplate.UI.GameHub.MainMenu.Views
     {
         [SerializeField, Required] private MainMenuView _mainMenuView;
         [SerializeField, Required] private LevelsMenuView _levelsMenuView;
-        [SerializeField, Required] private SettingsMenuView _settingsMenuView;
+        [SerializeField, Required] private SettingsView _audioSettingsView;
 
         private void Start()
         {
@@ -21,7 +21,7 @@ namespace GameTemplate.UI.GameHub.MainMenu.Views
             _mainMenuView.SettingButtonClicked += OnSettingsButtonClick;
             _mainMenuView.LevelsButtonClicked += OnLevelsButtonClick;
             _levelsMenuView.BackButtonClicked += OnLevelsMenuBackClick;
-            _settingsMenuView.BackButtonClicked += OnSettingsMenuBackButtonClick;
+            _audioSettingsView.BackButtonClicked += OnAudioSettingsBackButtonClick;
         }
 
         private void OnDisable()
@@ -29,7 +29,7 @@ namespace GameTemplate.UI.GameHub.MainMenu.Views
             _mainMenuView.SettingButtonClicked -= OnSettingsButtonClick;
             _mainMenuView.LevelsButtonClicked -= OnLevelsButtonClick;
             _levelsMenuView.BackButtonClicked += OnLevelsMenuBackClick;
-            _settingsMenuView.BackButtonClicked -= OnSettingsMenuBackButtonClick;
+            _audioSettingsView.BackButtonClicked -= OnAudioSettingsBackButtonClick;
         }
 
         private void EnableMainMenuView()
@@ -41,7 +41,7 @@ namespace GameTemplate.UI.GameHub.MainMenu.Views
         private void DisableAllViews()
         {
             _mainMenuView.Disable();
-            _settingsMenuView.Disable();
+            _audioSettingsView.Disable();
             _levelsMenuView.Disable();
         }
 
@@ -51,7 +51,7 @@ namespace GameTemplate.UI.GameHub.MainMenu.Views
         private void EnableSettingsView()
         {
             DisableAllViews();
-            _settingsMenuView.Enable();
+            _audioSettingsView.Enable();
         }
 
         private void OnLevelsButtonClick() =>
@@ -66,7 +66,7 @@ namespace GameTemplate.UI.GameHub.MainMenu.Views
         private void OnLevelsMenuBackClick() =>
             EnableMainMenuView();
 
-        private void OnSettingsMenuBackButtonClick() =>
+        private void OnAudioSettingsBackButtonClick() =>
             EnableMainMenuView();
     }
 }

@@ -1,7 +1,8 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.UI.Services.Popups.Simple;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.StaticData;
+using Modules.ObjectsManagement.Factories;
 using Zenject;
 
 namespace GameTemplate.UI.Services.Popups.Factories

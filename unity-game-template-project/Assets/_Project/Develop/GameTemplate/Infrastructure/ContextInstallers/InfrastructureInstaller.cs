@@ -1,9 +1,9 @@
 using Modules.StateMachines;
-using GameTemplate.Core;
 using GameTemplate.Infrastructure.Music;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.MusicPlay;
 using System;
+using Modules.Core.Systems;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.ContextInstallers

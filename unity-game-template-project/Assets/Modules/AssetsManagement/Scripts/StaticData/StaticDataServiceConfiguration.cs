@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Modules.AssetManagement.StaticData
+namespace Modules.AssetsManagement.StaticData
 {
     [CreateAssetMenu(fileName = "new StaticDataServiceConfiguration", 
-        menuName = "Services / StaticDataServiceConfiguration")]
+        menuName = "Modules/Services/StaticDataServiceConfiguration")]
     public class StaticDataServiceConfiguration : ScriptableObject
     {
         [field: SerializeField] public string ConfigurationsAssetLabel { get; private set; } = "configurations";

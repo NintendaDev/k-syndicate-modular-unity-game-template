@@ -4,7 +4,7 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Analytics;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading

@@ -3,7 +3,7 @@ using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Levels;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Level.Configurations;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
 
 namespace GameTemplate.Services.GameLevelLoader
 {

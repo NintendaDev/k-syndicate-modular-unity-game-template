@@ -1,36 +1,36 @@
 using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Advertisements;
-using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Bootstrap;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.Data;
 using GameTemplate.Infrastructure.DevicesDetecting;
-using GameTemplate.Infrastructure.Inputs;
 using GameTemplate.Infrastructure.LanguageSystem.Detectors;
+using GameTemplate.Infrastructure.SaveManagement.Defaults;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents.Installers;
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
-using GameTemplate.Services.AudioMixer;
 using GameTemplate.Services.Authorization;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.Localization;
 using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Services.PlayerStatistics;
 using GameTemplate.Services.Popups;
-using GameTemplate.Services.Progress;
-using GameTemplate.Services.SaveLoad;
 using GameTemplate.Services.StaticData;
-using GameTemplate.Services.Wallet;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
 using GameTemplate.UI.LoadingCurtain;
 using GameTemplate.UI.Serices.Popups.Factories;
 using GameTemplate.UI.Services.Popups;
 using GameTemplate.UI.Services.Popups.Factories;
-using Modules.AssetManagement;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement;
+using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.StaticData;
+using Modules.AudioManagement.Mixer;
+using Modules.ControllManagement.Detectors;
 using Modules.Logging;
+using Modules.SaveManagement.Persistent;
+using Modules.SaveManagement.Systems;
+using Modules.Wallets.Systems;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -60,7 +60,7 @@ namespace GameTemplate.CompositionRoot
             BindSceneLoader();
             BindInfrastructureUI();
             BindPersistentProgressService();
-            BindWalletsService();
+            BindWallet();
             BindPlayerStatisticsService();
             BindAdvertisimentsService();
             BindGameLevelLoaderService();
@@ -68,7 +68,7 @@ namespace GameTemplate.CompositionRoot
             BindAnalyticsService();
             BindAdvertisimentsShowers();
             BindAudioMixerService();
-            BindDefaultPlayerProgress();
+            BindDefaultPlayerProgressProvider();
             BindSaveLoadService();
             BindGameBootstrapperFactory();
             BindEventBus();
@@ -132,10 +132,10 @@ namespace GameTemplate.CompositionRoot
         }
 
         private void BindPersistentProgressService() =>
-            Container.BindInterfacesTo<PersistentProgressService>().AsSingle();
+            Container.BindInterfacesTo<PersistentProgressProvider>().AsSingle();
 
-        private void BindWalletsService() =>
-            Container.BindInterfacesTo<WalletService>().AsSingle();
+        private void BindWallet() =>
+            Container.BindInterfacesTo<Wallet>().AsSingle();
 
         private void BindPlayerStatisticsService() =>
             Container.BindInterfacesAndSelfTo<PlayerStatisticsService>().AsSingle();
@@ -158,13 +158,13 @@ namespace GameTemplate.CompositionRoot
         }
 
         private void BindAudioMixerService() =>
-            Container.BindInterfacesTo<AudioMixerService>().AsSingle();
+            Container.BindInterfacesTo<AudioMixerSystem>().AsSingle();
 
         private void BindSaveLoadService() =>
-            Container.BindInterfacesTo<PlayerPrefsSaveLoadService>().AsSingle();
+            Container.BindInterfacesTo<PlayerPrefsSaveLoadSystem>().AsSingle();
             
-        private void BindDefaultPlayerProgress() =>
-            Container.BindInterfacesTo<DefaultPlayerProgressMaker>().AsSingle();
+        private void BindDefaultPlayerProgressProvider() =>
+            Container.BindInterfacesTo<DefaultPlayerProgressProvider>().AsSingle();
 
         private void BindGameBootstrapperFactory() =>
             Container.BindInterfacesAndSelfTo<GameBootstrapperFactory>().AsSingle();

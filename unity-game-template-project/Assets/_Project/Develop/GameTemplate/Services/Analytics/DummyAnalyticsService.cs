@@ -1,5 +1,5 @@
 using GameTemplate.Services.Advertisiments;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
 using Modules.Logging;
 
 namespace GameTemplate.Services.Analytics

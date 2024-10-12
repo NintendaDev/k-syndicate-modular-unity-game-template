@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7f3fc6f0be2c34b940b006eb055e9b, type: 3}
   m_Name: StaticDataServiceConfiguration
   m_EditorClassIdentifier: 
-  <ConfigurationsAssetLabel>k__BackingField: Configurations
+  <ConfigurationsAssetLabel>k__BackingField: configurations

@@ -2,17 +2,17 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.Loading.States;
 using GameTemplate.Services.Localization;
 using GameTemplate.Services.Analytics;
-using GameTemplate.Services.AudioMixer;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.UI.LoadingCurtain;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
-using GameTemplate.Services.SaveLoad;
 using GameTemplate.Infrastructure.Signals;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
+using Modules.AudioManagement.Mixer;
 using Modules.Logging;
+using Modules.SaveManagement.Interfaces;
 
 namespace GameTemplate.GameLifeCycle.Bootstrap
 {
@@ -21,18 +21,18 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
         private readonly IStaticDataService _staticDataService;
         private readonly LoadingCurtainProxy _loadingCurtainProxy;
         private readonly ILevelLoaderService _gameLevelLoaderService;
-        private readonly IAudioMixerService _audioMixerService;
+        private readonly IAudioMixerSystem _audioMixerSystem;
         private readonly ILocalizationService _localizationService;
         private readonly IAnalyticsService _analyticsService;
         private readonly SystemPerformanceSetter _performanceSetter;
-        private readonly ISaveLoadService _saveLoadService;
+        private readonly ISaveLoadSystem _saveLoadSystem;
         private readonly IDevicePerformaceConfigurator _devicePerformaceConfigurator;
 
         public BootstrapGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
             IAnalyticsService analyticsService, IStaticDataService staticDataService, 
             LoadingCurtainProxy loadingCurtainProxy, ILevelLoaderService gameLevelLoaderService, 
-            IAudioMixerService audioMixerService, IDevicePerformaceConfigurator devicePerformaceConfigurator,
-            ILocalizationService localizationService, ISaveLoadService saveLoadService, 
+            IAudioMixerSystem audioMixerSystem, IDevicePerformaceConfigurator devicePerformaceConfigurator,
+            ILocalizationService localizationService, ISaveLoadSystem saveLoadSystem, 
             SystemPerformanceSetter performanceSetter)
             
             : base(stateMachine, eventBus, logSystem)
@@ -40,11 +40,11 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             _staticDataService = staticDataService;
             _loadingCurtainProxy = loadingCurtainProxy;
             _gameLevelLoaderService = gameLevelLoaderService;
-            _audioMixerService = audioMixerService;
+            _audioMixerSystem = audioMixerSystem;
             _localizationService = localizationService;
             _analyticsService = analyticsService;
             _performanceSetter = performanceSetter;
-            _saveLoadService = saveLoadService;
+            _saveLoadSystem = saveLoadSystem;
             _devicePerformaceConfigurator = devicePerformaceConfigurator;
         }
 
@@ -62,9 +62,9 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             _devicePerformaceConfigurator.Initialize();
             _performanceSetter.Initialize();
             await _loadingCurtainProxy.InitializeAsync();
-            await _saveLoadService.InitializeAsync();
+            await _saveLoadSystem.InitializeAsync();
             _gameLevelLoaderService.Initialize();
-            _audioMixerService.Initialize();
+            _audioMixerSystem.Initialize();
             _localizationService.Initialize();
             _analyticsService.Initialize();
         }

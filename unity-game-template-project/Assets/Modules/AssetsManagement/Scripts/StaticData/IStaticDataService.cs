@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Modules.AssetManagement.StaticData
+namespace Modules.AssetsManagement.StaticData
 {
     public interface IStaticDataService 
     {

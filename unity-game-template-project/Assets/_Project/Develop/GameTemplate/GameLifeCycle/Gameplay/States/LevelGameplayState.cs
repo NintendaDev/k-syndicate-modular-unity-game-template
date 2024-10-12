@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Core;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.MusicPlay;
@@ -10,6 +9,7 @@ using UnityEngine;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Infrastructure.Signals;
+using Modules.Core.Systems;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates

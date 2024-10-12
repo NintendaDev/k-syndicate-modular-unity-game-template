@@ -1,0 +1,25 @@
+{
+    "name": "Modules.Wallets",
+    "rootNamespace": "Modules.Wallets",
+    "references": [
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:9688c2499a3bc5149bafe445a702eea1",
+        "GUID:a1394e044482765449ce7a4bd4fd2869",
+        "GUID:6f70e9d3ce4c9a44986f29d65f948abe",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:c2243b19542628a46b93e0735f0e9ff3",
+        "GUID:1c12157aaa29fdb45bbb405ff2a5d629",
+        "GUID:2a41333a2df1bf84d92a130bd478a1ff",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

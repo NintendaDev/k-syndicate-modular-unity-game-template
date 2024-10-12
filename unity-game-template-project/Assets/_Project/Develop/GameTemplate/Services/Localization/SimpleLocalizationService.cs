@@ -2,7 +2,7 @@ using GameTemplate.Infrastructure.LanguageSystem;
 using GameTemplate.Infrastructure.LanguageSystem.Detectors;
 using GameTemplate.Infrastructure.LanguageSystem.Localization;
 using System;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
 
 namespace GameTemplate.Services.Localization
 {

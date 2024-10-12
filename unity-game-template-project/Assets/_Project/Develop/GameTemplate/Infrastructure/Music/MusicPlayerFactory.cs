@@ -1,7 +1,8 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Configurations;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.StaticData;
+using Modules.ObjectsManagement.Factories;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.Music
