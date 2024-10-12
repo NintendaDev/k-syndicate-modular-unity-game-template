@@ -1,4 +1,4 @@
-using ExternalLibraries.Types.MemorizedValues;
+using Modules.Types.MemorizedValues;
 using System.Collections.Generic;
 using UnityEngine;
 

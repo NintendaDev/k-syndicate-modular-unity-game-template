@@ -3,8 +3,8 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay
 {
@@ -13,9 +13,9 @@ namespace GameTemplate.GameLifeCycle.Gameplay
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IFastLoadLevel _levelLoader;
 
-        public GameplayGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogService logService,
+        public GameplayGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
             ILoadingCurtain loadingCurtain, IFastLoadLevel levelLoader) 
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _levelLoader = levelLoader;

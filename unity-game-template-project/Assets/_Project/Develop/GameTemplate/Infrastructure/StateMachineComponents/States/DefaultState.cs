@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibs.CoreStateMachine;
-using ExternalLibs.CoreStateMachine.States;
+using Modules.StateMachines;
+using Modules.StateMachines.States;
 using GameTemplate.Infrastructure.Signals;
-using GameTemplate.Services.Log;
 using System;
+using Modules.Logging;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.States
 {
@@ -11,10 +11,10 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
     {
         private readonly Type _stateType;
 
-        public DefaultState(IStateMachine stateMachine, IEventBus eventBus, ILogService logService)
+        public DefaultState(IStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem)
         {
             StateMachine = stateMachine;
-            LogService = logService;
+            LogSystem = logSystem;
             StateEventBus = eventBus;
             _stateType = GetType();
         }
@@ -23,18 +23,18 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
 
         protected IEventBus StateEventBus { get; }
 
-        protected ILogService LogService { get; }
+        protected ILogSystem LogSystem { get; }
 
         public virtual UniTask Enter()
         {
-            LogService.Log($"Enter {_stateType} state");
+            LogSystem.Log($"Enter {_stateType} state");
 
             return default;
         }
 
         public virtual UniTask Exit()
         {
-            LogService.Log($"Exit {_stateType} state");
+            LogSystem.Log($"Exit {_stateType} state");
 
             return default;
         }

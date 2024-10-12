@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Services.StaticData;
 using GameTemplate.Services.Wallet;
 using System.Collections.Generic;
 using System.Threading;
+using Modules.AssetManagement.StaticData;
 
 namespace GameTemplate.UI.Wallets
 {

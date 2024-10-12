@@ -4,8 +4,6 @@ using GameTemplate.Services.Localization;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.AudioMixer;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
-using GameTemplate.Services.StaticData;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.UI.LoadingCurtain;
 using GameTemplate.Infrastructure.StateMachineComponents;
@@ -13,6 +11,8 @@ using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
 using GameTemplate.Services.SaveLoad;
 using GameTemplate.Infrastructure.Signals;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Bootstrap
 {
@@ -28,12 +28,14 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
         private readonly ISaveLoadService _saveLoadService;
         private readonly IDevicePerformaceConfigurator _devicePerformaceConfigurator;
 
-        public BootstrapGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogService logService, IAnalyticsService analyticsService, 
-            IStaticDataService staticDataService, LoadingCurtainProxy loadingCurtainProxy, ILevelLoaderService gameLevelLoaderService, 
+        public BootstrapGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
+            IAnalyticsService analyticsService, IStaticDataService staticDataService, 
+            LoadingCurtainProxy loadingCurtainProxy, ILevelLoaderService gameLevelLoaderService, 
             IAudioMixerService audioMixerService, IDevicePerformaceConfigurator devicePerformaceConfigurator,
-            ILocalizationService localizationService, ISaveLoadService saveLoadService, SystemPerformanceSetter performanceSetter)
+            ILocalizationService localizationService, ISaveLoadService saveLoadService, 
+            SystemPerformanceSetter performanceSetter)
             
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             _staticDataService = staticDataService;
             _loadingCurtainProxy = loadingCurtainProxy;

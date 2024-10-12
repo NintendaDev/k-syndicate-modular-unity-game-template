@@ -1,4 +1,4 @@
-using ExternalLibs.CoreStateMachine;
+using Modules.StateMachines;
 using GameTemplate.GameLifeCycle.Loading;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using Zenject;

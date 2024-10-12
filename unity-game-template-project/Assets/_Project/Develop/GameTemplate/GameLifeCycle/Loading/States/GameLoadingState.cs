@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibraries.SceneManagement;
+using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.Log;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading.States
 {
@@ -15,9 +15,10 @@ namespace GameTemplate.GameLifeCycle.Loading.States
         private ILoadingCurtain _loadingCurtain;
         private GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
-        public GameLoadingState(GameStateMachine stateMachine, IEventBus eventBus, ISceneLoader sceneLoader, ILoadingCurtain loadingCurtain, 
-            ILogService logService, GameLoadingAssetsConfiguration gameLoadingAssetsConfiguration)
-            : base(stateMachine, eventBus, logService)
+        public GameLoadingState(GameStateMachine stateMachine, IEventBus eventBus, ISceneLoader sceneLoader, 
+            ILoadingCurtain loadingCurtain, ILogSystem logSystem, 
+            GameLoadingAssetsConfiguration gameLoadingAssetsConfiguration)
+            : base(stateMachine, eventBus, logSystem)
         {
             _sceneLoader = sceneLoader;
             _loadingCurtain = loadingCurtain;

@@ -1,7 +1,7 @@
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Services.Analytics;
-using GameTemplate.Services.Log;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.States
 {
@@ -9,9 +9,9 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
     {
         private readonly IAnalyticsService _analyticsService;
 
-        public AnalyticsSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService,
+        public AnalyticsSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
             IAnalyticsService analyticsService, IStaticDataService staticDataService)
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             _analyticsService = analyticsService;
             AnalyticsConfiguration = staticDataService.GetConfiguration<AnalyticsConfiguration>();

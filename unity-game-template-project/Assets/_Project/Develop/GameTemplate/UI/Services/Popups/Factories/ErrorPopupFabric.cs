@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.AssetManagement;
-using GameTemplate.Services.StaticData;
 using GameTemplate.UI.Services.Popups.Simple;
+using Modules.AssetManagement.StaticData;
 using Zenject;
 
 namespace GameTemplate.UI.Services.Popups.Factories
@@ -11,9 +11,9 @@ namespace GameTemplate.UI.Services.Popups.Factories
         private readonly IStaticDataService _staticDataService;
         private PopupsAssetsConfiguration _configuration;
 
-        public ErrorPopupFabric(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider,
+        public ErrorPopupFabric(IInstantiator instantiator, IComponentAssetService componentAssetService,
             IStaticDataService staticDataService)
-            : base(instantiator, componentAssetProvider)
+            : base(instantiator, componentAssetService)
         {
             _staticDataService = staticDataService;
         }

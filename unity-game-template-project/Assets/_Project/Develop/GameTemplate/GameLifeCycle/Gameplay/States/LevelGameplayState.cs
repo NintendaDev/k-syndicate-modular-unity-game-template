@@ -2,7 +2,6 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.Core;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.UI.LoadingCurtain;
@@ -11,6 +10,7 @@ using UnityEngine;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Infrastructure.Signals;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
@@ -20,10 +20,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly IEnumerable<IReset> _resetObjects;
         private readonly ILoadingCurtain _loadingCurtain;
 
-        public LevelGameplayState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService,
+        public LevelGameplayState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
             IAnalyticsService analyticsService, IMusicPlay musicPlayer,
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator) 
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             MusicPlay = musicPlayer;
             _originalTimeScale = Time.timeScale;

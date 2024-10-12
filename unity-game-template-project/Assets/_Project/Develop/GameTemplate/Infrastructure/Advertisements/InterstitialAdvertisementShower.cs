@@ -1,8 +1,8 @@
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
-using GameTemplate.Services.StaticData;
 using System;
-using ExternalLibraries.Extensions;
+using Modules.AssetManagement.StaticData;
+using Modules.Extensions;
 
 namespace GameTemplate.Infrastructure.Advertisements
 {
@@ -11,8 +11,8 @@ namespace GameTemplate.Infrastructure.Advertisements
         private AdvertisementPlacement _advertisementPlacement;
         private bool _isInitialized;
 
-        public InterstitialAdvertisementShower(IAdvertisimentsService advertisementService, IAnalyticsService analyticsService,
-            IStaticDataService staticDataService)
+        public InterstitialAdvertisementShower(IAdvertisimentsService advertisementService, 
+            IAnalyticsService analyticsService, IStaticDataService staticDataService)
             : base(advertisementService, analyticsService, staticDataService)
         {
         }

@@ -4,9 +4,9 @@ using GameTemplate.Infrastructure.Music;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
@@ -16,10 +16,10 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly IStaticDataService _staticDataService;
         private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
 
-        public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService, 
+        public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
             IMusicPlayService musicPlayService, IStaticDataService staticDataService, 
             AddressableAudioClipFactory addressableAudioClipFactory)
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             _musicPlayService = musicPlayService;
             _staticDataService = staticDataService;

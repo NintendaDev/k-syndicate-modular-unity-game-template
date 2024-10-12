@@ -9,8 +9,8 @@ namespace GameTemplate.Infrastructure.Bootstrap
     {
         private readonly BootstrapAssetAddresser _bootstrapAssetAddresser;
 
-        public GameBootstrapperFactory(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider) 
-            : base(instantiator, componentAssetProvider)
+        public GameBootstrapperFactory(IInstantiator instantiator, IComponentAssetService componentAssetService) 
+            : base(instantiator, componentAssetService)
         {
              _bootstrapAssetAddresser = new BootstrapAssetAddresser();
         }

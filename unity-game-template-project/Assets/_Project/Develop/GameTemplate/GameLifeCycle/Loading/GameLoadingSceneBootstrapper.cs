@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibs.CoreStateMachine;
+using Modules.StateMachines;
 using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.Log;
+using Modules.Logging;
 using Zenject;
 
 namespace GameTemplate.GameLifeCycle.Loading
@@ -10,24 +10,25 @@ namespace GameTemplate.GameLifeCycle.Loading
     {
         private readonly SceneStateMachine _sceneStateMachine;
         private readonly StatesFactory _statesFactory;
-        private readonly ILogService _logService;
+        private readonly ILogSystem _logSystem;
 
-        private GameLoadingSceneBootstrapper(SceneStateMachine sceneStateMachine, StatesFactory statesFactory, ILogService logService)
+        private GameLoadingSceneBootstrapper(SceneStateMachine sceneStateMachine, StatesFactory statesFactory, 
+            ILogSystem logSystem)
         {
             _sceneStateMachine = sceneStateMachine;
             _statesFactory = statesFactory;
-            _logService = logService;
+            _logSystem = logSystem;
         }
 
         public void Initialize()
         {
-            _logService.Log("Start loading scene bootstraping");
+            _logSystem.Log("Start loading scene bootstraping");
 
             _sceneStateMachine.RegisterState(_statesFactory.Create<DownloadAccountInfoSceneState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<LoadPlayerProgressSceneState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<FinishLoadingSceneState>());
 
-            _logService.Log("Finish loading scene bootstraping");
+            _logSystem.Log("Finish loading scene bootstraping");
 
             _sceneStateMachine.SwitchState<DownloadAccountInfoSceneState>().Forget();
         }

@@ -1,4 +1,4 @@
-using ExternalLibs.CoreStateMachine;
+using Modules.StateMachines;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.Installers

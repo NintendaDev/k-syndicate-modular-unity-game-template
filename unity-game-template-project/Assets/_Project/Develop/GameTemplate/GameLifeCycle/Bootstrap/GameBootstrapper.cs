@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibs.CoreStateMachine;
+using Modules.StateMachines;
 using GameTemplate.GameLifeCycle.Bootstrap;
 using GameTemplate.GameLifeCycle.GameHub.States;
 using GameTemplate.GameLifeCycle.Gameplay;

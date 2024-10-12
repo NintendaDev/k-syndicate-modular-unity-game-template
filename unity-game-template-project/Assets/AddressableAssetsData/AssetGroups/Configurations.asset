@@ -53,12 +53,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 06f128c7d17c68c4b841070ee2082540
-    m_Address: StaticDataServiceConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf274cdd91b06184ca56954fb57fb930
     m_Address: AdvertisimentsConfiguration
     m_ReadOnly: 0

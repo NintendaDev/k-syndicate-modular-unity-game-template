@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibraries.SceneManagement;
+using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Levels;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Level.Configurations;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
 
 namespace GameTemplate.Services.GameLevelLoader
 {
@@ -32,8 +32,12 @@ namespace GameTemplate.Services.GameLevelLoader
 
         public async UniTask LoadLevelAsync(LevelCode levelCode)
         {
-            if (_levelsConfigurations.TryGetLevelConfiguration(levelCode, out LevelConfiguration levelConfiguration) == false)
+            if (_levelsConfigurations.TryGetLevelConfiguration(levelCode,
+                    out LevelConfiguration levelConfiguration) == false)
+            {
                 throw new System.Exception($"Level configuration with code {levelCode} was not found");
+            }
+                
 
             CurrentLevelConfiguration = levelConfiguration;
 

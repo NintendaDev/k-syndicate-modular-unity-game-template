@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.Progress;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using Sirenix.Utilities;
 using GameTemplate.Infrastructure.Data;
+using Modules.Logging;
 
 namespace GameTemplate.Services.SaveLoad
 {
@@ -18,17 +18,17 @@ namespace GameTemplate.Services.SaveLoad
         private bool _isNeedSave;
         private CancellationTokenSource _tokenSource = new();
 
-        public SaveLoadService(IEnumerable<IProgressSaver> progressSavers, IPersistentProgressService persistentProgressService, 
-            ILogService logService)
+        public SaveLoadService(IEnumerable<IProgressSaver> progressSavers, 
+            IPersistentProgressService persistentProgressService, ILogSystem logSystem)
         {
             _progressSavers = progressSavers;
             _persistentProgressService = persistentProgressService;
-            LogService = logService;
+            LogSystem = logSystem;
             _saveProcessCancelationToken = _tokenSource.Token;
             StartSaveProcessAsync().Forget();
         }
 
-        protected ILogService LogService { get; }
+        protected ILogSystem LogSystem { get; }
 
         public void Dispose()
         {
@@ -84,7 +84,7 @@ namespace GameTemplate.Services.SaveLoad
 
             Save(_persistentProgressService.Progress);
 
-            LogService.Log("Game is saved...");
+            LogSystem.Log("Game is saved...");
         }
     }
 }

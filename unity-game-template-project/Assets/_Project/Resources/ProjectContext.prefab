@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583f884a1c77b5e4a893786d32c9baa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameLoadingAssetsConfiguration: {fileID: 11400000, guid: 819990bb740596a49be92c05614c32dd, type: 2}
-  _staticDataServiceConfiguration: {fileID: 11400000, guid: 06f128c7d17c68c4b841070ee2082540, type: 2}
-  _popupsAssetsConfiguration: {fileID: 11400000, guid: a30ad85dbb308cf4b934a1f2adf40f89, type: 2}
+  _gameLoadingAssetsConfiguration: {fileID: 11400000, guid: 819990bb740596a49be92c05614c32dd,
+    type: 2}
+  _staticDataServiceConfiguration: {fileID: 11400000, guid: 06f128c7d17c68c4b841070ee2082540,
+    type: 2}
+  _popupsAssetsConfiguration: {fileID: 11400000, guid: a30ad85dbb308cf4b934a1f2adf40f89,
+    type: 2}
 --- !u!1 &8508536959024889151
 GameObject:
   m_ObjectHideFlags: 0

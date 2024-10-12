@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibs.CoreStateMachine;
+using Modules.StateMachines;
 using GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using Zenject;

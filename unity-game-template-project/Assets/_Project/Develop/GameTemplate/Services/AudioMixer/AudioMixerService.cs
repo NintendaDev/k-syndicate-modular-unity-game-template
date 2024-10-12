@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibraries.Specifications;
-using ExternalLibraries.Types.MemorizedValues;
+using Modules.Specifications;
+using Modules.Types.MemorizedValues;
 using GameTemplate.Infrastructure.Data;
 using GameTemplate.Services.Progress;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
 using UnityEngine;
 
 namespace GameTemplate.Services.AudioMixer

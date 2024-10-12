@@ -4,13 +4,12 @@ using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.LanguageSystem.Processors;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Infrastructure.Signals;
-using GameTemplate.Services.StaticData;
 using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using GameTemplate.Core;
+using Modules.AssetManagement.StaticData;
 using Zenject;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
@@ -24,10 +23,10 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
         private GameHubConfiguration _gameHubConfiguration;
         private List<IDisposable> _disposableObjects = new();
 
-        public LevelViewFactory(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider,
+        public LevelViewFactory(IInstantiator instantiator, IComponentAssetService componentAssetService,
             IStaticDataService staticDataService, IEventBus eventBus,
             LocalizedTermProcessorLinker localizedTermProcessorLinker) 
-            : base(instantiator, componentAssetProvider)
+            : base(instantiator, componentAssetService)
         {
             _staticDataService = staticDataService;
             _eventBus = eventBus;

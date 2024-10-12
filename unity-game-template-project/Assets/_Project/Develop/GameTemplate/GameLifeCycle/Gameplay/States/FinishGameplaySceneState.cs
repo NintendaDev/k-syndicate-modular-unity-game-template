@@ -7,11 +7,11 @@ using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.Services.SaveLoad;
 using GameTemplate.UI.LoadingCurtain;
 using System.Collections.Generic;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
@@ -21,12 +21,13 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly ISaveSignal _saveSignaller;
         private readonly IInterstitialAdvertisimentShower _interstitialAdvertisimentShower;
 
-        public FinishGameplaySceneState(GameStateMachine gameStateMachine, SceneStateMachine sceneStateMachine, IEventBus eventBus, 
-            ILogService logService, IAnalyticsService analyticsService, IMusicPlay musicPlayer, ISaveSignal saveSignaller,
-            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator, 
+        public FinishGameplaySceneState(GameStateMachine gameStateMachine, SceneStateMachine sceneStateMachine, 
+            IEventBus eventBus, ILogSystem logSystem, IAnalyticsService analyticsService, IMusicPlay musicPlayer, 
+            ISaveSignal saveSignaller, IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
+            ICurrentLevelConfiguration levelConfigurator, 
             IInterstitialAdvertisimentShower interstitialAdvertisimentShower)
-            : base(sceneStateMachine, eventBus, logService, analyticsService, musicPlayer, 
-                  resetObjects, loadingCurtain, levelConfigurator)
+            : base(sceneStateMachine, eventBus, logSystem, analyticsService, musicPlayer, resetObjects, 
+                loadingCurtain, levelConfigurator)
         {
             _gameStateMachine = gameStateMachine;
             _saveSignaller = saveSignaller;
