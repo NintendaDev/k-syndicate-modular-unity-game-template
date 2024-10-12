@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace GameTemplate.Services.Log
+namespace Modules.Logging
 {
-    public class LogService : ILogService
+    public class LogSystem : ILogSystem
     {
         public void Log(string message) => 
             Debug.Log(message);

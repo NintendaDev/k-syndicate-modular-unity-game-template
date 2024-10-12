@@ -1,5 +1,5 @@
 using GameTemplate.Infrastructure.DevicesDetecting;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
 
 namespace GameTemplate.Systems.Performance
 {

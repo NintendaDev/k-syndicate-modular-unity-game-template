@@ -1,17 +1,18 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.AssetManagement;
 using System;
+using Modules.AssetManagement;
 using UnityEngine;
 
 namespace GameTemplate.Infrastructure.Music
 {
     public class AddressableAudioClip : IDisposable, IAudioClip
     {
-        private readonly IAssetProvider _assetProvider;
+        private readonly IAddressablesService _addressablesService;
 
-        public AddressableAudioClip(IAssetProvider assetProvider)
+        public AddressableAudioClip(IAddressablesService addressablesService)
         {
-            _assetProvider = assetProvider;
+            _addressablesService = addressablesService;
         }
 
         private IReferenceAudio _audioReferencer;
@@ -25,7 +26,7 @@ namespace GameTemplate.Infrastructure.Music
             if (_isInitialized == false)
                 return;
 
-            _assetProvider.Release(_audioReferencer.AudioReference);
+            _addressablesService.Release(_audioReferencer.AudioReference);
             _isInitialized = false;
         }
 
@@ -35,7 +36,7 @@ namespace GameTemplate.Infrastructure.Music
                 return false;
 
             _audioReferencer = audioReferencer;
-            Clip = await _assetProvider.LoadAsync(_audioReferencer.AudioReference);
+            Clip = await _addressablesService.LoadAsync(_audioReferencer.AudioReference);
             _isInitialized = true;
 
             return true;

@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 
 namespace GameTemplate.Infrastructure.AssetManagement
 {
-    public interface IComponentAssetProvider
+    public interface IComponentAssetService
     {
         public UniTask<TAsset> LoadAsync<TAsset>(AssetReferenceGameObject assetReference) where TAsset : MonoBehaviour;
 

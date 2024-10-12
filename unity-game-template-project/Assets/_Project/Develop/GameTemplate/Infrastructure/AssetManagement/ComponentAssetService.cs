@@ -1,17 +1,18 @@
 using Cysharp.Threading.Tasks;
 using System;
+using Modules.AssetManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace GameTemplate.Infrastructure.AssetManagement
 {
-    public class ComponentAssetProvider : IComponentAssetProvider
+    public class ComponentAssetService : IComponentAssetService
     {
-        private IAssetProvider _assetProvider;
+        private IAddressablesService _addressablesService;
 
-        public ComponentAssetProvider(IAssetProvider assetProvider)
+        public ComponentAssetService(IAddressablesService addressablesService)
         {
-            _assetProvider = assetProvider;
+            _addressablesService = addressablesService;
         }
 
         public async UniTask<TAsset> LoadAsync<TAsset>(AssetReferenceGameObject assetReference) where TAsset : MonoBehaviour =>
@@ -19,12 +20,12 @@ namespace GameTemplate.Infrastructure.AssetManagement
 
         public async UniTask<TAsset> LoadByAddressAsync<TAsset>(string address) where TAsset : MonoBehaviour
         {
-            GameObject assetObject = await _assetProvider.LoadByAddressAsync<GameObject>(address);
+            GameObject assetObject = await _addressablesService.LoadByAddressAsync<GameObject>(address);
             TAsset asset = assetObject.GetComponent<TAsset>();
 
             if (asset == null)
             {
-                _assetProvider.Release(address);
+                _addressablesService.Release(address);
                 throw new Exception($"Choosed component was not found in the uploaded object");
             }
 
@@ -32,9 +33,9 @@ namespace GameTemplate.Infrastructure.AssetManagement
         }
 
         public void Release(AssetReferenceGameObject assetReference) =>
-            _assetProvider.Release(assetReference);
+            _addressablesService.Release(assetReference);
 
         public void Release(string assetAddress) =>
-            _assetProvider.Release(assetAddress);
+            _addressablesService.Release(assetAddress);
     }
 }

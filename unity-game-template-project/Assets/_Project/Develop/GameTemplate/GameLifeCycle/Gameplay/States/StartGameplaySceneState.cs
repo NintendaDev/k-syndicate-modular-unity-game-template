@@ -6,10 +6,10 @@ using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.LoadingCurtain;
 using System.Collections.Generic;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
@@ -17,11 +17,12 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
     {
         private readonly IInterstitialAdvertisimentShower _interstitialAdvertisimentShower;
 
-        public StartGameplaySceneState(SceneStateMachine stateMachine, ILogService logService,
+        public StartGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
             IEventBus eventBus, IAnalyticsService analyticsService, IMusicPlay musicPlayer, 
-            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator, 
+            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
+            ICurrentLevelConfiguration levelConfigurator, 
             IInterstitialAdvertisimentShower interstitialAdvertisimentShower)
-            : base(stateMachine, eventBus, logService, analyticsService, musicPlayer, resetObjects, 
+            : base(stateMachine, eventBus, logSystem, analyticsService, musicPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
             _interstitialAdvertisimentShower = interstitialAdvertisimentShower;

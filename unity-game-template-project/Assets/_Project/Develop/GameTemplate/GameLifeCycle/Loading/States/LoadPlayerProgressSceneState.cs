@@ -3,11 +3,11 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Analytics;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.Progress;
 using GameTemplate.Services.SaveLoad;
-using GameTemplate.Services.StaticData;
 using System.Collections.Generic;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
@@ -17,11 +17,11 @@ namespace GameTemplate.GameLifeCycle.Loading
         private readonly IPersistentProgressService _persistentProgressService;
         private readonly List<IProgressLoader> _progressLoaders;
 
-        public LoadPlayerProgressSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService,
+        public LoadPlayerProgressSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
             ISaveLoadService saveLoadService, List<IProgressLoader> progressLoaders,
             IPersistentProgressService persistentProgressService, IAnalyticsService analyticsService, 
             IStaticDataService staticDataService) 
-            : base(stateMachine, eventBus, logService, analyticsService, staticDataService)
+            : base(stateMachine, eventBus, logSystem, analyticsService, staticDataService)
         {
             _saveLoadService = saveLoadService;
             _persistentProgressService = persistentProgressService;
@@ -38,7 +38,8 @@ namespace GameTemplate.GameLifeCycle.Loading
             _persistentProgressService.Progress = _saveLoadService.Load();
 
             List<UniTask> progressLoadTasks = new();
-            _progressLoaders.ForEach(x => progressLoadTasks.Add(x.LoadProgress(_persistentProgressService.Progress)));
+            _progressLoaders.ForEach(x => progressLoadTasks
+                .Add(x.LoadProgress(_persistentProgressService.Progress)));
 
             await UniTask.WhenAll(progressLoadTasks);
 

@@ -9,9 +9,9 @@ namespace GameTemplate.UI.LoadingCurtain
     {
         private readonly GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
-        public LoadingCurtainFabric(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider,
+        public LoadingCurtainFabric(IInstantiator instantiator, IComponentAssetService componentAssetService,
             GameLoadingAssetsConfiguration gameLoadingAssetsConfiguration) 
-            : base(instantiator, componentAssetProvider)
+            : base(instantiator, componentAssetService)
         {
             _gameLoadingAssetsConfiguration = gameLoadingAssetsConfiguration;
         }

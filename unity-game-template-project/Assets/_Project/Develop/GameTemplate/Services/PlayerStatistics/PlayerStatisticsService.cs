@@ -2,14 +2,14 @@ using Cysharp.Threading.Tasks;
 using Modules.Types.MemorizedValues;
 using GameTemplate.Infrastructure.Data;
 using GameTemplate.Infrastructure.Types;
-using GameTemplate.Services.Log;
 using System.Collections.Generic;
+using Modules.Logging;
 
 namespace GameTemplate.Services.PlayerStatistics
 {
     public class PlayerStatisticsService : IncreasedSaveableObject<StatisticType>, IPlayerStatisticsService
     {
-        public PlayerStatisticsService(ILogService logService) : base(logService)
+        public PlayerStatisticsService(ILogSystem logSystem) : base(logSystem)
         {
         }
 

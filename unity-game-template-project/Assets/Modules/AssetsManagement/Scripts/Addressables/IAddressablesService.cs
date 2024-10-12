@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 
-namespace GameTemplate.Infrastructure.AssetManagement
+namespace Modules.AssetManagement
 {
-    public interface IAssetProvider
+    public interface IAddressablesService
     {
         public UniTask InitializeAsync();
 
-        public UniTask<TAsset> LoadAsync<TAsset>(AssetReferenceT<TAsset> assetReference) where TAsset : UnityEngine.Object;
+        public UniTask<TAsset> LoadAsync<TAsset>(AssetReferenceT<TAsset> assetReference) 
+            where TAsset : UnityEngine.Object;
 
         public UniTask<TAsset> LoadAsync<TAsset>(AssetReference assetReference) where TAsset : UnityEngine.Object;
 

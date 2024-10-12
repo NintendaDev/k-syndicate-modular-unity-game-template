@@ -1,12 +1,12 @@
 using GameTemplate.Infrastructure.Signals;
-using GameTemplate.Services.Log;
+using Modules.Logging;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.States
 {
     public abstract class SceneState : DefaultState
     {
-        public SceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService) 
-            : base(stateMachine, eventBus, logService)
+        public SceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem) 
+            : base(stateMachine, eventBus, logSystem)
         {
         }
     }

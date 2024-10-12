@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.Music
@@ -11,9 +11,9 @@ namespace GameTemplate.Infrastructure.Music
         private readonly IStaticDataService _staticDataService;
         private InfrastructureAssetsConfiguration _configuration;
 
-        public MusicPlayerFactory(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider,
+        public MusicPlayerFactory(IInstantiator instantiator, IComponentAssetService componentAssetService,
             IStaticDataService staticDataService) 
-            : base(instantiator, componentAssetProvider)
+            : base(instantiator, componentAssetService)
         {
             _staticDataService = staticDataService;
         }

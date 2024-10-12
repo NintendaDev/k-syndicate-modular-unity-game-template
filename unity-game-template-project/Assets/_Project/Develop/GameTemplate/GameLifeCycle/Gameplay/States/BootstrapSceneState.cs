@@ -5,9 +5,9 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
@@ -18,10 +18,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
         private readonly ILoadingCurtain _loadingCurtain;
 
-        public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService, 
-            ILoadingCurtain loadingCurtain, IMusicPlayService musicPlayService, ICurrentLevelConfiguration levelConfigurator, 
-            AddressableAudioClipFactory addressableAudioClipFactory)
-            : base(stateMachine, eventBus, logService)
+        public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
+            ILoadingCurtain loadingCurtain, IMusicPlayService musicPlayService, 
+            ICurrentLevelConfiguration levelConfigurator, AddressableAudioClipFactory addressableAudioClipFactory)
+            : base(stateMachine, eventBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _musicPlayService = musicPlayService;

@@ -2,9 +2,9 @@
 using Modules.Types.MemorizedValues;
 using GameTemplate.Infrastructure.Data;
 using GameTemplate.Infrastructure.Types;
-using GameTemplate.Services.Log;
-using GameTemplate.Services.StaticData;
 using System.Collections.Generic;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.Services.Wallet
 {
@@ -12,7 +12,7 @@ namespace GameTemplate.Services.Wallet
     {
         private readonly IStaticDataService _staticDataService;
 
-        public WalletService(ILogService logService, IStaticDataService staticDataService) : base (logService)
+        public WalletService(ILogSystem logSystem, IStaticDataService staticDataService) : base (logSystem)
         {
             _staticDataService = staticDataService;
         }

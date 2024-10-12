@@ -4,16 +4,16 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Analytics;
-using GameTemplate.Services.Log;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
     public class FinishLoadingSceneState : AnalyticsGameState
     {
-        public FinishLoadingSceneState(GameStateMachine stateMachine, ILogService logService, IEventBus eventBus,
+        public FinishLoadingSceneState(GameStateMachine stateMachine, ILogSystem logSystem, IEventBus eventBus,
             IAnalyticsService analyticsService, IStaticDataService staticDataService) 
-            : base(stateMachine, eventBus, logService, analyticsService, staticDataService)
+            : base(stateMachine, eventBus, logSystem, analyticsService, staticDataService)
         {
         }
 

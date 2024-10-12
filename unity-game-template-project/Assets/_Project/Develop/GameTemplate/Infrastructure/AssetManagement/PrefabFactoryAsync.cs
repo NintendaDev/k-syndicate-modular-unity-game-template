@@ -10,23 +10,23 @@ namespace GameTemplate.Infrastructure.AssetManagement
         where TComponent : MonoBehaviour
     {
         private readonly IInstantiator _instantiator;
-        private readonly IComponentAssetProvider _componentAssetProvider;
+        private readonly IComponentAssetService _componentAssetService;
         private List<string> _loadedAssetAddresses = new();
 
-        public PrefabFactoryAsync(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider)
+        public PrefabFactoryAsync(IInstantiator instantiator, IComponentAssetService componentAssetService)
         {
             _instantiator = instantiator;
-            _componentAssetProvider = componentAssetProvider;
+            _componentAssetService = componentAssetService;
         }
 
         public virtual void Dispose()
         {
-            _loadedAssetAddresses.ForEach(x => _componentAssetProvider.Release(x));
+            _loadedAssetAddresses.ForEach(x => _componentAssetService.Release(x));
         }
 
         protected async virtual UniTask<TComponent> CreateAsync(string assetAddress)
         {
-            TComponent prefab = await _componentAssetProvider.LoadByAddressAsync<TComponent>(assetAddress);
+            TComponent prefab = await _componentAssetService.LoadByAddressAsync<TComponent>(assetAddress);
 
             if (_loadedAssetAddresses.Contains(assetAddress) == false)
                 _loadedAssetAddresses.Add(assetAddress);

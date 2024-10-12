@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Level.Configurations;
-using GameTemplate.Services.StaticData;
 using GameTemplate.UI.GameHub.LevelsMenu.Factories;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System.Collections.Generic;
 using System.Threading;
+using Modules.AssetManagement.StaticData;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
 {
@@ -17,7 +17,8 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
         private CancellationTokenSource _cancellationTokenSource;
         private LevelsConfigurationsHub _levelsConfigurationsHub;
 
-        public LevelsMenuPresenter(LevelsMenuView view, IStaticDataService staticDataService, LevelViewFactory levelViewFactory)
+        public LevelsMenuPresenter(LevelsMenuView view, IStaticDataService staticDataService, 
+            LevelViewFactory levelViewFactory)
         {
             _view = view;
             _staticDataService = staticDataService;

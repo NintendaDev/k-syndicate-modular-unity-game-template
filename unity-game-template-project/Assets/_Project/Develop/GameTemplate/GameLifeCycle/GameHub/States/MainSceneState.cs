@@ -2,10 +2,10 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.GameHub.Signals;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
@@ -14,9 +14,9 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IMusicPlayService _musicPlayService;
 
-        public MainSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogService logService, 
+        public MainSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
             ILoadingCurtain loadingCurtain, IMusicPlayService musicPlayService)
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _musicPlayService = musicPlayService;

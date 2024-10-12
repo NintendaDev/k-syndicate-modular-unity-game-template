@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Services.PlayerAccountInfo;
-using GameTemplate.Services.Log;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.Signals;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
@@ -12,8 +12,8 @@ namespace GameTemplate.GameLifeCycle.Loading
         private readonly IPlayerAccountInfoService _playerAccountInfoService;
 
         public DownloadAccountInfoSceneState(SceneStateMachine stateMachine, IEventBus eventBus,
-            ILogService logService, IPlayerAccountInfoService playerAccountInfoService) 
-            : base(stateMachine, eventBus, logService)
+            ILogSystem logSystem, IPlayerAccountInfoService playerAccountInfoService) 
+            : base(stateMachine, eventBus, logSystem)
         {
             _playerAccountInfoService = playerAccountInfoService;
         }

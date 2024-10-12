@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
 using Modules.Extensions;
 using GameTemplate.Infrastructure.Data;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.Progress;
-using GameTemplate.Services.StaticData;
 using System;
 using System.Collections.Generic;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 using UnityEngine;
 
 namespace GameTemplate.Services.SaveLoad
@@ -16,9 +16,10 @@ namespace GameTemplate.Services.SaveLoad
         private readonly IDefaultPlayerProgress _defaultPlayerProgress;
         private SaveConfiguration _saveConfiguration;
 
-        public PlayerPrefsSaveLoadService(IEnumerable<IProgressSaver> progressSavers, IPersistentProgressService persistentProgressService, 
-            IStaticDataService staticDataService, IDefaultPlayerProgress defaultPlayerProgress, ILogService logService) 
-            : base(progressSavers, persistentProgressService, logService)
+        public PlayerPrefsSaveLoadService(IEnumerable<IProgressSaver> progressSavers, 
+            IPersistentProgressService persistentProgressService, IStaticDataService staticDataService, 
+            IDefaultPlayerProgress defaultPlayerProgress, ILogSystem logSystem) 
+            : base(progressSavers, persistentProgressService, logSystem)
         {
             _staticDataService = staticDataService;
             _defaultPlayerProgress = defaultPlayerProgress;
@@ -78,9 +79,11 @@ namespace GameTemplate.Services.SaveLoad
         }
 
         private bool TryDecrypt(string encryptedData, out string decryptedData) =>
-            TryMakeEncryptionOperation(encryptedData, (x) => x.Decrypt(_saveConfiguration.Password), out decryptedData);
+            TryMakeEncryptionOperation(encryptedData, 
+                (x) => x.Decrypt(_saveConfiguration.Password), out decryptedData);
 
-        private bool TryMakeEncryptionOperation(string sourceString, Func<string, string> encryptFunction, out string outputString)
+        private bool TryMakeEncryptionOperation(string sourceString, Func<string, string> encryptFunction, 
+            out string outputString)
         {
             outputString = string.Empty;
 
@@ -93,6 +96,7 @@ namespace GameTemplate.Services.SaveLoad
         }
 
         private bool TryEncrypt(string sourceData, out string encryptedData) =>
-            TryMakeEncryptionOperation(sourceData, (x) => x.Encrypt(_saveConfiguration.Password), out encryptedData);
+            TryMakeEncryptionOperation(sourceData, 
+                (x) => x.Encrypt(_saveConfiguration.Password), out encryptedData);
     }
 }

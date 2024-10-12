@@ -6,10 +6,10 @@ using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Infrastructure.Levels;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.UI.GameHub.Signals;
 using GameTemplate.UI.LoadingCurtain;
 using GameTemplate.Infrastructure.Signals;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub.States
 {
@@ -20,10 +20,10 @@ namespace GameTemplate.GameLifeCycle.GameHub.States
         private readonly IFastLoadInitialize _levelLoaderInitializer;
         private readonly GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
-        public GameHubGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogService logService, 
+        public GameHubGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
             ILoadingCurtain loadingCurtain, ISceneLoader sceneLoader, IFastLoadInitialize levelLoaderInitializer,
             GameLoadingAssetsConfiguration gameLoadingAssetsConfiguration)
-            : base(stateMachine, eventBus, logService)
+            : base(stateMachine, eventBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _sceneLoader = sceneLoader;

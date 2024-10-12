@@ -1,5 +1,5 @@
 using GameTemplate.Services.AudioMixer;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
 
 namespace GameTemplate.Infrastructure.Data
 {
@@ -16,7 +16,9 @@ namespace GameTemplate.Infrastructure.Data
         {
             PlayerProgress progress = new();
 
-            AudioMixerConfiguration audioMixerConfiguration = _staticDataService.GetConfiguration<AudioMixerConfiguration>();
+            AudioMixerConfiguration audioMixerConfiguration =
+                _staticDataService.GetConfiguration<AudioMixerConfiguration>();
+            
             AudioMixerServiceData audioMixerServiceData = new(audioMixerConfiguration.DefaultMusicVolumePercent,
                 audioMixerConfiguration.DefaultEffectsVolumePercent);
 

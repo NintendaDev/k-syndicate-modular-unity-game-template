@@ -6,17 +6,20 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
-namespace GameTemplate.Infrastructure.AssetManagement
+namespace Modules.AssetManagement
 {
-    public class AssetProvider : IAssetProvider
+    public class AddressablesService : IAddressablesService
     {
         private readonly Dictionary<string, AsyncOperationHandle> _assetRequests = new();
 
         public async UniTask InitializeAsync() => 
             await Addressables.InitializeAsync().ToUniTask();
 
-        public async UniTask<TAsset> LoadAsync<TAsset>(AssetReferenceT<TAsset> assetReference) where TAsset : UnityEngine.Object =>
-            await LoadByAddressAsync<TAsset>(assetReference.AssetGUID);
+        public async UniTask<TAsset> LoadAsync<TAsset>(AssetReferenceT<TAsset> assetReference)
+            where TAsset : UnityEngine.Object
+        {
+            return await LoadByAddressAsync<TAsset>(assetReference.AssetGUID);
+        }
 
         public async UniTask<TAsset> LoadByAddressAsync<TAsset>(string address) where TAsset : UnityEngine.Object
         {
@@ -31,10 +34,15 @@ namespace GameTemplate.Infrastructure.AssetManagement
             return loadedAsset;
         }
 
-        public async UniTask<TAsset> LoadAsync<TAsset>(AssetReference assetReference) where TAsset : UnityEngine.Object =>
-            await LoadByAddressAsync<TAsset>(assetReference.AssetGUID);
+        public async UniTask<TAsset> LoadAsync<TAsset>(AssetReference assetReference)
+            where TAsset : UnityEngine.Object
+        {
+            return await LoadByAddressAsync<TAsset>(assetReference.AssetGUID);
+        }
+            
 
-        public async UniTask<TAsset[]> LoadByAddressAsync<TAsset>(IEnumerable<string> addresses) where TAsset : UnityEngine.Object
+        public async UniTask<TAsset[]> LoadByAddressAsync<TAsset>(IEnumerable<string> addresses)
+            where TAsset : UnityEngine.Object
         {
             List<UniTask<TAsset>> tasks = new List<UniTask<TAsset>>(addresses.Count());
 
@@ -82,7 +90,8 @@ namespace GameTemplate.Infrastructure.AssetManagement
 
         public async UniTask<List<string>> GetAssetsAddressesByLabelAsync(string label, Type type = null)
         {
-            AsyncOperationHandle<IList<IResourceLocation>> operationHandle = Addressables.LoadResourceLocationsAsync(label, type);
+            AsyncOperationHandle<IList<IResourceLocation>> operationHandle = Addressables
+                .LoadResourceLocationsAsync(label, type);
 
             IList<IResourceLocation> resourcesLocations = await operationHandle.ToUniTask();
 

@@ -1,6 +1,6 @@
 using GameTemplate.Services.Advertisiments;
-using GameTemplate.Services.Log;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.Services.Analytics
 {
@@ -9,13 +9,13 @@ namespace GameTemplate.Services.Analytics
         private readonly string _logTemplate = "ANALYTICS INFO: {0}";
         private readonly IStaticDataService _staticDataService;
 
-        public AnalyticsService(ILogService logService, IStaticDataService staticDataService)
+        public AnalyticsService(ILogSystem logSystem, IStaticDataService staticDataService)
         {
-            LogService = logService;
+            LogSystem = logSystem;
             _staticDataService = staticDataService;
         }
 
-        protected ILogService LogService { get; }
+        protected ILogSystem LogSystem { get; }
 
         protected AnalyticsConfiguration Configuration { get; private set; }
 
@@ -24,7 +24,8 @@ namespace GameTemplate.Services.Analytics
             Configuration = _staticDataService.GetConfiguration<AnalyticsConfiguration>();
         }
 
-        public abstract void SendInterstitialAdvertisementAnalytics(AdvertisementAction advertisementAction, AdvertisementPlacement placement);
+        public abstract void SendInterstitialAdvertisementAnalytics(AdvertisementAction advertisementAction, 
+            AdvertisementPlacement placement);
 
         public abstract void SendDesignEvent(DesignEventData eventData);
 

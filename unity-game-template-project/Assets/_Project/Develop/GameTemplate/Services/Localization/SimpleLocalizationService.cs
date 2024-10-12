@@ -1,8 +1,8 @@
 using GameTemplate.Infrastructure.LanguageSystem;
 using GameTemplate.Infrastructure.LanguageSystem.Detectors;
 using GameTemplate.Infrastructure.LanguageSystem.Localization;
-using GameTemplate.Services.StaticData;
 using System;
+using Modules.AssetManagement.StaticData;
 
 namespace GameTemplate.Services.Localization
 {

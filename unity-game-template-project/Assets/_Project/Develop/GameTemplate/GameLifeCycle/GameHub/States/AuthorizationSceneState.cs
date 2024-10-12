@@ -5,10 +5,10 @@ using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Authorization;
 using GameTemplate.Services.Localization;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.Services.Popups;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
@@ -20,10 +20,11 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly IMusicPlayService _musicPlayService;
         private readonly IPopupsService _popupsService;
 
-        public AuthorizationSceneState(SceneStateMachine stateMachine, IEventBus eventBus, GameStateMachine gameStateMachine, ILogService logService,
-            IAuthorizationService authorizationService, ILoadingCurtain loadingCurtain, IMusicPlayService musicPlayService,
-            IPopupsService popupsService) 
-            : base(stateMachine, eventBus, logService)
+        public AuthorizationSceneState(SceneStateMachine stateMachine, IEventBus eventBus, 
+            GameStateMachine gameStateMachine, ILogSystem logSystem,
+            IAuthorizationService authorizationService, ILoadingCurtain loadingCurtain, 
+            IMusicPlayService musicPlayService, IPopupsService popupsService) 
+            : base(stateMachine, eventBus, logSystem)
         {
             _gameStateMachine = gameStateMachine;
             _authorizationService = authorizationService;

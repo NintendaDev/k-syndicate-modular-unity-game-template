@@ -4,20 +4,21 @@ using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.Gameplay.Signals;
 using GameTemplate.UI.LoadingCurtain;
 using System.Collections.Generic;
+using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
     public class PauseGameplaySceneState : LevelGameplayState
     {
-        public PauseGameplaySceneState(SceneStateMachine stateMachine, ILogService logService,
+        public PauseGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
             IEventBus eventBus, IAnalyticsService analyticsService, IMusicPlay musicPlayer, 
-            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator)
-            : base(stateMachine, eventBus, logService, analyticsService, musicPlayer, 
+            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
+            ICurrentLevelConfiguration levelConfigurator)
+            : base(stateMachine, eventBus, logSystem, analyticsService, musicPlayer, 
                   resetObjects, loadingCurtain, levelConfigurator)
         {
         }

@@ -1,38 +1,40 @@
 using Cysharp.Threading.Tasks;
 using Modules.Types.MemorizedValues;
 using GameTemplate.Infrastructure.Data;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.Progress;
 using Sirenix.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Modules.Logging;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.Types
 {
-    public abstract class IncreasedSaveableObject<TObjectEnum> : IDisposable, IInitializable, IProgressLoader, IProgressSaver
+    public abstract class IncreasedSaveableObject<TObjectEnum> : IDisposable, IInitializable, 
+        IProgressLoader, IProgressSaver
         where TObjectEnum : Enum
     {
-        private readonly ILogService _logService;
+        private readonly ILogSystem _logSystem;
         private const int NoneTypeEnumIndex = 0;
         private Dictionary<int, LongMemorizedValue> _data = new();
         private Array _objectEnumValues = Enum.GetValues(typeof(TObjectEnum));
 
-        public IncreasedSaveableObject(ILogService logService)
+        public IncreasedSaveableObject(ILogSystem logSystem)
         {
-            _logService = logService;
+            _logSystem = logSystem;
         }
 
         public event Action<TObjectEnum, long, long> Updated;
 
         public bool IsChanged => _data.Values.Where(x => x.IsChanged).Count() > 0;
 
-        public IEnumerable<TObjectEnum> AvailableTypes => _data.Select(x => (TObjectEnum)(object)x.Key);
+        public IEnumerable<TObjectEnum> AvailableTypes => 
+            _data.Select(x => (TObjectEnum)(object)x.Key);
 
         protected Dictionary<int, LongMemorizedValue> Data => _data;
 
-        protected ILogService LogService => _logService;
+        protected ILogSystem LogSystem => _logSystem;
 
         public void Dispose()
         {
@@ -89,15 +91,15 @@ namespace GameTemplate.Infrastructure.Types
                 }
                 catch
                 {
-                    _logService.LogError($"Unknown currency type code {objectTypeCode} with amount {currencyAmount} on progress loading found! " +
-                        $"May be some old currency.");
+                    _logSystem.LogError($"Unknown currency type code {objectTypeCode} with amount {currencyAmount} " +
+                                         $"on progress loading found! May be some old currency.");
 
                     continue;
                 }
 
                 if (objectTypeCode == NoneTypeEnumIndex)
                 {
-                    _logService.LogError($"None type {objectType} on progress loading found!");
+                    _logSystem.LogError($"None type {objectType} on progress loading found!");
 
                     continue;
                 }
@@ -118,7 +120,8 @@ namespace GameTemplate.Infrastructure.Types
             return UniTask.CompletedTask;
         }
 
-        protected abstract bool IsExistSavedData(PlayerProgress progress, out IReadOnlyDictionary<int, LongMemorizedValue> savedData);
+        protected abstract bool IsExistSavedData(PlayerProgress progress, 
+            out IReadOnlyDictionary<int, LongMemorizedValue> savedData);
 
         protected abstract bool IsExistDefaultData(out Dictionary<int, LongMemorizedValue> defaultData);
 

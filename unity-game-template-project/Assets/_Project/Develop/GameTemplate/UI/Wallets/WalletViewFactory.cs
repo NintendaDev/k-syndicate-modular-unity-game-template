@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Services.StaticData;
 using GameTemplate.Services.Wallet;
 using System;
 using System.Collections.Generic;
+using Modules.AssetManagement.StaticData;
 using UnityEngine;
 using Zenject;
 
@@ -19,9 +19,9 @@ namespace GameTemplate.UI.Wallets
         private List<IDisposable> _disposablesObjects = new();
         private WalletSpritesConfiguration _walletSpritesConfiguration;
 
-        public WalletViewFactory(IInstantiator instantiator, IComponentAssetProvider componentAssetProvider,
+        public WalletViewFactory(IInstantiator instantiator, IComponentAssetService componentAssetService,
             IWalletService walletService, IStaticDataService staticDataService) 
-            : base(instantiator, componentAssetProvider)
+            : base(instantiator, componentAssetService)
         {
             _walletService = walletService;
             _staticDataService = staticDataService;

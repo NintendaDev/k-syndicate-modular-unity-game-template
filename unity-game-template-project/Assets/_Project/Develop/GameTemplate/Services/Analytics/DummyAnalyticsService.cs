@@ -1,13 +1,13 @@
 using GameTemplate.Services.Advertisiments;
-using GameTemplate.Services.Log;
-using GameTemplate.Services.StaticData;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 
 namespace GameTemplate.Services.Analytics
 {
     public class DummyAnalyticsService : AnalyticsService
     {
-        public DummyAnalyticsService(ILogService logService, IStaticDataService staticDataService) 
-            : base(logService, staticDataService)
+        public DummyAnalyticsService(ILogSystem logSystem, IStaticDataService staticDataService) 
+            : base(logSystem, staticDataService)
         {
         }
 
@@ -16,7 +16,8 @@ namespace GameTemplate.Services.Analytics
             MakeLogMessage($"Event sended: {eventData.GetEventName()}");
         }
 
-        public override void SendInterstitialAdvertisementAnalytics(AdvertisementAction advertisementAction, AdvertisementPlacement placement)
+        public override void SendInterstitialAdvertisementAnalytics(AdvertisementAction advertisementAction, 
+            AdvertisementPlacement placement)
         {
             MakeLogMessage($"Interstitial advertisement event sended: {advertisementAction}");
         }

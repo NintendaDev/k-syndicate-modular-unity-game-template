@@ -1,6 +1,6 @@
-﻿namespace GameTemplate.Services.Log
+﻿namespace Modules.Logging
 {
-    public interface ILogService
+    public interface ILogSystem
     {
         public void Log(string message);
 

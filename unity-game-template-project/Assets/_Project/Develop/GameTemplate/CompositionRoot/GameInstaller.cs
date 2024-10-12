@@ -15,7 +15,6 @@ using GameTemplate.Services.AudioMixer;
 using GameTemplate.Services.Authorization;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.Localization;
-using GameTemplate.Services.Log;
 using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Services.PlayerStatistics;
 using GameTemplate.Services.Popups;
@@ -29,6 +28,9 @@ using GameTemplate.UI.LoadingCurtain;
 using GameTemplate.UI.Serices.Popups.Factories;
 using GameTemplate.UI.Services.Popups;
 using GameTemplate.UI.Services.Popups.Factories;
+using Modules.AssetManagement;
+using Modules.AssetManagement.StaticData;
+using Modules.Logging;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -45,7 +47,7 @@ namespace GameTemplate.CompositionRoot
         {
             BindInfrastructureAssetsConfiguration();
             BindLogService();
-            BindAssetProviders();
+            BindAssetsServices();
             BindStaticDataService();
             BindDeviceDetector();
             BindTouchDetector();
@@ -77,16 +79,18 @@ namespace GameTemplate.CompositionRoot
             Container.Bind<GameLoadingAssetsConfiguration>().FromInstance(_gameLoadingAssetsConfiguration);
 
         private void BindLogService() =>
-            Container.BindInterfacesTo<LogService>().AsSingle();
+            Container.BindInterfacesTo<LogSystem>().AsSingle();
 
-        private void BindAssetProviders()
+        private void BindAssetsServices()
         {
-            Container.BindInterfacesTo<AssetProvider>().AsSingle();
-            Container.BindInterfacesTo<ComponentAssetProvider>().AsSingle();
+            Container.BindInterfacesTo<AddressablesService>().AsSingle();
+            Container.BindInterfacesTo<ComponentAssetService>().AsSingle();
         }
             
         private void BindStaticDataService() =>
-            Container.BindInterfacesTo<StaticDataService>().AsSingle().WithArguments(_staticDataServiceConfiguration);
+            Container.BindInterfacesTo<GameTemplateStaticDataService>()
+                .AsSingle()
+                .WithArguments(_staticDataServiceConfiguration);
 
         private void BindDeviceDetector() =>
             Container.BindInterfacesTo<UnityDeviceDetector>().AsSingle();
