@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibraries.SceneManagement;
+using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Levels;
 using GameTemplate.Infrastructure.Levels.Configurations;
 using GameTemplate.Level.Configurations;

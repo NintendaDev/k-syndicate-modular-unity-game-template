@@ -1,4 +1,4 @@
-using ExternalLibs.CoreStateMachine;
+using Modules.StateMachines;
 using GameTemplate.Core;
 using GameTemplate.Infrastructure.Music;
 using GameTemplate.Infrastructure.StateMachineComponents;

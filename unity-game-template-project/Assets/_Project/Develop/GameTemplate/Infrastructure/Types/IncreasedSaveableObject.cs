@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibraries.Types.MemorizedValues;
+using Modules.Types.MemorizedValues;
 using GameTemplate.Infrastructure.Data;
 using GameTemplate.Services.Log;
 using GameTemplate.Services.Progress;

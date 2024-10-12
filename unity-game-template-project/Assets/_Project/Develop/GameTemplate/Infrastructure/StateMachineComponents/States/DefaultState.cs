@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibs.CoreStateMachine;
-using ExternalLibs.CoreStateMachine.States;
+using Modules.StateMachines;
+using Modules.StateMachines.States;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Services.Log;
 using System;

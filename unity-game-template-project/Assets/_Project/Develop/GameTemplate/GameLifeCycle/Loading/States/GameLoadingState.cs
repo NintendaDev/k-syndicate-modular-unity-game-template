@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using ExternalLibraries.SceneManagement;
+using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;

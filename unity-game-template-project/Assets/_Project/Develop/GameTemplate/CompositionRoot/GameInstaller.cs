@@ -1,4 +1,4 @@
-using ExternalLibraries.SceneManagement;
+using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Advertisements;
 using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Bootstrap;

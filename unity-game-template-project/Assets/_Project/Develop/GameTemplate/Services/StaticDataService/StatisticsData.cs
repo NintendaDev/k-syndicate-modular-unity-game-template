@@ -1,4 +1,4 @@
-using ExternalLibraries.Types.MemorizedValues;
+using Modules.Types.MemorizedValues;
 using GameTemplate.Infrastructure.Data;
 using System.Collections.Generic;
 

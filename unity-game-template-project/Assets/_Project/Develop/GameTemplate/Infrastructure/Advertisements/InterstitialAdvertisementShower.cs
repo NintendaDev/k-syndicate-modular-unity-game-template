@@ -2,7 +2,7 @@ using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.StaticData;
 using System;
-using ExternalLibraries.Extensions;
+using Modules.Extensions;
 
 namespace GameTemplate.Infrastructure.Advertisements
 {

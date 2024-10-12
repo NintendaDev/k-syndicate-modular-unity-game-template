@@ -1,4 +1,4 @@
-﻿using ExternalLibs.CoreStateMachine;
+﻿using Modules.StateMachines;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents
 {
