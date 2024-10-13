@@ -1,14 +1,14 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.Loading.States;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Authorization;
-using GameTemplate.Services.Localization;
 using GameTemplate.Services.MusicPlay;
-using GameTemplate.Services.Popups;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.EventBus;
+using Modules.Localization.Types;
 using Modules.Logging;
+using Modules.PopupsSystem;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
@@ -18,19 +18,19 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly IAuthorizationService _authorizationService;
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IMusicPlayService _musicPlayService;
-        private readonly IPopupsService _popupsService;
+        private readonly IPopups _popups;
 
         public AuthorizationSceneState(SceneStateMachine stateMachine, IEventBus eventBus, 
             GameStateMachine gameStateMachine, ILogSystem logSystem,
             IAuthorizationService authorizationService, ILoadingCurtain loadingCurtain, 
-            IMusicPlayService musicPlayService, IPopupsService popupsService) 
+            IMusicPlayService musicPlayService, IPopups popups) 
             : base(stateMachine, eventBus, logSystem)
         {
             _gameStateMachine = gameStateMachine;
             _authorizationService = authorizationService;
             _loadingCurtain = loadingCurtain;
             _musicPlayService = musicPlayService;
-            _popupsService = popupsService;
+            _popups = popups;
         }
 
         public override async UniTask Enter()
@@ -56,13 +56,17 @@ namespace GameTemplate.GameLifeCycle.GameHub
 
         private async void OnLoginCompleted()
         {
-            await _popupsService.ShowInfoAsync(LocalizationTerm.Info, LocalizationTerm.SuccessAuthorizationMessage, LocalizationTerm.Ok);
+            await _popups.ShowInfoAsync(LocalizationTerm.Info, LocalizationTerm.SuccessAuthorizationMessage, 
+                LocalizationTerm.Ok);
+            
             await _gameStateMachine.SwitchState<GameLoadingState>();
         }
 
         private async void OnLoginError()
         {
-            await _popupsService.ShowErrorAsync(LocalizationTerm.Info, LocalizationTerm.SuccessAuthorizationMessage, LocalizationTerm.Ok);
+            await _popups.ShowErrorAsync(LocalizationTerm.Info, LocalizationTerm.SuccessAuthorizationMessage, 
+                LocalizationTerm.Ok);
+            
             await StateMachine.SwitchState<MainSceneState>();
         }    
     }

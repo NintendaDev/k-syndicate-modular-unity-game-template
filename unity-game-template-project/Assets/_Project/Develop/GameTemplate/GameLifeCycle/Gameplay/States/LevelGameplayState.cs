@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.Infrastructure.Signals;
 using Modules.Core.Systems;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates

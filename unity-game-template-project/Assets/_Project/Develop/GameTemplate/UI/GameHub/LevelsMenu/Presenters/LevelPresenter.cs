@@ -1,7 +1,7 @@
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using GameTemplate.UI.GameHub.Signals;
 using System;
+using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
 {

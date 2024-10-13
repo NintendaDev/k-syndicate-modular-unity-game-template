@@ -1,4 +1,4 @@
-using GameTemplate.Infrastructure.Signals;
+using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.Signals
 {

@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.GameHub.States;
 using GameTemplate.Infrastructure.Advertisements;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
@@ -10,6 +9,7 @@ using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.LoadingCurtain;
 using System.Collections.Generic;
 using Modules.Core.Systems;
+using Modules.EventBus;
 using Modules.Logging;
 using Modules.SaveManagement.Interfaces;
 

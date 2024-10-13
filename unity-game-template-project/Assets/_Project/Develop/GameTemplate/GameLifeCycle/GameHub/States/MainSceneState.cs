@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.GameHub.Signals;
 using GameTemplate.UI.LoadingCurtain;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub

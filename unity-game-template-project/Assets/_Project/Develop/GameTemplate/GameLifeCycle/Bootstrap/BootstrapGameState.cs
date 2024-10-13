@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.Loading.States;
-using GameTemplate.Services.Localization;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
@@ -8,9 +7,10 @@ using GameTemplate.UI.LoadingCurtain;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
-using GameTemplate.Infrastructure.Signals;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
+using Modules.EventBus;
+using Modules.Localization.Systems;
 using Modules.Logging;
 using Modules.SaveManagement.Interfaces;
 
@@ -22,7 +22,7 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
         private readonly LoadingCurtainProxy _loadingCurtainProxy;
         private readonly ILevelLoaderService _gameLevelLoaderService;
         private readonly IAudioMixerSystem _audioMixerSystem;
-        private readonly ILocalizationService _localizationService;
+        private readonly ILocalizationSystem _localizationSystem;
         private readonly IAnalyticsService _analyticsService;
         private readonly SystemPerformanceSetter _performanceSetter;
         private readonly ISaveLoadSystem _saveLoadSystem;
@@ -32,7 +32,7 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             IAnalyticsService analyticsService, IStaticDataService staticDataService, 
             LoadingCurtainProxy loadingCurtainProxy, ILevelLoaderService gameLevelLoaderService, 
             IAudioMixerSystem audioMixerSystem, IDevicePerformaceConfigurator devicePerformaceConfigurator,
-            ILocalizationService localizationService, ISaveLoadSystem saveLoadSystem, 
+            ILocalizationSystem localizationSystem, ISaveLoadSystem saveLoadSystem, 
             SystemPerformanceSetter performanceSetter)
             
             : base(stateMachine, eventBus, logSystem)
@@ -41,7 +41,7 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             _loadingCurtainProxy = loadingCurtainProxy;
             _gameLevelLoaderService = gameLevelLoaderService;
             _audioMixerSystem = audioMixerSystem;
-            _localizationService = localizationService;
+            _localizationSystem = localizationSystem;
             _analyticsService = analyticsService;
             _performanceSetter = performanceSetter;
             _saveLoadSystem = saveLoadSystem;
@@ -65,7 +65,7 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             await _saveLoadSystem.InitializeAsync();
             _gameLevelLoaderService.Initialize();
             _audioMixerSystem.Initialize();
-            _localizationService.Initialize();
+            _localizationSystem.Initialize();
             _analyticsService.Initialize();
         }
     }

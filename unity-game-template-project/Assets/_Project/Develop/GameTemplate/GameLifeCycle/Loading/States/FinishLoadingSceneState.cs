@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.GameHub.States;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Analytics;
 using Modules.AssetsManagement.StaticData;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading

@@ -1,8 +1,6 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.LanguageSystem.Processors;
 using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System;
@@ -10,6 +8,8 @@ using System.Collections.Generic;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.Core.Systems;
+using Modules.EventBus;
+using Modules.Localization.Processors;
 using Modules.ObjectsManagement.Factories;
 using Zenject;
 

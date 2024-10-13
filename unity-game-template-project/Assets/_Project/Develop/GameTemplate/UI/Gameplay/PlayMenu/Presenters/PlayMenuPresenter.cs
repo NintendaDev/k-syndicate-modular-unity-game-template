@@ -1,7 +1,7 @@
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.UI.Gameplay.PlayMenu.Views;
 using GameTemplate.UI.Gameplay.Signals;
 using System;
+using Modules.EventBus;
 
 namespace GameTemplate.UI.Gameplay.Presenters
 {

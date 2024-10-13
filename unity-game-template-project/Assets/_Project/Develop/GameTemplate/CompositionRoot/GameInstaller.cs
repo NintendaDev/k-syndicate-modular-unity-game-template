@@ -3,31 +3,29 @@ using GameTemplate.Infrastructure.Advertisements;
 using GameTemplate.Infrastructure.Bootstrap;
 using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.DevicesDetecting;
-using GameTemplate.Infrastructure.LanguageSystem.Detectors;
 using GameTemplate.Infrastructure.SaveManagement.Defaults;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents.Installers;
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.Authorization;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.Localization;
 using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Services.PlayerStatistics;
-using GameTemplate.Services.Popups;
 using GameTemplate.Services.StaticData;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
 using GameTemplate.UI.LoadingCurtain;
-using GameTemplate.UI.Serices.Popups.Factories;
-using GameTemplate.UI.Services.Popups;
-using GameTemplate.UI.Services.Popups.Factories;
-using Modules.AssetsManagement;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.ControllManagement.Detectors;
+using Modules.EventBus;
+using Modules.Localization.Detectors;
+using Modules.Localization.Systems.Demo;
 using Modules.Logging;
+using Modules.PopupsSystem;
+using Modules.PopupsSystem.Configurations;
+using Modules.PopupsSystem.UI.Factories;
 using Modules.SaveManagement.Persistent;
 using Modules.SaveManagement.Systems;
 using Modules.Wallets.Systems;
@@ -110,7 +108,7 @@ namespace GameTemplate.CompositionRoot
             Container.BindInterfacesAndSelfTo<ErrorPopupFabric>().AsSingle().WhenInjectedInto<PopupFactory>();
             Container.Bind<IPopupFactory>().To<PopupFactory>().AsSingle();
 
-            Container.BindInterfacesTo<PopupsService>().AsSingle();
+            Container.BindInterfacesTo<Popups>().AsSingle();
         }
 
         private void BindPlayerAccountInfoService() =>
@@ -120,7 +118,7 @@ namespace GameTemplate.CompositionRoot
             Container.BindInterfacesTo<UnityLanguageDetector>().AsSingle();
 
         private void BindLocalizationService() =>
-            Container.BindInterfacesTo<SimpleLocalizationService>().AsSingle();
+            Container.BindInterfacesTo<SimpleLocalizationSystem>().AsSingle();
 
         private void BindSceneLoader() =>
             Container.BindInterfacesTo<SceneLoader>().AsSingle();

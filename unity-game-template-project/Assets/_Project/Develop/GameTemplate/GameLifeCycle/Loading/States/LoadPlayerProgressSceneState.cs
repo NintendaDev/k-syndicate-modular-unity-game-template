@@ -1,12 +1,11 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Analytics;
 using System.Collections.Generic;
 using GameTemplate.Infrastructure.SaveManagement;
-using GameTemplate.Infrastructure.SaveManagement.Defaults;
 using Modules.AssetsManagement.StaticData;
+using Modules.EventBus;
 using Modules.Logging;
 using Modules.SaveManagement.Interfaces;
 

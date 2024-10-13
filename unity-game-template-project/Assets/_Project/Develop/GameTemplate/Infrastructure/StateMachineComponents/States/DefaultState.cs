@@ -1,8 +1,8 @@
 using Cysharp.Threading.Tasks;
 using Modules.StateMachines;
 using Modules.StateMachines.States;
-using GameTemplate.Infrastructure.Signals;
 using System;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.States

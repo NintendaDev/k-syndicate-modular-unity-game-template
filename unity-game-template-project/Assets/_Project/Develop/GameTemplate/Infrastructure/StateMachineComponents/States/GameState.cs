@@ -1,4 +1,4 @@
-using GameTemplate.Infrastructure.Signals;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.States

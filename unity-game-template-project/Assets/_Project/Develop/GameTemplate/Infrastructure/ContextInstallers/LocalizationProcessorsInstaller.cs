@@ -1,4 +1,5 @@
-using GameTemplate.Infrastructure.LanguageSystem.Processors;
+using Modules.Localization.Processors;
+using Modules.Localization.Processors.Factories;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.ContextInstallers 
