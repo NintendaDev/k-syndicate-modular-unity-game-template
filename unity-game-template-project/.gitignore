@@ -82,5 +82,5 @@ crashlytics-build.properties
 !*.dll
 !*.obj
 
-# Prefab World Builder
-**/Palettes/**/*.png*
+# Rider
+/.idea/

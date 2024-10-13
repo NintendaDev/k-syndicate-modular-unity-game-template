@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.Signals;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading

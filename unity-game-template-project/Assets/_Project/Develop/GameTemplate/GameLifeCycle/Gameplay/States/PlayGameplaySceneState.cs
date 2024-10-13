@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
@@ -8,6 +7,7 @@ using GameTemplate.UI.Gameplay.Signals;
 using GameTemplate.UI.LoadingCurtain;
 using System.Collections.Generic;
 using Modules.Core.Systems;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates

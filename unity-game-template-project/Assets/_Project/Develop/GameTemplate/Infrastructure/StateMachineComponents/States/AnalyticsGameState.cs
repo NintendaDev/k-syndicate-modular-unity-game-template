@@ -1,6 +1,6 @@
-using GameTemplate.Infrastructure.Signals;
 using GameTemplate.Services.Analytics;
 using Modules.AssetsManagement.StaticData;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.Infrastructure.StateMachineComponents.States

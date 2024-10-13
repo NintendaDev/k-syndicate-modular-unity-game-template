@@ -8,7 +8,7 @@ using GameTemplate.Infrastructure.Levels;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.UI.GameHub.Signals;
 using GameTemplate.UI.LoadingCurtain;
-using GameTemplate.Infrastructure.Signals;
+using Modules.EventBus;
 using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub.States

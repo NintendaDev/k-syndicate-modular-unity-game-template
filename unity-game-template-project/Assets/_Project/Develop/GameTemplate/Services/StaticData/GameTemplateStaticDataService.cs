@@ -5,12 +5,12 @@ using GameTemplate.Services.Analytics;
 using GameTemplate.Systems.Performance;
 using GameTemplate.Level.Configurations;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.UI.Services.Popups;
-using GameTemplate.Infrastructure.LanguageSystem.Localization;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
+using Modules.Localization.Systems.Demo;
 using Modules.Logging;
+using Modules.PopupsSystem.Configurations;
 using Modules.SaveManagement.Systems;
 using Modules.Wallets.Configurations;
 
