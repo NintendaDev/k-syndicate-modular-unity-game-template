@@ -1,6 +1,5 @@
-using GameTemplate.UI.Core;
-using GameTemplate.UI.Core.Buttons;
 using System;
+using Modules.Core.UI;
 
 namespace GameTemplate.Infrastructure.LanguageSystem.Processors
 {

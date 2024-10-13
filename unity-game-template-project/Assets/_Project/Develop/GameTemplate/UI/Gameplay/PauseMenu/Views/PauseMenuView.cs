@@ -1,7 +1,6 @@
-using GameTemplate.UI.Core;
-using GameTemplate.UI.Core.Buttons;
 using Sirenix.OdinInspector;
 using System;
+using Modules.Core.UI;
 using UnityEngine;
 
 namespace GameTemplate.UI.Gameplay.PauseMenu.Views

@@ -5,7 +5,7 @@ using GameTemplate.UI.GameHub.LevelsMenu.Factories;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System.Collections.Generic;
 using System.Threading;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
 {

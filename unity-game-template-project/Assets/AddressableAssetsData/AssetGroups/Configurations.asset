@@ -84,13 +84,19 @@ MonoBehaviour:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65b2e43e89312b641a9c17380b4ff9bd
-    m_Address: WalletSpritesConfiguration
+    m_Address: WalletAssetsConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f913d70d5846cdd48a11e94965db9517
     m_Address: LocalizationDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6928df49852b8240b2b633e404b5ae2
+    m_Address: DefaultWalletsConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations

@@ -1,10 +1,9 @@
-using GameTemplate.Core;
-using GameTemplate.UI.Core.Buttons;
-using GameTemplate.UI.GameHub.LevelsMenu.Views;
-using GameTemplate.UI.Wallets;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+using Modules.Core.Systems;
+using Modules.Core.UI;
+using Modules.Wallets.UI.Views;
 using UnityEngine;
 
 namespace GameTemplate.UI.GameHub.MainMenu.Views

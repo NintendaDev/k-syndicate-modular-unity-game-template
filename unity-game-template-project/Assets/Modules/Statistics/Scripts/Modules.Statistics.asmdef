@@ -1,0 +1,19 @@
+{
+    "name": "Modules.Statistics",
+    "rootNamespace": "Modules.Statistics",
+    "references": [
+        "GUID:9688c2499a3bc5149bafe445a702eea1",
+        "GUID:c2243b19542628a46b93e0735f0e9ff3",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:2a41333a2df1bf84d92a130bd478a1ff"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

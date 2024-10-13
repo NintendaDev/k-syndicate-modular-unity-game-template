@@ -4,19 +4,20 @@ using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using GameTemplate.UI.GameHub.MainMenu.Presenters;
 using GameTemplate.UI.GameHub.MainMenu.Views;
-using GameTemplate.UI.GameHub.SettinsMenu.Presenters;
-using GameTemplate.UI.GameHub.SettinsMenu.Views;
-using GameTemplate.UI.Wallets;
+using Modules.AudioManagement.UI.Presenters;
+using Modules.AudioManagement.UI.Views;
+using Modules.Wallets.UI.Factories;
+using Modules.Wallets.UI.Presenters;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GameTemplate.Infrastructure.ContextInstallers.GameHub
 {
-    public class GameHubInfrastructureInstaller : InfrastructureInstaller
+    public sealed class GameHubInfrastructureInstaller : InfrastructureInstaller
     {
         [SerializeField, Required] private MainMenuView _mainMenuView;
         [SerializeField, Required] private LevelsMenuView _levelsMenuView;
-        [SerializeField, Required] private SettingsMenuView _settingsMenuView;
+        [SerializeField, Required] private AudioSettingsView _audioSettingsView;
 
         public override void InstallBindings()
         {
@@ -63,9 +64,9 @@ namespace GameTemplate.Infrastructure.ContextInstallers.GameHub
             
         private void BindSettingsPresenter()
         {
-            Container.BindInterfacesTo<SettingsPresenter>()
+            Container.BindInterfacesTo<AudioSettingsPresenter>()
                 .AsSingle()
-                .WithArguments(_settingsMenuView)
+                .WithArguments(_audioSettingsView)
                 .NonLazy();
         }
             

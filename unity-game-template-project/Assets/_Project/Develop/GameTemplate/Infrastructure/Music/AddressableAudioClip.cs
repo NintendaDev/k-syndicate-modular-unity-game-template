@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.AssetManagement;
 using System;
-using Modules.AssetManagement;
+using Modules.AssetsManagement.AddressablesServices;
 using UnityEngine;
 
 namespace GameTemplate.Infrastructure.Music

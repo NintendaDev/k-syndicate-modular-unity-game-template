@@ -1,7 +1,7 @@
 using GameTemplate.Services.Advertisiments;
 using GameTemplate.Services.Analytics;
 using System;
-using Modules.AssetManagement.StaticData;
+using Modules.AssetsManagement.StaticData;
 using Modules.Extensions;
 
 namespace GameTemplate.Infrastructure.Advertisements

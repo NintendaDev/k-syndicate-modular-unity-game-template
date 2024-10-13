@@ -2,10 +2,11 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Modules.AssetsManagement.AddressablesServices;
 using UnityEngine;
 using Modules.Logging;
 
-namespace Modules.AssetManagement.StaticData
+namespace Modules.AssetsManagement.StaticData
 {
     public abstract class StaticDataService : IStaticDataService
     {

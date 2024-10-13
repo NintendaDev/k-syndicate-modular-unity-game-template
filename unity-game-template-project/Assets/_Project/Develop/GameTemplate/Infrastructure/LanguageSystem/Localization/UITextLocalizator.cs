@@ -1,5 +1,5 @@
 using GameTemplate.Infrastructure.LanguageSystem.Processors;
-using GameTemplate.UI.Core;
+using Modules.Core.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;

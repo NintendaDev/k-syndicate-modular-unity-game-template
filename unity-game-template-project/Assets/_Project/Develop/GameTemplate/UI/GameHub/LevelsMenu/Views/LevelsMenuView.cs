@@ -1,7 +1,6 @@
-using GameTemplate.UI.Core;
 using Sirenix.OdinInspector;
-using System;
 using System.Collections.Generic;
+using Modules.Core.UI;
 using UnityEngine;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Views

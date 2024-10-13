@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameTemplate.Services.Localization;
-using GameTemplate.UI.Core;
-using GameTemplate.UI.Core.Buttons;
+using Modules.Core.UI;
 using UnityEngine;
 using Zenject;
 

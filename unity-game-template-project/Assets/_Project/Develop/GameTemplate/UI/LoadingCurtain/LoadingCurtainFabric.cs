@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.AssetManagement;
 using GameTemplate.Infrastructure.Configurations;
+using Modules.AssetsManagement.AddressablesServices;
+using Modules.ObjectsManagement.Factories;
 using Zenject;
 
 namespace GameTemplate.UI.LoadingCurtain

@@ -1,4 +1,4 @@
-using GameTemplate.UI.Core;
+using Modules.Core.UI;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Views
 {
