@@ -1,15 +1,11 @@
 using Modules.SceneManagement;
 using GameTemplate.Infrastructure.Bootstrap;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.DevicesDetecting;
 using GameTemplate.Infrastructure.SaveManagement.Defaults;
 using GameTemplate.Infrastructure.StateMachineComponents.Installers;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Services.PlayerStatistics;
 using GameTemplate.Services.StaticData;
-using GameTemplate.Systems;
-using GameTemplate.Systems.Performance;
 using Modules.Advertisements.Systems;
 using Modules.Analytics;
 using Modules.LoadingCurtain;
@@ -18,11 +14,14 @@ using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.Authorization.Interfaces;
 using Modules.ControllManagement.Detectors;
+using Modules.Device.Detecting;
+using Modules.Device.Performance;
 using Modules.EventBus;
 using Modules.LoadingCurtain.Configurations;
 using Modules.Localization.Detectors;
 using Modules.Localization.Systems.Demo;
 using Modules.Logging;
+using Modules.NetworkAccount;
 using Modules.PopupsSystem;
 using Modules.PopupsSystem.Configurations;
 using Modules.PopupsSystem.UI.Factories;
@@ -97,7 +96,7 @@ namespace GameTemplate.CompositionRoot
             Container.BindInterfacesTo<LegacyTouchDetector>().AsSingle();
 
         private void BindDevicePerformanceConfigurationGetter() =>
-            Container.BindInterfacesTo<DevicePerformaceConfigurationGetter>().AsSingle();
+            Container.BindInterfacesTo<PerformaceConfigurationProvider>().AsSingle();
 
         private void BindSystemPerformanceSetter() =>
             Container.Bind<SystemPerformanceSetter>().AsSingle();
@@ -112,7 +111,7 @@ namespace GameTemplate.CompositionRoot
         }
 
         private void BindPlayerAccountInfoService() =>
-            Container.BindInterfacesTo<DummyPlayerAccountInfoService>().AsSingle();
+            Container.BindInterfacesTo<DummyNetworkAccount>().AsSingle();
 
         private void BindLanguageDetector() =>
             Container.BindInterfacesTo<UnityLanguageDetector>().AsSingle();

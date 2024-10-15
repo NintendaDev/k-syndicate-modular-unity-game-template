@@ -1,4 +1,4 @@
-﻿namespace GameTemplate.Infrastructure.DevicesDetecting
+﻿namespace Modules.Device.Detecting
 {
     public interface IDeviceDetector
     {

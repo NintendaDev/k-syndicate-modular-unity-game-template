@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.DevicesDetecting
+namespace Modules.Device.Detecting
 {
     public class UnityDeviceDetector : IDeviceDetector
     {

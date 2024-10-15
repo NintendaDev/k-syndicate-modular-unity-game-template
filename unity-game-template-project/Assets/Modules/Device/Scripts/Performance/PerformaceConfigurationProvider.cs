@@ -1,15 +1,16 @@
-using GameTemplate.Infrastructure.DevicesDetecting;
 using Modules.AssetsManagement.StaticData;
+using Modules.Device.Detecting;
+using Modules.Device.Performance.Configurations;
 
-namespace GameTemplate.Systems.Performance
+namespace Modules.Device.Performance
 {
-    public class DevicePerformaceConfigurationGetter : IDevicePerformaceConfigurator
+    public class PerformaceConfigurationProvider : IPerformaceConfiguration
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IDeviceDetector _deviceDetector;
         private DevicesPerformanceConfigurations _devicesPerformanceConfigurations;
 
-        public DevicePerformaceConfigurationGetter(IStaticDataService staticDataService, IDeviceDetector deviceDetector)
+        public PerformaceConfigurationProvider(IStaticDataService staticDataService, IDeviceDetector deviceDetector)
         {
             _staticDataService = staticDataService;
             _deviceDetector = deviceDetector;

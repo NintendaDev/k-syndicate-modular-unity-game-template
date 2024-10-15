@@ -1,0 +1,14 @@
+{
+    "name": "Modules.Device",
+    "rootNamespace": "Modules.Device",
+    "references": ["GUID:a1394e044482765449ce7a4bd4fd2869"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace GameTemplate.Services.PlayerAccountInfo
+namespace Modules.NetworkAccount
 {
-    public class DummyPlayerAccountInfoService : IPlayerAccountInfoService
+    public class DummyNetworkAccount : INetworkAccount
     {
         public Texture2D Avatar => null;
 

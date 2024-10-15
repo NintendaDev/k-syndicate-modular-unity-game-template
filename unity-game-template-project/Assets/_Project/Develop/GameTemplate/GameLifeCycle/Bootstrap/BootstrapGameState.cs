@@ -4,11 +4,11 @@ using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using Modules.LoadingCurtain;
 using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Systems;
-using GameTemplate.Systems.Performance;
 using Modules.Analytics;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
+using Modules.Device.Performance;
+using Modules.Device.Performance.Configurations;
 using Modules.EventBus;
 using Modules.Localization.Systems;
 using Modules.Logging;
@@ -26,12 +26,12 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
         private readonly IAnalyticsSystem _analyticsSystem;
         private readonly SystemPerformanceSetter _performanceSetter;
         private readonly ISaveLoadSystem _saveLoadSystem;
-        private readonly IDevicePerformaceConfigurator _devicePerformaceConfigurator;
+        private readonly IPerformaceConfiguration _devicePerformaceConfigurator;
 
         public BootstrapGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
             IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService, 
             LoadingCurtainProxy loadingCurtainProxy, ILevelLoaderService gameLevelLoaderService, 
-            IAudioMixerSystem audioMixerSystem, IDevicePerformaceConfigurator devicePerformaceConfigurator,
+            IAudioMixerSystem audioMixerSystem, IPerformaceConfiguration devicePerformaceConfigurator,
             ILocalizationSystem localizationSystem, ISaveLoadSystem saveLoadSystem, 
             SystemPerformanceSetter performanceSetter)
             

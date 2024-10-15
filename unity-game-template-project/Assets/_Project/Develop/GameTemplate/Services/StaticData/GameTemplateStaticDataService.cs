@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using GameTemplate.Systems.Performance;
 using GameTemplate.Level.Configurations;
 using GameTemplate.Infrastructure.Configurations;
 using Modules.Advertisements.Configurations;
@@ -8,6 +7,7 @@ using Modules.Analytics.Configurations;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
+using Modules.Device.Performance.Configurations;
 using Modules.Localization.Systems.Demo;
 using Modules.Logging;
 using Modules.MusicManagement.Configurations;

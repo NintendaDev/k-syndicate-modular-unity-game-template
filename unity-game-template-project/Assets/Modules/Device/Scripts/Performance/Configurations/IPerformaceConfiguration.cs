@@ -1,6 +1,6 @@
-﻿namespace GameTemplate.Systems.Performance
+﻿namespace Modules.Device.Performance.Configurations
 {
-    public interface IDevicePerformaceConfigurator
+    public interface IPerformaceConfiguration
     {
         public PerformanceConfiguration GetConfiguration();
 

@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
-namespace GameTemplate.Systems.Performance
+namespace Modules.Device.Performance.Configurations
 {
     [Serializable]
     public class PerformanceConfiguration

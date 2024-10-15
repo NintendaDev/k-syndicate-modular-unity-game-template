@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameTemplate.Systems.Performance
+namespace Modules.Device.Performance.Configurations
 {
     [CreateAssetMenu(fileName = "new DevicesPerformanceConfigurations", menuName = "GameTemplate/System/DevicesPerformanceConfigurations")]
     public class DevicesPerformanceConfigurations : ScriptableObject

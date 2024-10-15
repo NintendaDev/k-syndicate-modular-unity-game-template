@@ -1,9 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace GameTemplate.Services.PlayerAccountInfo
+namespace Modules.NetworkAccount
 {
-    public interface IPlayerAccountInfoService
+    public interface INetworkAccount
     {
         public Texture2D Avatar { get; }
 
