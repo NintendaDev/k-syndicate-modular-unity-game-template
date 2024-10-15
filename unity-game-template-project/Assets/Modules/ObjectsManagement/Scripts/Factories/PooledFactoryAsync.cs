@@ -7,20 +7,22 @@ using UnityEngine.AddressableAssets;
 
 namespace Modules.ObjectsManagement.Factories
 {
-    public abstract class PooledFactoryAsync<TComponent> : IDisposable
-        where TComponent : Component
+    public abstract class PooledFactoryAsync<TObject> : IDisposable
+        where TObject : Component
     {
         private readonly AssetReference _prefabReference;
         private readonly IAddressablesService _addressablesService;
         private bool _isInitialize;
 
-        public PooledFactoryAsync(AssetReference prefabReference, IAddressablesService addressablesService)
+        public PooledFactoryAsync(AssetReference prefabReference, IAddressablesService addressablesService,
+            Pool<TObject> pool)
         {
             _prefabReference = prefabReference;
             _addressablesService = addressablesService;
+            Pool = pool;
         }
 
-        protected ObjectPool<TComponent> Pool { get; private set; }
+        protected Pool<TObject> Pool { get; private set; }
 
         public virtual void Dispose()
         {
@@ -35,10 +37,10 @@ namespace Modules.ObjectsManagement.Factories
             if (_isInitialize)
                 return;
             
-            TComponent prefab = await _addressablesService
-                .LoadByAddressAsync<TComponent>(_prefabReference.AssetGUID);
+            TObject prefab = await _addressablesService
+                .LoadByAddressAsync<TObject>(_prefabReference.AssetGUID);
             
-            Pool = new ObjectPool<TComponent>(prefab);
+            Pool = new Pool<TObject>(prefab);
             _isInitialize = true;
         }
     }

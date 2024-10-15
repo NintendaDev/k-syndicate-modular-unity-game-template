@@ -1,4 +1,4 @@
-namespace GameTemplate.UI.LoadingCurtain
+namespace Modules.LoadingCurtain
 {
     public interface ILoadingCurtain
     {

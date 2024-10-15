@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GameTemplate.UI.LoadingCurtain
+namespace Modules.LoadingCurtain
 {
     public class LoadingCurtain : MonoBehaviour, ILoadingCurtain
     {

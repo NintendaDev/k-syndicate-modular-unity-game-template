@@ -4,7 +4,7 @@ using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.Gameplay.Signals;
-using GameTemplate.UI.LoadingCurtain;
+using Modules.LoadingCurtain;
 using System.Collections.Generic;
 using Modules.Core.Systems;
 using Modules.EventBus;
