@@ -101,6 +101,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d47b1978041a4545a51f5147176b91f
+    m_Address: Assets/Modules/MusicManagement/Configurations/MusicPlayerConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5f7911b9696b5543b852998604d7692
+    m_Address: Assets/Modules/LoadingCurtain/Configurations/LoadingCurtainConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
   m_SchemaSet:

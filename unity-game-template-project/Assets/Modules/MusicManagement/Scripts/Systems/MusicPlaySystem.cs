@@ -1,15 +1,16 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Music;
+using Modules.MusicManagement.Clip;
+using Modules.MusicManagement.Player;
 using UnityEngine;
 
-namespace GameTemplate.Services.MusicPlay
+namespace Modules.MusicManagement.Systems
 {
-    public class MusicPlayService : IMusicPlayService
+    public class MusicPlaySystem : IMusicPlaySystem
     {
         private readonly MusicPlayerFactory _musicPlayerFactory;
         private MusicPlayer _musicPlayer;
         
-        public MusicPlayService(MusicPlayerFactory musicPlayerFactory)
+        public MusicPlaySystem(MusicPlayerFactory musicPlayerFactory)
         {
             _musicPlayerFactory = musicPlayerFactory;
         }

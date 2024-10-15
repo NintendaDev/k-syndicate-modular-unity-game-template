@@ -1,23 +1,23 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.Music;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.MusicPlay;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
+using Modules.MusicManagement.Clip;
+using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
     public class BootstrapSceneState : SceneState
     {
-        private readonly IMusicPlayService _musicPlayService;
+        private readonly IMusicPlaySystem _musicPlayService;
         private readonly IStaticDataService _staticDataService;
         private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
 
         public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
-            IMusicPlayService musicPlayService, IStaticDataService staticDataService, 
+            IMusicPlaySystem musicPlayService, IStaticDataService staticDataService, 
             AddressableAudioClipFactory addressableAudioClipFactory)
             : base(stateMachine, eventBus, logSystem)
         {

@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Music;
+using Modules.MusicManagement.Clip;
 using UnityEngine;
 
-namespace GameTemplate.Services.MusicPlay
+namespace Modules.MusicManagement.Systems
 {
-    public interface IMusicPlayService : IMusicPlay
+    public interface IMusicPlaySystem : IMusicPlay
     {
         public UniTask InitializeAsync();
 

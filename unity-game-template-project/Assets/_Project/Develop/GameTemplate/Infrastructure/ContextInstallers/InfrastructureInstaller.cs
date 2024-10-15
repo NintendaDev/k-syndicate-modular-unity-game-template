@@ -1,9 +1,10 @@
 using Modules.StateMachines;
-using GameTemplate.Infrastructure.Music;
 using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.MusicPlay;
 using System;
 using Modules.Core.Systems;
+using Modules.MusicManagement.Clip;
+using Modules.MusicManagement.Player;
+using Modules.MusicManagement.Systems;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.ContextInstallers
@@ -25,8 +26,8 @@ namespace GameTemplate.Infrastructure.ContextInstallers
 
         private void BindMusicPlayService()
         {
-            Container.BindInterfacesAndSelfTo<MusicPlayerFactory>().AsSingle().WhenInjectedInto<MusicPlayService>();
-            Container.BindInterfacesTo<MusicPlayService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MusicPlayerFactory>().AsSingle().WhenInjectedInto<MusicPlaySystem>();
+            Container.BindInterfacesTo<MusicPlaySystem>().AsSingle();
         }
         private void BindAddressableAudioClipFactory()
         {

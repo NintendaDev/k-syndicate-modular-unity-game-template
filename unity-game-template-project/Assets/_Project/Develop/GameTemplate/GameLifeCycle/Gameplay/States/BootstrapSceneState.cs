@@ -1,25 +1,25 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.Infrastructure.Music;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.MusicPlay;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
+using Modules.MusicManagement.Clip;
+using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
     public class BootstrapSceneState : SceneState
     {
-        private readonly IMusicPlayService _musicPlayService;
+        private readonly IMusicPlaySystem _musicPlayService;
         private readonly LevelConfiguration _currentLevelConfiguration;
         private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
         private readonly ILoadingCurtain _loadingCurtain;
 
         public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
-            ILoadingCurtain loadingCurtain, IMusicPlayService musicPlayService, 
+            ILoadingCurtain loadingCurtain, IMusicPlaySystem musicPlayService, 
             ICurrentLevelConfiguration levelConfigurator, AddressableAudioClipFactory addressableAudioClipFactory)
             : base(stateMachine, eventBus, logSystem)
         {

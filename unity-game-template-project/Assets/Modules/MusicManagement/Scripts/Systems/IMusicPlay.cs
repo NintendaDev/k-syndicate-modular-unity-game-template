@@ -1,4 +1,4 @@
-namespace GameTemplate.Services.MusicPlay
+namespace Modules.MusicManagement.Systems
 {
     public interface IMusicPlay
     {

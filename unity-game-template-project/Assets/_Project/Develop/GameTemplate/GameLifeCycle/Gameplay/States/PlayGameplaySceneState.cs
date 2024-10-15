@@ -2,13 +2,13 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.Gameplay.Signals;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
+using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {

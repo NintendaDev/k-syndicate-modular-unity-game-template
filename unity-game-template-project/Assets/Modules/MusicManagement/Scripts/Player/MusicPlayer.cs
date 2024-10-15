@@ -1,7 +1,8 @@
+using Modules.MusicManagement.Clip;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.Music
+namespace Modules.MusicManagement.Player
 {
     public class MusicPlayer : MonoBehaviour
     {

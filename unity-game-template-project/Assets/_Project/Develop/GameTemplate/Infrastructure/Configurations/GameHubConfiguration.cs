@@ -1,4 +1,4 @@
-using GameTemplate.Infrastructure.Music;
+using Modules.MusicManagement.Clip;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

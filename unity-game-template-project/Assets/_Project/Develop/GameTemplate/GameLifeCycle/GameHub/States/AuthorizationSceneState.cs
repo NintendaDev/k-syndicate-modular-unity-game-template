@@ -3,11 +3,11 @@ using GameTemplate.GameLifeCycle.Loading.States;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.Authorization;
-using GameTemplate.Services.MusicPlay;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Localization.Types;
 using Modules.Logging;
+using Modules.MusicManagement.Systems;
 using Modules.PopupsSystem;
 
 namespace GameTemplate.GameLifeCycle.GameHub
@@ -17,13 +17,13 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly GameStateMachine _gameStateMachine;
         private readonly IAuthorizationService _authorizationService;
         private readonly ILoadingCurtain _loadingCurtain;
-        private readonly IMusicPlayService _musicPlayService;
+        private readonly IMusicPlaySystem _musicPlayService;
         private readonly IPopups _popups;
 
         public AuthorizationSceneState(SceneStateMachine stateMachine, IEventBus eventBus, 
             GameStateMachine gameStateMachine, ILogSystem logSystem,
             IAuthorizationService authorizationService, ILoadingCurtain loadingCurtain, 
-            IMusicPlayService musicPlayService, IPopups popups) 
+            IMusicPlaySystem musicPlayService, IPopups popups) 
             : base(stateMachine, eventBus, logSystem)
         {
             _gameStateMachine = gameStateMachine;
