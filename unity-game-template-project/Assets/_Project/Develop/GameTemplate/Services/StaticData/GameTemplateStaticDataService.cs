@@ -1,10 +1,10 @@
-using GameTemplate.Services.Advertisiments;
 using System;
 using System.Collections.Generic;
-using GameTemplate.Services.Analytics;
 using GameTemplate.Systems.Performance;
 using GameTemplate.Level.Configurations;
 using GameTemplate.Infrastructure.Configurations;
+using Modules.Advertisements.Configurations;
+using Modules.Analytics.Configurations;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
@@ -29,7 +29,7 @@ namespace GameTemplate.Services.StaticData
         {
             return new List<Action>()
             {
-                InitializeConfiguration<AdvertisimentsConfiguration>,
+                InitializeConfiguration<AdvertisementsConfiguration>,
                 InitializeConfiguration<AnalyticsConfiguration>,
                 InitializeConfiguration<AudioMixerConfiguration>,
                 InitializeConfiguration<SaveConfiguration>,

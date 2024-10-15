@@ -53,18 +53,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf274cdd91b06184ca56954fb57fb930
-    m_Address: AdvertisimentsConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1a6b79d2aebb2c14bb6153ff844daae6
-    m_Address: AnalyticsConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 537b53a802ad6734a831a001220dd5e5
     m_Address: AudioMixerConfiguration
     m_ReadOnly: 0
@@ -73,12 +61,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 110769c62b66f664080789ef165858ca
     m_Address: EasySaveConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 940a5ea0f0b96434f96334900c28fcdd
-    m_Address: DefaultProgressConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
@@ -109,6 +91,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5f7911b9696b5543b852998604d7692
     m_Address: Assets/Modules/LoadingCurtain/Configurations/LoadingCurtainConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8552c86d8ce3ae54ba3333b033d54164
+    m_Address: Assets/Modules/Advertisements/Configurations/AdvertisimentsConfiguration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e6f19312de4f0c4cb2260221bde3411
+    m_Address: Assets/Modules/Analytics/Configurations/AnalyticsConfiguration.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations

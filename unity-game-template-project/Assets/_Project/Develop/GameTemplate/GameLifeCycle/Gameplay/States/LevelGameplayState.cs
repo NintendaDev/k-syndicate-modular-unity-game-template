@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using Modules.LoadingCurtain;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.Levels.Configurations;
+using Modules.Analytics;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
@@ -21,8 +21,8 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly ILoadingCurtain _loadingCurtain;
 
         public LevelGameplayState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
-            IAnalyticsService analyticsService, IMusicPlay musicPlayer,
-            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator) 
+            IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, IEnumerable<IReset> resetObjects, 
+            ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator) 
             : base(stateMachine, eventBus, logSystem)
         {
             MusicPlay = musicPlayer;
@@ -30,14 +30,14 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             _resetObjects = resetObjects;
             _loadingCurtain = loadingCurtain;
             CurrentLevelConfiguration = levelConfigurator.CurrentLevelConfiguration;
-            AnalyticsService = analyticsService;
+            AnalyticsSystem = analyticsSystem;
         }
 
         protected IMusicPlay MusicPlay { get; private set; }
 
         protected LevelConfiguration CurrentLevelConfiguration { get; private set; }
 
-        protected IAnalyticsService AnalyticsService { get; private set; }
+        protected IAnalyticsSystem AnalyticsSystem { get; private set; }
 
         protected void ResetGameplay()
         {

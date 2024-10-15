@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.GameHub.States;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.Analytics;
+using Modules.Analytics;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
@@ -12,8 +12,8 @@ namespace GameTemplate.GameLifeCycle.Loading
     public class FinishLoadingSceneState : AnalyticsGameState
     {
         public FinishLoadingSceneState(GameStateMachine stateMachine, ILogSystem logSystem, IEventBus eventBus,
-            IAnalyticsService analyticsService, IStaticDataService staticDataService) 
-            : base(stateMachine, eventBus, logSystem, analyticsService, staticDataService)
+            IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService) 
+            : base(stateMachine, eventBus, logSystem, analyticsSystem, staticDataService)
         {
         }
 

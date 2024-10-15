@@ -1,7 +1,7 @@
-using GameTemplate.Services.Authorization;
 using GameTemplate.UI.GameHub.MainMenu.Views;
 using GameTemplate.UI.GameHub.Signals;
 using System;
+using Modules.Authorization.Interfaces;
 using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.MainMenu.Presenters

@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.Analytics;
 using System.Collections.Generic;
 using GameTemplate.Infrastructure.SaveManagement;
+using Modules.Analytics;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
@@ -20,9 +20,9 @@ namespace GameTemplate.GameLifeCycle.Loading
 
         public LoadPlayerProgressSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
             ISaveLoadSystem saveLoadSystem, List<IProgressLoader> progressLoaders,
-            IPersistentProgressProvider persistentProgressProvider, IAnalyticsService analyticsService, 
+            IPersistentProgressProvider persistentProgressProvider, IAnalyticsSystem analyticsSystem, 
             IStaticDataService staticDataService, IDefaultPlayerProgress defaultPlayerProgressProvider) 
-            : base(stateMachine, eventBus, logSystem, analyticsService, staticDataService)
+            : base(stateMachine, eventBus, logSystem, analyticsSystem, staticDataService)
         {
             _saveLoadSystem = saveLoadSystem;
             _persistentProgressProvider = persistentProgressProvider;

@@ -1,11 +1,10 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Advertisements;
 using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.Advertisiments;
-using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Modules.Advertisements.Systems;
+using Modules.Analytics;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
@@ -13,19 +12,18 @@ using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
-    public class StartGameplaySceneState : LevelGameplayState
+    public sealed class StartGameplaySceneState : LevelGameplayState
     {
-        private readonly IInterstitialAdvertisimentShower _interstitialAdvertisimentShower;
+        private readonly IAdvertisementsSystem _advertisementsSystem;
 
         public StartGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
-            IEventBus eventBus, IAnalyticsService analyticsService, IMusicPlay musicPlayer, 
+            IEventBus eventBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
-            ICurrentLevelConfiguration levelConfigurator, 
-            IInterstitialAdvertisimentShower interstitialAdvertisimentShower)
-            : base(stateMachine, eventBus, logSystem, analyticsService, musicPlayer, resetObjects, 
+            ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
+            : base(stateMachine, eventBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
-            _interstitialAdvertisimentShower = interstitialAdvertisimentShower;
+            _advertisementsSystem = advertisementsSystem;
         }
 
         public override async UniTask Enter()
@@ -35,25 +33,14 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             ShowCurtain();
             ResetGameplay();
 
-            _interstitialAdvertisimentShower.Initialize(AdvertisementPlacement.LevelStart);
-            _interstitialAdvertisimentShower.Finished += OnInterstitialFinished;
-
-            if (_interstitialAdvertisimentShower.TryStartAdvertisementBehaviour() == false)
+            if (_advertisementsSystem.TryShowInterstitial(onCloseCallback: OnInterstitialFinished) == false)
                 await SwitchNextState();
         }
 
-        public override async UniTask Exit()
-        {
-            await base.Exit();
-
-            _interstitialAdvertisimentShower.Finished -= OnInterstitialFinished;
-            _interstitialAdvertisimentShower.Reset();
-        }
-
-        protected async void OnInterstitialFinished(bool isSuccess) =>
+        private async void OnInterstitialFinished() =>
             await SwitchNextState();
 
-        protected async UniTask SwitchNextState() =>
+        private async UniTask SwitchNextState() =>
             await SwitchPlayState();
     }
 }

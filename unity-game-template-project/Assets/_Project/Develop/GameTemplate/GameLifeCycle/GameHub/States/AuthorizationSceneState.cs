@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.Loading.States;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.Authorization;
+using Modules.Authorization.Interfaces;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Localization.Types;

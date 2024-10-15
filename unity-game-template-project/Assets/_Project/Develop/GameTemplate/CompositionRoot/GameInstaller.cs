@@ -1,23 +1,22 @@
 using Modules.SceneManagement;
-using GameTemplate.Infrastructure.Advertisements;
 using GameTemplate.Infrastructure.Bootstrap;
 using GameTemplate.Infrastructure.Configurations;
 using GameTemplate.Infrastructure.DevicesDetecting;
 using GameTemplate.Infrastructure.SaveManagement.Defaults;
 using GameTemplate.Infrastructure.StateMachineComponents.Installers;
-using GameTemplate.Services.Advertisiments;
-using GameTemplate.Services.Analytics;
-using GameTemplate.Services.Authorization;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.PlayerAccountInfo;
 using GameTemplate.Services.PlayerStatistics;
 using GameTemplate.Services.StaticData;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
+using Modules.Advertisements.Systems;
+using Modules.Analytics;
 using Modules.LoadingCurtain;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
+using Modules.Authorization.Interfaces;
 using Modules.ControllManagement.Detectors;
 using Modules.EventBus;
 using Modules.LoadingCurtain.Configurations;
@@ -66,7 +65,6 @@ namespace GameTemplate.CompositionRoot
             BindGameLevelLoaderService();
             BindAuthorizationService();
             BindAnalyticsService();
-            BindAdvertisimentsShowers();
             BindAudioMixerService();
             BindDefaultPlayerProgressProvider();
             BindSaveLoadService();
@@ -144,7 +142,7 @@ namespace GameTemplate.CompositionRoot
             Container.BindInterfacesAndSelfTo<PlayerStatisticsService>().AsSingle();
 
         private void BindAdvertisimentsService() =>
-            Container.BindInterfacesTo<DummyAdvertisimentsService>().AsSingle();
+            Container.BindInterfacesTo<DummyAdvertisementsSystem>().AsSingle();
             
         private void BindGameLevelLoaderService() =>
             Container.BindInterfacesTo<LevelLoaderService>().AsSingle();
@@ -153,12 +151,7 @@ namespace GameTemplate.CompositionRoot
             Container.BindInterfacesTo<DummyAuthorizationService>().AsSingle();
 
         private void BindAnalyticsService() =>
-            Container.BindInterfacesTo<DummyAnalyticsService>().AsSingle();
-
-        private void BindAdvertisimentsShowers()
-        {
-            Container.BindInterfacesTo<InterstitialAdvertisementShower>().AsTransient();
-        }
+            Container.BindInterfacesTo<DummyAnalyticsSystem>().AsSingle();
 
         private void BindAudioMixerService() =>
             Container.BindInterfacesTo<AudioMixerSystem>().AsSingle();

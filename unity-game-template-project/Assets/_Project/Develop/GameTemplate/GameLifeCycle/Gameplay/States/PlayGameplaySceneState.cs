@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.UI.Gameplay.Signals;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Modules.Analytics;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
@@ -15,10 +15,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
     public class PlayGameplaySceneState : LevelGameplayState
     {
         public PlayGameplaySceneState(SceneStateMachine stateMachine, IEventBus eventBus,
-            ILogSystem logSystem, IAnalyticsService analyticsService, IMusicPlay musicPlayer, 
+            ILogSystem logSystem, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator)
-            : base(stateMachine, eventBus, logSystem, analyticsService, musicPlayer, resetObjects, 
+            : base(stateMachine, eventBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
         }

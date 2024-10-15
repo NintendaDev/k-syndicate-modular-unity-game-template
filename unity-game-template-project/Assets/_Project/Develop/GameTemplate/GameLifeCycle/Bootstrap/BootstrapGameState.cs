@@ -1,12 +1,12 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.GameLifeCycle.Loading.States;
-using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using Modules.LoadingCurtain;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
+using Modules.Analytics;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.EventBus;
@@ -23,13 +23,13 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
         private readonly ILevelLoaderService _gameLevelLoaderService;
         private readonly IAudioMixerSystem _audioMixerSystem;
         private readonly ILocalizationSystem _localizationSystem;
-        private readonly IAnalyticsService _analyticsService;
+        private readonly IAnalyticsSystem _analyticsSystem;
         private readonly SystemPerformanceSetter _performanceSetter;
         private readonly ISaveLoadSystem _saveLoadSystem;
         private readonly IDevicePerformaceConfigurator _devicePerformaceConfigurator;
 
         public BootstrapGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
-            IAnalyticsService analyticsService, IStaticDataService staticDataService, 
+            IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService, 
             LoadingCurtainProxy loadingCurtainProxy, ILevelLoaderService gameLevelLoaderService, 
             IAudioMixerSystem audioMixerSystem, IDevicePerformaceConfigurator devicePerformaceConfigurator,
             ILocalizationSystem localizationSystem, ISaveLoadSystem saveLoadSystem, 
@@ -42,7 +42,7 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             _gameLevelLoaderService = gameLevelLoaderService;
             _audioMixerSystem = audioMixerSystem;
             _localizationSystem = localizationSystem;
-            _analyticsService = analyticsService;
+            _analyticsSystem = analyticsSystem;
             _performanceSetter = performanceSetter;
             _saveLoadSystem = saveLoadSystem;
             _devicePerformaceConfigurator = devicePerformaceConfigurator;
@@ -66,7 +66,7 @@ namespace GameTemplate.GameLifeCycle.Bootstrap
             _gameLevelLoaderService.Initialize();
             _audioMixerSystem.Initialize();
             _localizationSystem.Initialize();
-            _analyticsService.Initialize();
+            _analyticsSystem.Initialize();
         }
     }
 }

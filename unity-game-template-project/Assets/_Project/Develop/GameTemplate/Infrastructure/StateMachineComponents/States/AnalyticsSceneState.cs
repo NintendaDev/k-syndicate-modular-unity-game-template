@@ -1,4 +1,6 @@
-using GameTemplate.Services.Analytics;
+using Modules.Analytics;
+using Modules.Analytics.Configurations;
+using Modules.Analytics.Types;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
@@ -7,19 +9,19 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
 {
     public abstract class AnalyticsSceneState : SceneState
     {
-        private readonly IAnalyticsService _analyticsService;
+        private readonly IAnalyticsSystem _analyticsSystem;
 
         public AnalyticsSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
-            IAnalyticsService analyticsService, IStaticDataService staticDataService)
+            IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService)
             : base(stateMachine, eventBus, logSystem)
         {
-            _analyticsService = analyticsService;
+            _analyticsSystem = analyticsSystem;
             AnalyticsConfiguration = staticDataService.GetConfiguration<AnalyticsConfiguration>();
         }
 
         protected AnalyticsConfiguration AnalyticsConfiguration { get; }
 
         protected void SendAnalyticsEvent(DesignEventData eventData) =>
-            _analyticsService.SendDesignEvent(eventData);
+            _analyticsSystem.SendDesignEvent(eventData);
     }
 }
