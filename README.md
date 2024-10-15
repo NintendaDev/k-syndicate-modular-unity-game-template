@@ -4,7 +4,7 @@ This project is based on the following key ideas:
 - Controlled game loading
 - Modular development
 
-Controlled game loading is achieved by using a state machine for game phases (Bootstrap, Loading, Game Menu, Gameplay Levels) and avoiding the use of Awake in MonoBehaviour scripts. This concept is proposed by the developers at Knowledge Syndicate. The implementation is based on this approach and utilizes Zenject, Addressables, and UniTask.
+The Controlled game loading is achieved by using a state machine for game phases (Bootstrap, Loading, Game Menu, Gameplay Levels) and avoiding the use of Awake in MonoBehaviour scripts. This concept is proposed by the developers at Knowledge Syndicate. The implementation is based on this approach and utilizes Zenject, Addressables, and UniTask.
 
 The main idea of modular development is to create game functionality in the form of small, independent modules. For example, a separate module for analytics, advertising, asset management, and more. A module is independent of the implementation of a specific game, allowing it to be easily reused in other games.
 
