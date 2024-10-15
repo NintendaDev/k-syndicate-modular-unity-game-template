@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MusicPlayerConfiguration
   m_EditorClassIdentifier: 
   <MusicPlayerReference>k__BackingField:
-    m_AssetGUID: 
+    m_AssetGUID: 5ea9a9ab8049a8c4d93e4db2ed9b0d45
     m_SubObjectName: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1
