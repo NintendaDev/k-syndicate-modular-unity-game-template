@@ -8,6 +8,8 @@ namespace Modules.LoadingCurtain.Configurations
         menuName = "Modules/LoadingCurtain/LoadingCurtainConfiguration")]
     public class LoadingCurtainConfiguration : ScriptableObject
     {
-        [field: SerializeField, Required] public AssetReference CurtainPrefabReference { get; private set; }
+        [SerializeField, Required] private AssetReferenceGameObject _curtainPrefabReference;
+        
+        public AssetReference CurtainPrefabReference => _curtainPrefabReference;
     }
 }

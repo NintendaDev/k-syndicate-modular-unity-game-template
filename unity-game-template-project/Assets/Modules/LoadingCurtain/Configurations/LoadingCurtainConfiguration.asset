@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0d9a6c13a8426680c469acaaf39f94, type: 3}
   m_Name: LoadingCurtainConfiguration
   m_EditorClassIdentifier: 
-  <CurtainPrefabReference>k__BackingField:
-    m_AssetGUID: 
+  _curtainPrefabReference:
+    m_AssetGUID: 1fbfad4f9d4a4c94e855040c300fc37d
     m_SubObjectName: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1
