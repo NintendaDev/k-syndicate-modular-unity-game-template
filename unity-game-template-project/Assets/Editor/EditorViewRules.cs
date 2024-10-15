@@ -3,16 +3,16 @@
     [VFolders.Rule]
     static void FoldersColorRules(VFolders.Folder folder)
     {
-        if (folder.name == "_Project")
+        if (folder.name == "Game")
+            folder.color = 7;
+        
+        else if (folder.name == "Scripts")
             folder.color = 1;
         
-        if (folder.name == "Scripts")
-            folder.color = 1;
-        
-        if (folder.name == "Modules")
+        else if (folder.name == "Modules")
             folder.color = 5;
         
-        if (folder.name == "Tests")
+        else if (folder.name == "Tests")
             folder.color = 8;
     }
 }
