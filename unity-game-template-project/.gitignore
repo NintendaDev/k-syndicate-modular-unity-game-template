@@ -1,9 +1,6 @@
-/[Aa]ssets/Third-Party Assets/Layer Lab/GUI Pro-CasualGame/Scenes
-
-
 # This .gitignore file should be placed at the root of your Unity project directory
 #
-# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 /[Ll]ibrary/
 /[Tt]emp/
@@ -17,8 +14,8 @@
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
-# Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
+# Recordings can get excessive in size
+/[Rr]ecordings/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -28,9 +25,6 @@
 
 # Visual Studio cache directory
 .vs/
-
-# Visual Studio Code cache directory
-.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -52,7 +46,6 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-*.psd
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -62,11 +55,11 @@ ExportedObj/
 # Unity3D generated file on crash reports
 sysinfo.txt
 
-.DS_Store
-
 # Builds
 *.apk
+*.aab
 *.unitypackage
+*.app
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -77,10 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-# Exceptions
-!*.dll
-!*.obj
 
 # Rider
 /.idea/

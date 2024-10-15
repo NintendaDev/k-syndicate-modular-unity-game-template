@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
 using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.UI.LoadingCurtain;
+using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
 

@@ -14,12 +14,13 @@ using GameTemplate.Services.PlayerStatistics;
 using GameTemplate.Services.StaticData;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;
-using GameTemplate.UI.LoadingCurtain;
+using Modules.LoadingCurtain;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.ControllManagement.Detectors;
 using Modules.EventBus;
+using Modules.LoadingCurtain.Configurations;
 using Modules.Localization.Detectors;
 using Modules.Localization.Systems.Demo;
 using Modules.Logging;
@@ -40,7 +41,8 @@ namespace GameTemplate.CompositionRoot
         [SerializeField, Required] private GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
         [SerializeField, Required] private StaticDataServiceConfiguration _staticDataServiceConfiguration;
         [SerializeField, Required] private PopupsAssetsConfiguration _popupsAssetsConfiguration;
-
+        [SerializeField, Required] private LoadingCurtainConfiguration _curtainConfiguration;
+        
         public override void InstallBindings()
         {
             BindInfrastructureAssetsConfiguration();
@@ -125,7 +127,10 @@ namespace GameTemplate.CompositionRoot
             
         private void BindInfrastructureUI()
         {
-            Container.BindInterfacesAndSelfTo<LoadingCurtainFabric>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingCurtainFabric>()
+                .AsSingle()
+                .WithArguments(_curtainConfiguration);
+            
             Container.BindInterfacesAndSelfTo<LoadingCurtainProxy>().AsSingle();
         }
 

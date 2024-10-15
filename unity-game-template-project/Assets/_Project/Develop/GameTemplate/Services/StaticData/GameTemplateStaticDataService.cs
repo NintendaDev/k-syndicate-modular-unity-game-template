@@ -10,6 +10,7 @@ using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.Localization.Systems.Demo;
 using Modules.Logging;
+using Modules.MusicManagement.Configurations;
 using Modules.PopupsSystem.Configurations;
 using Modules.SaveManagement.Systems;
 using Modules.Wallets.Configurations;
@@ -40,6 +41,7 @@ namespace GameTemplate.Services.StaticData
                 InitializeConfiguration<WalletAssetsConfiguration>,
                 InitializeConfiguration<LocalizationDatabase>,
                 InitializeConfiguration<PopupsAssetsConfiguration>,
+                InitializeConfiguration<MusicPlayerConfiguration>,
             };
         }
     }

@@ -3,7 +3,7 @@ using GameTemplate.GameLifeCycle.Loading.States;
 using GameTemplate.Services.Analytics;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.UI.LoadingCurtain;
+using Modules.LoadingCurtain;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Systems;
 using GameTemplate.Systems.Performance;

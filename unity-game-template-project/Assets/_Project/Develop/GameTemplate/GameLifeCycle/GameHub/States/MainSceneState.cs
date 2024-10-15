@@ -1,21 +1,21 @@
 using Cysharp.Threading.Tasks;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.MusicPlay;
 using GameTemplate.UI.GameHub.Signals;
-using GameTemplate.UI.LoadingCurtain;
+using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
+using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
     public class MainSceneState : SceneState
     {
         private readonly ILoadingCurtain _loadingCurtain;
-        private readonly IMusicPlayService _musicPlayService;
+        private readonly IMusicPlaySystem _musicPlayService;
 
         public MainSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
-            ILoadingCurtain loadingCurtain, IMusicPlayService musicPlayService)
+            ILoadingCurtain loadingCurtain, IMusicPlaySystem musicPlayService)
             : base(stateMachine, eventBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;

@@ -50,6 +50,8 @@ MonoBehaviour:
     type: 2}
   _popupsAssetsConfiguration: {fileID: 11400000, guid: a30ad85dbb308cf4b934a1f2adf40f89,
     type: 2}
+  _curtainConfiguration: {fileID: 11400000, guid: c5f7911b9696b5543b852998604d7692,
+    type: 2}
 --- !u!1 &8508536959024889151
 GameObject:
   m_ObjectHideFlags: 0
