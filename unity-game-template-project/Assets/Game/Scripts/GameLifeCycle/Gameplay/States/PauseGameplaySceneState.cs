@@ -12,7 +12,7 @@ using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
-    public class PauseGameplaySceneState : LevelGameplayState
+    public sealed class PauseGameplaySceneState : LevelGameplayState
     {
         public PauseGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
             IEventBus eventBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 

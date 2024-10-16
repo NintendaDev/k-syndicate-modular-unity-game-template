@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Modules.AudioManagement.Mixer
 {
-    public class AudioMixerSystem : IAudioMixerSystem, IProgressLoader, IProgressSaver
+    public sealed class AudioMixerSystem : IAudioMixerSystem, IProgressLoader, IProgressSaver
     {
         private const float MinPercent = 0;
         private const float MaxPercent = 1;

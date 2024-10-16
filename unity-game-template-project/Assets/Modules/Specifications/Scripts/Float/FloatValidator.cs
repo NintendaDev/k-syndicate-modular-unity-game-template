@@ -1,6 +1,6 @@
 namespace Modules.Specifications
 {
-    public class FloatValidator
+    public sealed class FloatValidator
     {
         private FloatGreatOrEqualZeroSpecification _floatGreatOrEqualZeroSpecification = new();
         private FloatBetweenZeroAndOneSpecification _floatBetweenZeroAndOneSpecification = new();

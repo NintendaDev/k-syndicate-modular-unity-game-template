@@ -6,7 +6,7 @@ using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.MainMenu.Presenters
 {
-    public class MainMenuPresenter : IDisposable
+    public sealed class MainMenuPresenter : IDisposable
     {
         private readonly MainMenuView _view;
         private readonly IEventBus _eventBus;

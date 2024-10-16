@@ -4,7 +4,7 @@ using Modules.Localization.Systems;
 
 namespace Modules.Localization.Processors.Factories
 {
-    public class LocalizedTermProcessorFactory : IDisposable
+    public sealed class LocalizedTermProcessorFactory : IDisposable
     {
         private readonly ILocalizationSystem _localizationSystem;
         private readonly List<IDisposable> _disposableObjects = new();

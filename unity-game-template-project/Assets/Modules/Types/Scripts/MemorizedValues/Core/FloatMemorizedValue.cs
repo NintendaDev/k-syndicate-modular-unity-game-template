@@ -1,6 +1,6 @@
 namespace Modules.Types.MemorizedValues.Core
 {
-    public class FloatMemorizedValue : MemorizedValue<float>
+    public sealed class FloatMemorizedValue : MemorizedValue<float>
     {
         public FloatMemorizedValue() : base()
         {

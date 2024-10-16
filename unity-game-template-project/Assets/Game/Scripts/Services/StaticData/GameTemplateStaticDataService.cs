@@ -17,7 +17,7 @@ using Modules.Wallets.Configurations;
 
 namespace GameTemplate.Services.StaticData
 {
-    public class GameTemplateStaticDataService : StaticDataService
+    public sealed class GameTemplateStaticDataService : StaticDataService
     {
         public GameTemplateStaticDataService(IAddressablesService addressablesService, ILogSystem logSystem, 
             StaticDataServiceConfiguration serviceConfiguration) 

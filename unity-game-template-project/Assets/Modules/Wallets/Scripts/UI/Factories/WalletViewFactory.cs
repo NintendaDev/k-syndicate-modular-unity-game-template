@@ -14,7 +14,7 @@ using Zenject;
 
 namespace Modules.Wallets.UI.Factories
 {
-    public class WalletViewFactory : PrefabFactoryAsync<WalletView>
+    public sealed class WalletViewFactory : PrefabFactoryAsync<WalletView>
     {
         private readonly IWallet _wallet;
         private readonly IStaticDataService _staticDataService;

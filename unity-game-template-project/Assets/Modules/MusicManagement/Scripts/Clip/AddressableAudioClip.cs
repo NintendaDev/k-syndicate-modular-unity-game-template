@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Modules.MusicManagement.Clip
 {
-    public class AddressableAudioClip : IDisposable, IAudioClip
+    public sealed class AddressableAudioClip : IDisposable, IAudioClip
     {
         private readonly IAddressablesService _addressablesService;
 

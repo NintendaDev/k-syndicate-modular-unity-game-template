@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace Modules.SceneManagement
 {
-    public class SceneLoader : ISceneLoader
+    public sealed class SceneLoader : ISceneLoader
     {
         private FloatValidator _floatValidator;
         private AsyncOperationHandle<SceneInstance> _previousSceneOperationHandle;

@@ -3,7 +3,7 @@ using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.Signals
 {
-    public class LevelLoadSignal : IPayloadSignal
+    public sealed class LevelLoadSignal : IPayloadSignal
     {
         public LevelLoadSignal(LevelCode levelCode) =>
             LevelCode = levelCode;

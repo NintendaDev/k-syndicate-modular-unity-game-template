@@ -8,7 +8,7 @@ using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Gameplay
 {
-    public class GameplayGameState : GameState
+    public sealed class GameplayGameState : GameState
     {
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IFastLoadLevel _levelLoader;

@@ -1,6 +1,6 @@
 namespace Modules.Specifications
 {
-    public class IntGreatOrEqualOneSpecification : ISpecification<int>
+    public sealed class IntGreatOrEqualOneSpecification : ISpecification<int>
     {
         public bool IsSatisfiedBy(int item)
         {

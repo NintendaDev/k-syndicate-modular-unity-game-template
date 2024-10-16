@@ -13,7 +13,7 @@ using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.GameHub.States
 {
-    public class GameHubGameState : GameState
+    public sealed class GameHubGameState : GameState
     {
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly ISceneLoader _sceneLoader;

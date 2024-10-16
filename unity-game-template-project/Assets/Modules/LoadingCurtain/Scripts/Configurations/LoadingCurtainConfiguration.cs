@@ -6,7 +6,7 @@ namespace Modules.LoadingCurtain.Configurations
 {
     [CreateAssetMenu(fileName = "new LoadingCurtainConfiguration",
         menuName = "Modules/LoadingCurtain/LoadingCurtainConfiguration")]
-    public class LoadingCurtainConfiguration : ScriptableObject
+    public sealed class LoadingCurtainConfiguration : ScriptableObject
     {
         [SerializeField, Required] private AssetReferenceGameObject _curtainPrefabReference;
         

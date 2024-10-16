@@ -8,7 +8,7 @@ using Modules.Wallets.UI.Views;
 
 namespace Modules.Wallets.UI.Presenters
 {
-    public class WalletsPanelPresenter
+    public sealed class WalletsPanelPresenter
     {
         private readonly IWalletPanelView _walletsPanelView;
         private readonly IWallet _wallet;

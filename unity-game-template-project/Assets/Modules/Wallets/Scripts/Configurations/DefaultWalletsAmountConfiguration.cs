@@ -8,7 +8,7 @@ namespace Modules.Wallets.Configurations
 {
     [CreateAssetMenu(fileName = "new DefaultWalletsAmountConfiguration", 
         menuName = "Modules/Wallets/DefaultWalletsAmountConfiguration")]
-    public class DefaultWalletsAmountConfiguration : ScriptableObject
+    public sealed class DefaultWalletsAmountConfiguration : ScriptableObject
     {
         [ValidateInput(nameof(IsUniqueCurrency))]
         [ValidateInput(nameof(IsNotNone))]

@@ -1,6 +1,6 @@
 ﻿namespace Modules.PopupsSystem.Configurations
 {
-    public class SimplePopupConfig
+    public sealed class SimplePopupConfig
     {
         public SimplePopupConfig(string header, string message, string buttonText) 
         {

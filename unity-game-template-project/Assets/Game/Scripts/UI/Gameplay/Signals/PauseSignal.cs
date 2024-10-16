@@ -2,7 +2,7 @@ using Modules.EventBus;
 
 namespace GameTemplate.UI.Gameplay.Signals
 {
-    public class PauseSignal : ISimpleSignal
+    public sealed class PauseSignal : ISimpleSignal
     {
     }
 }

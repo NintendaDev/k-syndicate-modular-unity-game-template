@@ -16,7 +16,7 @@ using Modules.SaveManagement.Interfaces;
 
 namespace GameTemplate.GameLifeCycle.Bootstrap
 {
-    public class BootstrapGameState : GameState
+    public sealed class BootstrapGameState : GameState
     {
         private readonly IStaticDataService _staticDataService;
         private readonly LoadingCurtainProxy _loadingCurtainProxy;

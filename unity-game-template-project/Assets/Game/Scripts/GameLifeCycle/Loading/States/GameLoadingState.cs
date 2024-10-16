@@ -9,7 +9,7 @@ using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading.States
 {
-    public class GameLoadingState : GameState
+    public sealed class GameLoadingState : GameState
     {
         private ISceneLoader _sceneLoader;
         private ILoadingCurtain _loadingCurtain;

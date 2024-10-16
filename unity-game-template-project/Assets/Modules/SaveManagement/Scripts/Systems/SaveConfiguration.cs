@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Modules.SaveManagement.Systems
 {
     [CreateAssetMenu(fileName = "new SaveConfiguration", menuName = "Modules/SaveManagement/SaveConfiguration")]
-    public class SaveConfiguration : ScriptableObject
+    public sealed class SaveConfiguration : ScriptableObject
     {
         [SerializeField] private bool _isEnableEncryption;
 

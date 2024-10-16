@@ -5,7 +5,7 @@ using Modules.EventBus;
 
 namespace GameTemplate.UI.Gameplay.Presenters
 {
-    public class PlayMenuPresenter : IDisposable
+    public sealed class PlayMenuPresenter : IDisposable
     {
         private readonly PlayMenuView _view;
         private readonly IEventBus _eventBus;

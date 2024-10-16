@@ -2,7 +2,7 @@ using Modules.Localization.Types;
 
 namespace Modules.Localization.Detectors
 {
-    public class ConstantLanguageDetector : LanguageDetector
+    public sealed class ConstantLanguageDetector : LanguageDetector
     {
         private readonly Language _language;
 

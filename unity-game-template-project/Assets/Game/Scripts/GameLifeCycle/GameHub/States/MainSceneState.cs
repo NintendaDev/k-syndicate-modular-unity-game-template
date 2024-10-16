@@ -9,7 +9,7 @@ using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
-    public class MainSceneState : SceneState
+    public sealed class MainSceneState : SceneState
     {
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IMusicPlaySystem _musicPlayService;

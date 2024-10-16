@@ -4,7 +4,7 @@ using Zenject;
 
 namespace GameTemplate.Infrastructure.ContextInstallers 
 {
-    public class LocalizationProcessorsInstaller : Installer<LocalizationProcessorsInstaller>
+    public sealed class LocalizationProcessorsInstaller : Installer<LocalizationProcessorsInstaller>
     {
         public override void InstallBindings()
         {

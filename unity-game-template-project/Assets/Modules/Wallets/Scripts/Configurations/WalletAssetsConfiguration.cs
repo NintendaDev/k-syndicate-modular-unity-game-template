@@ -9,7 +9,7 @@ namespace Modules.Wallets.Configurations
 {
     [CreateAssetMenu(fileName = "new WalletSpritesConfiguration", 
         menuName = "Modules/Wallets/WalletSpritesConfiguration")]
-    public class WalletAssetsConfiguration : ScriptableObject
+    public sealed class WalletAssetsConfiguration : ScriptableObject
     {
         [ValidateInput(nameof(IsUnique))]
         [SerializeField, RequiredListLength(1, null)] private List<CurrencySprite> _currencySprites;

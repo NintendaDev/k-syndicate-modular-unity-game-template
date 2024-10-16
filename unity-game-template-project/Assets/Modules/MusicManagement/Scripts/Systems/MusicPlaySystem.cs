@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Modules.MusicManagement.Systems
 {
-    public class MusicPlaySystem : IMusicPlaySystem
+    public sealed class MusicPlaySystem : IMusicPlaySystem
     {
         private readonly MusicPlayerFactory _musicPlayerFactory;
         private MusicPlayer _musicPlayer;

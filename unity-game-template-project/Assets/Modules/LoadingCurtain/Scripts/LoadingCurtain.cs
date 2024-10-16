@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Modules.LoadingCurtain
 {
-    public class LoadingCurtain : MonoBehaviour, ILoadingCurtain
+    public sealed class LoadingCurtain : MonoBehaviour, ILoadingCurtain
     {
         [SerializeField, Required] private CanvasGroup _canvasGroup;
         [SerializeField, MinValue(0), Unit(Units.Second)] private float _fadeTime = 1f;

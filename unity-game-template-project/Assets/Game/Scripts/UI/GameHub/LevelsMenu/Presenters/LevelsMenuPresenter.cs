@@ -9,7 +9,7 @@ using Modules.AssetsManagement.StaticData;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
 {
-    public class LevelsMenuPresenter
+    public sealed class LevelsMenuPresenter
     {
         private readonly LevelsMenuView _view;
         private readonly IStaticDataService _staticDataService;

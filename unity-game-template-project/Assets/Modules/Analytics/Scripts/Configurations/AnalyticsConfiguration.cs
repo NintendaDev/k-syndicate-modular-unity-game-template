@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Modules.Analytics.Configurations
 {
     [CreateAssetMenu(fileName = "new AnalyticsConfiguration", menuName = "Modules/Analytics/AnalyticsConfiguration")]
-    public class AnalyticsConfiguration : ScriptableObject
+    public sealed class AnalyticsConfiguration : ScriptableObject
     {
         [Title("Game Load Settings")]
         [SerializeField] private DesignEventData _authorizationStageEvent = new ("GameBoot", "Authorization");

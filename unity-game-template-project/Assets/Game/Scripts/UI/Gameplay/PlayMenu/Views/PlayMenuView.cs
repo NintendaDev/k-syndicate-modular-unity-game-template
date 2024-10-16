@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI.Gameplay.PlayMenu.Views
 {
-    public class PlayMenuView : EnableDisableBehaviour
+    public sealed class PlayMenuView : EnableDisableBehaviour
     {
         [SerializeField, Required] private UIButton _pauseButton;
 

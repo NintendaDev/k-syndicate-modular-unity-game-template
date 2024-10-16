@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Modules.Wallets.UI.Views
 {
-    public class WalletView : MonoBehaviour
+    public sealed class WalletView : MonoBehaviour
     {
         [SerializeField, Required] private Image _icon;
         [SerializeField, Required] private TMP_Text _amountLabel;

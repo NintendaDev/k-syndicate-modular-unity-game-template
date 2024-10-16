@@ -2,7 +2,7 @@ using System;
 
 namespace Modules.Authorization.Interfaces
 {
-    public class DummyAuthorizationService : IAuthorizationService
+    public sealed class DummyAuthorizationService : IAuthorizationService
     {
         public event Action LoginCompleted;
 

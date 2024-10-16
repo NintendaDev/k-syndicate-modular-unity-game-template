@@ -11,7 +11,7 @@ using Modules.Wallets.Data;
 
 namespace Modules.Wallets.Systems
 {
-    public class Wallet : IncreasedSaveableObject<CurrencyType>, IWallet
+    public sealed class Wallet : IncreasedSaveableObject<CurrencyType>, IWallet
     {
         private readonly IStaticDataService _staticDataService;
 

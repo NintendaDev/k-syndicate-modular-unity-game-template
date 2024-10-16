@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Modules.Analytics.Types
 {
     [Serializable]
-    public class DesignEventData
+    public sealed class DesignEventData
     {
         private const string EventDelimeter = ":";
 

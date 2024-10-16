@@ -6,7 +6,7 @@ namespace Modules.MusicManagement.Configurations
 {
     [CreateAssetMenu(fileName = "new MusicPlayerConfiguration", 
         menuName = "Modules/MusicManagement/MusicPlayerConfiguration")]
-    public class MusicPlayerConfiguration : ScriptableObject
+    public sealed class MusicPlayerConfiguration : ScriptableObject
     {
         [field: SerializeField, Required] public AssetReferenceGameObject MusicPlayerReference { get; private set; }
     }

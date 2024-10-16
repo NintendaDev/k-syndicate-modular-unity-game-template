@@ -5,7 +5,7 @@ using Modules.Core.UI;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Views
 {
-    public class LevelView : UITextButton, IDestroyEvent
+    public sealed class LevelView : UITextButton, IDestroyEvent
     {
         public event Action Destroyed;
         

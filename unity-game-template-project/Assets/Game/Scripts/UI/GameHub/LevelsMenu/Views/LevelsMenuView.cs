@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Views
 {
-    public class LevelsMenuView : ViewWithBackButton
+    public sealed class LevelsMenuView : ViewWithBackButton
     {
         [SerializeField, Required] private LevelsPanelView _levelsPanelView;
 

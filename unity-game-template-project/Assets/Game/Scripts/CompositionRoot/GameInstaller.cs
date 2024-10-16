@@ -34,7 +34,7 @@ using Zenject;
 
 namespace GameTemplate.CompositionRoot
 {
-    public class GameInstaller : MonoInstaller
+    public sealed class GameInstaller : MonoInstaller
     {
         [SerializeField, Required] private GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
         [SerializeField, Required] private StaticDataServiceConfiguration _staticDataServiceConfiguration;

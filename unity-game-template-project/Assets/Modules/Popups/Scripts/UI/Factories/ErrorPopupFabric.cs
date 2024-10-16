@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Modules.PopupsSystem.UI.Factories
 {
-    public class ErrorPopupFabric : PrefabFactoryAsync<SimplePopup>
+    public sealed class ErrorPopupFabric : PrefabFactoryAsync<SimplePopup>
     {
         private readonly IStaticDataService _staticDataService;
         private PopupsAssetsConfiguration _configuration;

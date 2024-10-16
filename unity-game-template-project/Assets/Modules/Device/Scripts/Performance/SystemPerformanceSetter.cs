@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Modules.Device.Performance
 {
-    public class SystemPerformanceSetter
+    public sealed class SystemPerformanceSetter
     {
         private readonly IPerformaceConfiguration _performanceConfiguration;
 

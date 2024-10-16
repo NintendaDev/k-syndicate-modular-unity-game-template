@@ -1,6 +1,6 @@
 namespace Modules.Specifications
 {
-    public class IntBetweenZeroAndOneSpecification : ISpecification<int>
+    public sealed class IntBetweenZeroAndOneSpecification : ISpecification<int>
     {
         public bool IsSatisfiedBy(int item)
         {

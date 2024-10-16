@@ -1,6 +1,6 @@
 namespace Modules.Specifications
 {
-    public class IntValidator
+    public sealed class IntValidator
     {
         private IntGreatOrEqualZeroSpecification _intGreatOrEqualZeroSpecification = new();
         private IntGreatOrEqualOneSpecification _intGreatOrEqualOneSpecification = new();

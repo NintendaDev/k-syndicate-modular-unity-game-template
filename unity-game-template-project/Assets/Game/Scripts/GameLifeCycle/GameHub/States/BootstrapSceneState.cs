@@ -10,7 +10,7 @@ using Modules.MusicManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
-    public class BootstrapSceneState : SceneState
+    public sealed class BootstrapSceneState : SceneState
     {
         private readonly IMusicPlaySystem _musicPlayService;
         private readonly IStaticDataService _staticDataService;

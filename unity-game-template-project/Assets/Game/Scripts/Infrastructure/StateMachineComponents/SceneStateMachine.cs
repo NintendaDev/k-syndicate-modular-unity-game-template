@@ -2,7 +2,7 @@
 
 namespace GameTemplate.Infrastructure.StateMachineComponents
 {
-    public class SceneStateMachine : StateMachine
+    public sealed class SceneStateMachine : StateMachine
     {
     }
 }
