@@ -8,7 +8,7 @@ using UnityEngine;
 namespace GameTemplate.Level.Configurations
 {
     [CreateAssetMenu(fileName = "new LevelsConfigurationsHub", menuName = "GameTemplate/Levels/LevelsConfigurationsHub")]
-    public class LevelsConfigurationsHub : ScriptableObject
+    public sealed class LevelsConfigurationsHub : ScriptableObject
     {
         [ValidateInput(nameof(IsUniqueLevel))]
         [SerializeField] private LevelConfiguration[] _levelsConfigurations;

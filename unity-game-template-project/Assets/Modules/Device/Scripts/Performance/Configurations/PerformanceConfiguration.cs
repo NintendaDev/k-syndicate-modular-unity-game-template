@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Modules.Device.Performance.Configurations
 {
     [Serializable]
-    public class PerformanceConfiguration
+    public sealed class PerformanceConfiguration
     {
         [field: SerializeField, Required, MinValue(0)] public int TargetFrameRate { get; private set; } = 60;
 

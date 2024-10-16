@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Modules.NetworkAccount
 {
-    public class DummyNetworkAccount : INetworkAccount
+    public sealed class DummyNetworkAccount : INetworkAccount
     {
         public Texture2D Avatar => null;
 

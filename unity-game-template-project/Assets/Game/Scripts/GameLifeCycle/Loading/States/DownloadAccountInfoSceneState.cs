@@ -7,7 +7,7 @@ using Modules.NetworkAccount;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
-    public class DownloadAccountInfoSceneState : SceneState
+    public sealed class DownloadAccountInfoSceneState : SceneState
     {
         private readonly INetworkAccount _networkAccount;
 

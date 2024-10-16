@@ -10,7 +10,7 @@ using Modules.Types.MemorizedValues.Core;
 
 namespace GameTemplate.Services.PlayerStatistics
 {
-    public class PlayerStatisticsService : IncreasedSaveableObject<StatisticType>, IPlayerStatisticsService
+    public sealed class PlayerStatisticsService : IncreasedSaveableObject<StatisticType>, IPlayerStatisticsService
     {
         public PlayerStatisticsService(ILogSystem logSystem) : base(logSystem)
         {

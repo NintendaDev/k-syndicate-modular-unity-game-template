@@ -9,7 +9,7 @@ using Modules.Logging;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
-    public class FinishLoadingSceneState : AnalyticsGameState
+    public sealed class FinishLoadingSceneState : AnalyticsGameState
     {
         public FinishLoadingSceneState(GameStateMachine stateMachine, ILogSystem logSystem, IEventBus eventBus,
             IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService) 

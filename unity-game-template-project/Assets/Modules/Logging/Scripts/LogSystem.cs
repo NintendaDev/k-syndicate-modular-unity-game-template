@@ -2,7 +2,7 @@
 
 namespace Modules.Logging
 {
-    public class LogSystem : ILogSystem
+    public sealed class LogSystem : ILogSystem
     {
         public void Log(string message) => 
             Debug.Log(message);

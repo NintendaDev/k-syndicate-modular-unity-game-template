@@ -15,7 +15,7 @@ using Zenject;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
 {
-    public class LevelViewFactory : PrefabFactoryAsync<LevelView>
+    public sealed class LevelViewFactory : PrefabFactoryAsync<LevelView>
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IEventBus _eventBus;

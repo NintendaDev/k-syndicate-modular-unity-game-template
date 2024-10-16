@@ -6,7 +6,7 @@ using Zenject;
 
 namespace GameTemplate.Infrastructure.Bootstrap
 {
-    public class GameBootstrapperFactory : PrefabFactoryAsync<GameBootstrapper>
+    public sealed class GameBootstrapperFactory : PrefabFactoryAsync<GameBootstrapper>
     {
         private readonly BootstrapAssetAddresser _bootstrapAssetAddresser;
 

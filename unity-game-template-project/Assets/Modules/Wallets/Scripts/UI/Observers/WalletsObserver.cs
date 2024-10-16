@@ -5,7 +5,7 @@ using Modules.Wallets.UI.Views;
 
 namespace Modules.Wallets.UI.Observers
 {
-    public class WalletsObserver : IDisposable
+    public sealed class WalletsObserver : IDisposable
     {
         private readonly WalletView _view;
         private readonly IWallet _wallet;

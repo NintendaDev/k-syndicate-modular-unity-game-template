@@ -5,7 +5,7 @@ using Modules.PopupsSystem.UI.Simple;
 
 namespace Modules.PopupsSystem.UI.Factories
 {
-    public class PopupFactory : IPopupFactory
+    public sealed class PopupFactory : IPopupFactory
     {
         private readonly InfoPopupFabric _infoPopupFactory;
         private readonly ErrorPopupFabric _errorPopupFabric;

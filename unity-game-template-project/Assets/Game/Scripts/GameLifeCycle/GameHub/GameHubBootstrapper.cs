@@ -5,7 +5,7 @@ using Zenject;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
-    public class GameHubBootstrapper : IInitializable
+    public sealed class GameHubBootstrapper : IInitializable
     {
         private readonly SceneStateMachine _sceneStateMachine;
         private readonly StatesFactory _statesFactory;

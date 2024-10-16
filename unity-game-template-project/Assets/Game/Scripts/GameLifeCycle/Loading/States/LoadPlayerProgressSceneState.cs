@@ -11,7 +11,7 @@ using Modules.SaveManagement.Interfaces;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
-    public class LoadPlayerProgressSceneState : AnalyticsSceneState
+    public sealed class LoadPlayerProgressSceneState : AnalyticsSceneState
     {
         private readonly ISaveLoadSystem _saveLoadSystem;
         private readonly IPersistentProgressProvider _persistentProgressProvider;

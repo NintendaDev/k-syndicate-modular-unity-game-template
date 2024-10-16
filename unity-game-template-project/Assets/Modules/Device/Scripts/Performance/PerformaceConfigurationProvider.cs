@@ -4,7 +4,7 @@ using Modules.Device.Performance.Configurations;
 
 namespace Modules.Device.Performance
 {
-    public class PerformaceConfigurationProvider : IPerformaceConfiguration
+    public sealed class PerformaceConfigurationProvider : IPerformaceConfiguration
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IDeviceDetector _deviceDetector;

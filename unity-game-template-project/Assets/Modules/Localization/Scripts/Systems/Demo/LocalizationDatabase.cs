@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Modules.Localization.Systems.Demo
 {
     [CreateAssetMenu(fileName = "new LocalizationDatabase", menuName = "GameTemplate/Localization/LocalizationDatabase")]
-    public class LocalizationDatabase : ScriptableObject
+    public sealed class LocalizationDatabase : ScriptableObject
     {
         [SerializeField, IsNotNoneLanguage] private Language _defaultLanguage;
 

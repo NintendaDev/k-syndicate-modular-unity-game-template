@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 namespace GameTemplate.Infrastructure.Levels.Configurations
 {
     [CreateAssetMenu(fileName = "new LevelConfiguration", menuName = "GameTemplate/Levels/LevelConfiguration")]
-    public class LevelConfiguration : ScriptableObject, IReferenceAudio
+    public sealed class LevelConfiguration : ScriptableObject, IReferenceAudio
     {
         [SerializeField, IsNotNoneLevelCode] private LevelCode _levelCode;
         [SerializeField, Required] private string _title;

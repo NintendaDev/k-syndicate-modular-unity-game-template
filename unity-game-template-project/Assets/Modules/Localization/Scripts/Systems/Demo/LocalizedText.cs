@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Modules.Localization.Systems.Demo
 {
     [System.Serializable]
-    public class LocalizedText
+    public sealed class LocalizedText
     {
         [field: SerializeField, IsNotNoneLanguage] public Language Language { get; private set; }
 

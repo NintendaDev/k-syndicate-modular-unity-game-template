@@ -4,7 +4,7 @@ using Modules.Localization.Processors.Factories;
 
 namespace Modules.Localization.Processors
 {
-    public class LocalizedTermProcessorLinker
+    public sealed class LocalizedTermProcessorLinker
     {
         private readonly LocalizedTermProcessorFactory _localizedTermProcessorFactory;
 

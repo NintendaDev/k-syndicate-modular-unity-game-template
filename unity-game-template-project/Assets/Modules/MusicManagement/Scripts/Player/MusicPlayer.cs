@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Modules.MusicManagement.Player
 {
-    public class MusicPlayer : MonoBehaviour
+    public sealed class MusicPlayer : MonoBehaviour
     {
         [SerializeField, Required, ChildGameObjectsOnly] private AudioSource _audioSource;
 

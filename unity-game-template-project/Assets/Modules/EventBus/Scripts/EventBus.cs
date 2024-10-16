@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Modules.EventBus
 {
-    public class EventBus : IEventBus
+    public sealed class EventBus : IEventBus
     {
         private readonly string _incorrectCallbackTypeMessage = "Incorrect callback type";
         private Dictionary<string, List<object>> _signalCallbacks = new();

@@ -10,7 +10,7 @@ using Zenject;
 
 namespace GameTemplate.Infrastructure.Bootstrappers
 {
-    public class GameBootstrapper : MonoBehaviour
+    public sealed class GameBootstrapper : MonoBehaviour
     {
         private GameStateMachine _gameStateMachine;
         private StatesFactory _statesFactory;

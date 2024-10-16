@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Modules.LoadingCurtain
 {
-    public class LoadingCurtainFabric : PrefabFactoryAsync<LoadingCurtain>
+    public sealed class LoadingCurtainFabric : PrefabFactoryAsync<LoadingCurtain>
     {
         private readonly LoadingCurtainConfiguration _gameLoadingAssetsConfiguration;
 

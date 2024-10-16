@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Modules.AudioManagement.UI.Views
 {
-    public class AudioSettingsView : MonoBehaviour
+    public sealed class AudioSettingsView : MonoBehaviour
     {
         [SerializeField, Required] private SliderBehaviour _musicSlider;
         [SerializeField, Required] private SliderBehaviour _effectsSlider;

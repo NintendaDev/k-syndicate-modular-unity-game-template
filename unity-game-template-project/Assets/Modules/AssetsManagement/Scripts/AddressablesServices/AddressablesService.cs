@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Modules.AssetsManagement.AddressablesServices
 {
-    public class AddressablesService : IAddressablesService
+    public sealed class AddressablesService : IAddressablesService
     {
         private readonly Dictionary<string, AsyncOperationHandle> _assetRequests = new();
 

@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Modules.MusicManagement.Player
 {
-    public class MusicPlayerFactory : PrefabFactoryAsync<MusicPlayer>
+    public sealed class MusicPlayerFactory : PrefabFactoryAsync<MusicPlayer>
     {
         private readonly IStaticDataService _staticDataService;
         private MusicPlayerConfiguration _configuration;

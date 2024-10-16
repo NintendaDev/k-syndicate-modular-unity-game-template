@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Modules.MusicManagement.Clip
 {
-    public class AddressableAudioClipFactory : IDisposable
+    public sealed class AddressableAudioClipFactory : IDisposable
     {
         private readonly DiContainer _diContainer;
         private List<IDisposable> _disposableObjects = new();

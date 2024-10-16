@@ -1,6 +1,6 @@
 namespace Modules.Types.MemorizedValues.Core
 {
-    public class LongMemorizedValue : MemorizedValue<long>
+    public sealed class LongMemorizedValue : MemorizedValue<long>
     {
         public LongMemorizedValue() : base()
         {

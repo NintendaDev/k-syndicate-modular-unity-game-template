@@ -5,7 +5,7 @@ using Zenject;
 
 namespace GameTemplate.Infrastructure.ContextInstallers.Loading
 {
-    public class GameLoadingSceneInstaller : MonoInstaller
+    public sealed class GameLoadingSceneInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

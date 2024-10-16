@@ -8,7 +8,7 @@ using Sirenix.OdinInspector.Editor.Validation;
 #if UNITY_EDITOR
 [assembly: RegisterValidator(typeof(LevelCodeValueValidator))]
 
-public class LevelCodeValueValidator : AttributeValidator<IsNotNoneLevelCodeAttribute, LevelCode>
+public sealed class LevelCodeValueValidator : AttributeValidator<IsNotNoneLevelCodeAttribute, LevelCode>
 {
     protected override void Validate(ValidationResult result)
     {
@@ -18,7 +18,7 @@ public class LevelCodeValueValidator : AttributeValidator<IsNotNoneLevelCodeAttr
 }
 #endif
 
-public class IsNotNoneLevelCodeAttribute : Attribute
+public sealed class IsNotNoneLevelCodeAttribute : Attribute
 {
     public LevelCode NoneLevelCode { get; } = LevelCode.None;
 }

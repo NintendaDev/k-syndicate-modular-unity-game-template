@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 namespace GameTemplate.Infrastructure.Configurations
 {
     [CreateAssetMenu(fileName = "new GameHubConfiguration", menuName = "GameTemplate/Infrastructure/GameHubConfiguration")]
-    public class GameHubConfiguration : ScriptableObject, IReferenceAudio
+    public sealed class GameHubConfiguration : ScriptableObject, IReferenceAudio
     {
         [field: SerializeField, Required] public AssetReferenceT<AudioClip> AudioReference { get; private set; }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI.Gameplay
 {
-    public class GameplayMenuView : MonoBehaviour
+    public sealed class GameplayMenuView : MonoBehaviour
     {
         [SerializeField, Required] private PlayMenuView _playMenu;
         [SerializeField, Required] private PauseMenuView _pauseMenu;

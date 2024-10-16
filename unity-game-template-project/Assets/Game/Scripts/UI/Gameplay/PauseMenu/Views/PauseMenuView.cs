@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI.Gameplay.PauseMenu.Views
 {
-    public class PauseMenuView : ViewWithBackButton
+    public sealed class PauseMenuView : ViewWithBackButton
     {
         [SerializeField, Required] private UIButton _exitButton;
 

@@ -5,7 +5,7 @@ using Modules.Localization.Types;
 
 namespace Modules.Localization.Systems.Demo
 {
-    public class SimpleLocalizationSystem : ILocalizationSystem
+    public sealed class SimpleLocalizationSystem : ILocalizationSystem
     {
         private readonly ILanguageDetector _languageDetector;
         private readonly IStaticDataService _staticDataService;

@@ -12,7 +12,7 @@ using Modules.PopupsSystem;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {
-    public class AuthorizationSceneState : SceneState
+    public sealed class AuthorizationSceneState : SceneState
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly IAuthorizationService _authorizationService;

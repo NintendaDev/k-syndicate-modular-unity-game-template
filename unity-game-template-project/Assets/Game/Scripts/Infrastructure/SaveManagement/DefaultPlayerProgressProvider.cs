@@ -5,7 +5,7 @@ using Modules.SaveManagement.Interfaces;
 
 namespace GameTemplate.Infrastructure.SaveManagement.Defaults
 {
-    public class DefaultPlayerProgressProvider : IDefaultPlayerProgress
+    public sealed class DefaultPlayerProgressProvider : IDefaultPlayerProgress
     {
         private readonly IStaticDataService _staticDataService;
 

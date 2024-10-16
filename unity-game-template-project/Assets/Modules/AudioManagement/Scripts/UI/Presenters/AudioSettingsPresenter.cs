@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Modules.AudioManagement.UI.Presenters
 {
-    public class AudioSettingsPresenter : IDisposable, ILateTickable
+    public sealed class AudioSettingsPresenter : IDisposable, ILateTickable
     {
         private readonly AudioSettingsView _view;
         private readonly IAudioMixerSystem _audioMixerSystem;

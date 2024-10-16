@@ -6,7 +6,7 @@ using Zenject;
 
 namespace GameTemplate.GameLifeCycle.Loading
 {
-    public class GameLoadingSceneBootstrapper : IInitializable
+    public sealed class GameLoadingSceneBootstrapper : IInitializable
     {
         private readonly SceneStateMachine _sceneStateMachine;
         private readonly StatesFactory _statesFactory;

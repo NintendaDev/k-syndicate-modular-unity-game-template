@@ -9,7 +9,7 @@ using Modules.Wallets.Data;
 namespace GameTemplate.Infrastructure.SaveManagement
 {
     [System.Serializable]
-    public class GameTemplatePlayerProgress : PlayerProgress
+    public sealed class GameTemplatePlayerProgress : PlayerProgress
     {
         [SerializeField] private WalletsData _walletsData;
         [SerializeField] private StatisticsData _statisticsData;

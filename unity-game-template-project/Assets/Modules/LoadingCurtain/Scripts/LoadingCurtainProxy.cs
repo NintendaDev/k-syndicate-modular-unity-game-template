@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Modules.LoadingCurtain
 {
-    public class LoadingCurtainProxy : ILoadingCurtain
+    public sealed class LoadingCurtainProxy : ILoadingCurtain
     {
         private readonly LoadingCurtainFabric _factory;
         private ILoadingCurtain _curtain;

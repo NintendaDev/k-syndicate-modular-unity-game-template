@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Modules.Device.Detecting
 {
-    public class UnityDeviceDetector : IDeviceDetector
+    public sealed class UnityDeviceDetector : IDeviceDetector
     {
         public bool IsMobile()
         {

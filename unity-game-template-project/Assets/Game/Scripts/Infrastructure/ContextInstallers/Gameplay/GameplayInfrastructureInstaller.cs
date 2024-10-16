@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace GameTemplate.Infrastructure.ContextInstallers.Gameplay
 {
-    public class GameplayInfrastructureInstaller : InfrastructureInstaller
+    public sealed class GameplayInfrastructureInstaller : InfrastructureInstaller
     {
         [SerializeField, Required] private PlayMenuView _playMenuView;
         [SerializeField, Required] private PauseMenuView _pauseMenuView;

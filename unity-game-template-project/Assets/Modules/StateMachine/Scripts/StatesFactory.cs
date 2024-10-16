@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Modules.StateMachines
 {
-    public class StatesFactory
+    public sealed class StatesFactory
     {
         private IInstantiator _instantiator;
 

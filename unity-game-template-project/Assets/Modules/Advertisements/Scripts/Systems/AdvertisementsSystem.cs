@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Modules.Advertisements.Systems
 {
-    public abstract class AbstractAdvertisementsSystem : IAdvertisementsSystem
+    public abstract class AdvertisementsSystem : IAdvertisementsSystem
     {
         private readonly TimeAndAudioState _timeAndAudioState = new();
-        private readonly List<Action> _interstitialCloseCallbacks = new();
-        private readonly List<Action> _rewardCloseCallbacks = new();
-        private readonly List<Action> _rewardSuccessCallbacks = new();
+        private readonly Queue<Action> _interstitialCloseCallbacks = new();
+        private readonly Queue<Action> _rewardCloseCallbacks = new();
+        private readonly Queue<Action> _rewardSuccessCallbacks = new();
         private bool _isDisabledInterstitialAdvertisements;
 
         public virtual bool CanShowInterstitial => _isDisabledInterstitialAdvertisements == false;
@@ -36,7 +36,7 @@ namespace Modules.Advertisements.Systems
             DisableSoundAndGameTime();
             
             if (onCloseCallback != null)
-                _interstitialCloseCallbacks.Add(onCloseCallback);
+                _interstitialCloseCallbacks.Enqueue(onCloseCallback);
             
             StartInterstitialBehaviour();
 
@@ -48,22 +48,16 @@ namespace Modules.Advertisements.Systems
             if (CanShowReward == false)
                 return false;
             
-            _rewardCloseCallbacks.Add(onCloseCallback);
-            _rewardSuccessCallbacks.Add(onSuccessCallback);
+            _rewardCloseCallbacks.Enqueue(onCloseCallback);
+            _rewardSuccessCallbacks.Enqueue(onSuccessCallback);
             
             StartRewardBehaviour();
 
             return true;
         }
-        
-        protected void DisableSoundAndGameTime()
-        {
-            _timeAndAudioState.Save();
-            _timeAndAudioState.Off();
-        }
 
         protected abstract void StartInterstitialBehaviour();
-        
+
         protected abstract void StartRewardBehaviour();
 
         protected void ProcessCloseInterstitialCallbacks() =>
@@ -71,42 +65,59 @@ namespace Modules.Advertisements.Systems
 
         protected void ProcessRewardCloseCallbacks() =>
             ProcessCallbacks(_rewardCloseCallbacks);
-        
+
         protected void ProcessRewardSuccessCallbacks() =>
             ProcessCallbacks(_rewardSuccessCallbacks);
 
         protected void EnableSoundAndGameTime()
         {
-            _timeAndAudioState.Restore();
+            _timeAndAudioState.On();
         }
 
-        private void ProcessCallbacks(List<Action> callbacks)
+        private void DisableSoundAndGameTime()
         {
-            callbacks.ForEach(callback => callback.Invoke());
-            callbacks.Clear();
+            _timeAndAudioState.Off();
         }
 
-        private class TimeAndAudioState
+        private void ProcessCallbacks(Queue<Action> callbacks)
+        {
+            while (callbacks.Count > 0)
+                callbacks.Dequeue().Invoke();
+        }
+
+        private sealed class TimeAndAudioState
         {
             private float _originalAudioVolume;
             private float _originalTimeScale;
+            private bool _isOffState;
 
-            public void Save()
+            public void On()
             {
-                _originalAudioVolume = AudioListener.volume;
-                _originalTimeScale = Time.timeScale;
-            }
-
-            public void Restore()
-            {
+                if (_isOffState == false)
+                    return;
+                
                 AudioListener.volume = _originalAudioVolume;
                 Time.timeScale = _originalTimeScale;
+                _isOffState = false;
             }
 
             public void Off()
             {
+                if (_isOffState)
+                    return;
+                
+                Save();
+                
                 AudioListener.volume = 0;
                 Time.timeScale = 0;
+
+                _isOffState = true;
+            }
+
+            private void Save()
+            {
+                _originalAudioVolume = AudioListener.volume;
+                _originalTimeScale = Time.timeScale;
             }
         }
     }

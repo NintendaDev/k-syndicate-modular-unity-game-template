@@ -1,6 +1,6 @@
 namespace Modules.Specifications
 {
-    public class FloatGreatOrEqualZeroSpecification : ISpecification<float>
+    public sealed class FloatGreatOrEqualZeroSpecification : ISpecification<float>
     {
         public bool IsSatisfiedBy(float item)
         {

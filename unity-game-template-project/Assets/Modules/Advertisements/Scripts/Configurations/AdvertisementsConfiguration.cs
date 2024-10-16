@@ -5,7 +5,7 @@ namespace Modules.Advertisements.Configurations
 {
     [CreateAssetMenu(fileName = "new AdvertisimentsConfiguration", 
         menuName = "Modules/Advertisements/AdvertisementsConfiguration")]
-    public class AdvertisementsConfiguration : ScriptableObject
+    public sealed class AdvertisementsConfiguration : ScriptableObject
     {
         [LabelWidth(250)]
         [field: SerializeField, Range(0, 1)] public float InterstitialOnStartLevelProbability = 1f;

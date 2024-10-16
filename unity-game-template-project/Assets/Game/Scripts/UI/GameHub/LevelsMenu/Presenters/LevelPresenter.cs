@@ -5,7 +5,7 @@ using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
 {
-    public class LevelPresenter : IDisposable
+    public sealed class LevelPresenter : IDisposable
     {
         private readonly LevelView _levelView;
         private readonly IEventBus _eventBus;

@@ -7,7 +7,7 @@ using Modules.AssetsManagement.StaticData;
 
 namespace GameTemplate.Services.GameLevelLoader
 {
-    public class LevelLoaderService : ILevelLoaderService
+    public sealed class LevelLoaderService : ILevelLoaderService
     {
         private readonly IStaticDataService _staticDataService;
         private readonly ISceneLoader _sceneLoader;

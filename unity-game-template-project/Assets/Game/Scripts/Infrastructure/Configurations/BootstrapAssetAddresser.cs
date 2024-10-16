@@ -1,6 +1,6 @@
 namespace GameTemplate.Infrastructure
 {
-    public class BootstrapAssetAddresser
+    public sealed class BootstrapAssetAddresser
     {
         public string BootstrapPrefabAddress = "GameBootstrapper";
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI.GameHub.MainMenu.Views
 {
-    public class GameHubView : MonoBehaviour
+    public sealed class GameHubView : MonoBehaviour
     {
         [SerializeField, Required] private MainMenuView _mainMenuView;
         [SerializeField, Required] private LevelsMenuView _levelsMenuView;

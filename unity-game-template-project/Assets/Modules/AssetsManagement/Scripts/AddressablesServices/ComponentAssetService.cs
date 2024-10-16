@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 
 namespace Modules.AssetsManagement.AddressablesServices
 {
-    public class ComponentAssetService : IComponentAssetService
+    public sealed class ComponentAssetService : IComponentAssetService
     {
         private IAddressablesService _addressablesService;
 

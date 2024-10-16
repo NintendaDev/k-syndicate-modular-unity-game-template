@@ -4,7 +4,7 @@ using Zenject;
 
 namespace GameTemplate.Infrastructure.Bootstrap
 {
-    public class GameRunner : MonoBehaviour
+    public sealed class GameRunner : MonoBehaviour
     {
         private GameBootstrapperFactory _bootstrapperFactory;
 

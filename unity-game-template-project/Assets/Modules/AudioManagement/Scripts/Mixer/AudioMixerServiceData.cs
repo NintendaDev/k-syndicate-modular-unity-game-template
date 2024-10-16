@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Modules.AudioManagement.Mixer
 {
     [System.Serializable]
-    public class AudioMixerServiceData
+    public sealed class AudioMixerServiceData
     {
         [SerializeField] private float _musicPercentVolume;
         [SerializeField] private float _effectsPercentVolume;

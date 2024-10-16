@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Modules.Localization.Systems.Demo
 {
-    public class UITextLocalizator : MonoBehaviour
+    public sealed class UITextLocalizator : MonoBehaviour
     {
         [SerializeField, Required] private UIText _text;
         private LocalizedTermProcessorLinker _localizedTermProcessorLinker;

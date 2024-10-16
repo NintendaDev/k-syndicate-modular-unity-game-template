@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Modules.SaveManagement.Systems
 {
-    public class PlayerPrefsSaveLoadSystem : SaveLoadSystem
+    public sealed class PlayerPrefsSaveLoadSystem : SaveLoadSystem
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IDefaultPlayerProgress _defaultPlayerProgress;

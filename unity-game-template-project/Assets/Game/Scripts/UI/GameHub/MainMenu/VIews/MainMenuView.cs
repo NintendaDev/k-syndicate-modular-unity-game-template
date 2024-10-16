@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI.GameHub.MainMenu.Views
 {
-    public class MainMenuView : EnableDisableBehaviour, IWalletPanelView
+    public sealed class MainMenuView : EnableDisableBehaviour, IWalletPanelView
     {
         [SerializeField, Required] private UIButton _settingsButton;
         [SerializeField, Required] private UITextButton _loginButton;

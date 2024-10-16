@@ -3,7 +3,7 @@ using Modules.Localization.Systems;
 
 namespace Modules.Localization.Processors
 {
-    public class LocalizedTermProcessor : IDisposable
+    public sealed class LocalizedTermProcessor : IDisposable
     {
         private readonly ILocalizationSystem _localizationSystem;
         private string _term;

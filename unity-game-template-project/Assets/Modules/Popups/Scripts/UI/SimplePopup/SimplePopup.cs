@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Modules.PopupsSystem.UI.Simple
 {
-    public class SimplePopup : PopupBase<bool>
+    public sealed class SimplePopup : PopupBase<bool>
     {
         [SerializeField] private UIText _headerLabel;
         [SerializeField] private UIText _messageLabel;

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Modules.Localization.Systems.Demo
 {
     [System.Serializable]
-    public class TermTranslations
+    public sealed class TermTranslations
     {
         [SerializeField, Required] private string _term;
 

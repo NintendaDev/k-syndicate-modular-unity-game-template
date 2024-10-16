@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 namespace GameTemplate.Infrastructure.Configurations
 {
     [CreateAssetMenu(fileName = "new GameLoadingAssetsConfiguration", menuName = "GameTemplate/Infrastructure/GameLoadingAssetsConfiguration")]
-    public class GameLoadingAssetsConfiguration : ScriptableObject
+    public sealed class GameLoadingAssetsConfiguration : ScriptableObject
     {
         [field: SerializeField, Required] public AssetReference Curtain { get; private set; }
 

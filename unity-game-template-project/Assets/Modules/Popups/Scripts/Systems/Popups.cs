@@ -9,7 +9,7 @@ using Modules.PopupsSystem.UI.Simple;
 
 namespace Modules.PopupsSystem
 {
-    public class Popups : IPopups, IDisposable
+    public sealed class Popups : IPopups, IDisposable
     {
         private readonly IPopupFactory _popupFactory;
         private readonly ILocalizationSystem _localizationSystem;

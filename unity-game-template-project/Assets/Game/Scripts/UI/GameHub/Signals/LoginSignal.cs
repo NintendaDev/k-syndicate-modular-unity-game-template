@@ -2,7 +2,7 @@ using Modules.EventBus;
 
 namespace GameTemplate.UI.GameHub.Signals
 {
-    public class LoginSignal : ISimpleSignal
+    public sealed class LoginSignal : ISimpleSignal
     {
     }
 }

@@ -1,6 +1,6 @@
 namespace Modules.Types.MemorizedValues.Core
 {
-    public class BoolMemorizedValue : MemorizedValue<bool>
+    public sealed class BoolMemorizedValue : MemorizedValue<bool>
     {
         public BoolMemorizedValue() : base()
         {

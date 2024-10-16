@@ -4,7 +4,7 @@ using Modules.Logging;
 
 namespace Modules.Analytics
 {
-    public class DummyAnalyticsSystem : AnalyticsSystem
+    public sealed class DummyAnalyticsSystem : AnalyticsSystem
     {
         public DummyAnalyticsSystem(ILogSystem logSystem, IStaticDataService staticDataService) 
             : base(logSystem, staticDataService)

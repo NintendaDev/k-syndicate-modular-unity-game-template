@@ -14,7 +14,7 @@ using Modules.SaveManagement.Interfaces;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
-    public class FinishGameplaySceneState : LevelGameplayState
+    public sealed class FinishGameplaySceneState : LevelGameplayState
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly ISaveSignal _saveSignaller;

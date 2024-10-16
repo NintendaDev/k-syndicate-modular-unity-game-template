@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Modules.Localization.Detectors
 {
-    public class UnityLanguageDetector : LanguageDetector
+    public sealed class UnityLanguageDetector : LanguageDetector
     {
         public override Language GetCurrentLanguage()
         {

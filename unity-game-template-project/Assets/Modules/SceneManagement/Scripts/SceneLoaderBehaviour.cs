@@ -3,7 +3,7 @@ using UnityEngine.AddressableAssets;
 
 namespace Modules.SceneManagement
 {
-    public class SceneLoaderBehaviour : MonoBehaviour
+    public sealed class SceneLoaderBehaviour : MonoBehaviour
     {
         [SerializeField] private AssetReference _scene;
 

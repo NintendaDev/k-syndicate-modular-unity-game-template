@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Modules.Advertisements.Systems
 {
-    public sealed class DummyAdvertisementsSystem : AbstractAdvertisementsSystem
+    public sealed class DummyAdvertisementsSystem : AdvertisementsSystem
     {
         protected override void StartInterstitialBehaviour()
         {
