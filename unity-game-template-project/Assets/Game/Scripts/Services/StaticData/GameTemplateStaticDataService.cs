@@ -10,7 +10,7 @@ using Modules.AudioManagement.Mixer;
 using Modules.Device.Performance.Configurations;
 using Modules.Localization.Systems.Demo;
 using Modules.Logging;
-using Modules.MusicManagement.Configurations;
+using Modules.AudioManagement.Configurations;
 using Modules.PopupsSystem.Configurations;
 using Modules.SaveManagement.Systems;
 using Modules.Wallets.Configurations;

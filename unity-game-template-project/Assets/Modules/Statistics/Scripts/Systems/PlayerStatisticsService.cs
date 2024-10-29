@@ -34,12 +34,11 @@ namespace GameTemplate.Services.PlayerStatistics
             out IReadOnlyDictionary<int, LongMemorizedValue> savedData)
         {
             savedData = null;
-            StatisticsData statisticsData = progress.GetProgressData<StatisticsData>();
 
-            if (statisticsData == null || statisticsData.Data == null)
+            if (progress.TryGetProgressData(out StatisticsData data) || data.Data == null)
                 return false;
 
-            savedData = statisticsData.Data;
+            savedData = data.Data;
 
             return true;
         }

@@ -34,13 +34,11 @@ namespace Modules.AudioManagement.Mixer
 
         public UniTask LoadProgress(PlayerProgress progress)
         {
-            AudioMixerServiceData savedData = progress.GetProgressData<AudioMixerServiceData>();
-            
-            if (savedData == null)
+            if (progress.TryGetProgressData(out AudioMixerServiceData data) == false)
                 return UniTask.CompletedTask;
 
-            SetMusicVolume(savedData.MusicPercentVolume);
-            SetEffectsVolume(savedData.EffectsPercentVolume);
+            SetMusicVolume(data.MusicPercentVolume);
+            SetEffectsVolume(data.EffectsPercentVolume);
 
             _lastMusicVolumePercent.ResetChangeHistory();
             _lastEffectVolumePercent.ResetChangeHistory();

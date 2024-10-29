@@ -6,8 +6,8 @@ using GameTemplate.Services.GameLevelLoader;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.MusicManagement.Clip;
-using Modules.MusicManagement.Systems;
+using Modules.AudioManagement.Clip;
+using Modules.AudioManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {

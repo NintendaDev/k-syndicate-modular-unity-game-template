@@ -3,7 +3,7 @@ using Modules.SaveManagement.Data;
 
 namespace Modules.SaveManagement.Interfaces
 {
-    public interface IProgressSaver : IProgressLoader
+    public interface IProgressSaver
     {
         public UniTask SaveProgress(PlayerProgress progress);
     }

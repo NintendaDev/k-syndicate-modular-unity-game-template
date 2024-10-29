@@ -1,8 +1,8 @@
-using Modules.MusicManagement.Clip;
+using Modules.AudioManagement.Clip;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Modules.MusicManagement.Player
+namespace Modules.AudioManagement.Player
 {
     public sealed class MusicPlayer : MonoBehaviour
     {

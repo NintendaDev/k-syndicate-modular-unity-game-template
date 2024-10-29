@@ -3,7 +3,7 @@ using System;
 using Modules.AssetsManagement.AddressablesServices;
 using UnityEngine;
 
-namespace Modules.MusicManagement.Clip
+namespace Modules.AudioManagement.Clip
 {
     public sealed class AddressableAudioClip : IDisposable, IAudioClip
     {

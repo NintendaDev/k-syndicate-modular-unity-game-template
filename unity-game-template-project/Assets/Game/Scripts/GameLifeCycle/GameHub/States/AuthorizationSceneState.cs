@@ -7,7 +7,7 @@ using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Localization.Types;
 using Modules.Logging;
-using Modules.MusicManagement.Systems;
+using Modules.AudioManagement.Systems;
 using Modules.PopupsSystem;
 
 namespace GameTemplate.GameLifeCycle.GameHub

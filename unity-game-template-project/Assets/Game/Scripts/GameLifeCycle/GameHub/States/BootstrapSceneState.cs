@@ -5,8 +5,8 @@ using GameTemplate.Infrastructure.StateMachineComponents.States;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.MusicManagement.Clip;
-using Modules.MusicManagement.Systems;
+using Modules.AudioManagement.Clip;
+using Modules.AudioManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {

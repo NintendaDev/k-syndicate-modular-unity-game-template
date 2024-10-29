@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Modules.MusicManagement.Clip
+namespace Modules.AudioManagement.Clip
 {
     public interface IReferenceAudio
     {

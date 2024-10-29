@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
 using Modules.AssetsManagement.AddressablesServices;
 using Modules.AssetsManagement.StaticData;
-using Modules.MusicManagement.Configurations;
+using Modules.AudioManagement.Configurations;
 using Modules.ObjectsManagement.Factories;
 using Zenject;
 
-namespace Modules.MusicManagement.Player
+namespace Modules.AudioManagement.Player
 {
     public sealed class MusicPlayerFactory : PrefabFactoryAsync<MusicPlayer>
     {

@@ -5,7 +5,7 @@ using GameTemplate.UI.GameHub.Signals;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.MusicManagement.Systems;
+using Modules.AudioManagement.Systems;
 
 namespace GameTemplate.GameLifeCycle.GameHub
 {

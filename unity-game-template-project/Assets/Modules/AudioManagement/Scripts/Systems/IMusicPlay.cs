@@ -1,4 +1,4 @@
-namespace Modules.MusicManagement.Systems
+namespace Modules.AudioManagement.Systems
 {
     public interface IMusicPlay
     {
