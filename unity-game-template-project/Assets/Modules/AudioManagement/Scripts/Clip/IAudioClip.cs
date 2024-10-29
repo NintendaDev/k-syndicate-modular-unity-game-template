@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Modules.MusicManagement.Clip
+namespace Modules.AudioManagement.Clip
 {
     public interface IAudioClip
     {

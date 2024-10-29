@@ -2,7 +2,7 @@
 {
     public interface IPlayerProgress
     {
-        public TData GetProgressData<TData>();
+        public bool TryGetProgressData<TData>(out TData data);
         
         public void SetProgressData<TData>(TData data);
     }

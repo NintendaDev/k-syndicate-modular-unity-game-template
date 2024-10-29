@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-namespace Modules.MusicManagement.Clip
+namespace Modules.AudioManagement.Clip
 {
     public sealed class AddressableAudioClipFactory : IDisposable
     {

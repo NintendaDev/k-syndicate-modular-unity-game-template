@@ -27,14 +27,16 @@ namespace GameTemplate.Infrastructure.SaveManagement
             };
         }
 
-        public override TData GetProgressData<TData>()
+        public override bool TryGetProgressData<TData>(out TData data)
         {
             Type dataType = typeof(TData);
             
             if (_dataMapping.ContainsKey(dataType) == false)
                 throw new KeyNotFoundException("There is no data associated with this type.");
             
-            return (TData)_dataMapping[dataType].Invoke();
+            data = (TData)_dataMapping[dataType].Invoke();
+            
+            return data != null;
         }
 
         public override void SetProgressData<TData>(TData data)

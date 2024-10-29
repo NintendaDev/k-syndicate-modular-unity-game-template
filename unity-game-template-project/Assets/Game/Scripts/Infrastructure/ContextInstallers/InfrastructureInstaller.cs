@@ -2,9 +2,9 @@ using Modules.StateMachines;
 using GameTemplate.Infrastructure.StateMachineComponents;
 using System;
 using Modules.Core.Systems;
-using Modules.MusicManagement.Clip;
-using Modules.MusicManagement.Player;
-using Modules.MusicManagement.Systems;
+using Modules.AudioManagement.Clip;
+using Modules.AudioManagement.Player;
+using Modules.AudioManagement.Systems;
 using Zenject;
 
 namespace GameTemplate.Infrastructure.ContextInstallers

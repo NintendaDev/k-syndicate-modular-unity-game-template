@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
-using Modules.MusicManagement.Clip;
-using Modules.MusicManagement.Player;
+using Modules.AudioManagement.Clip;
+using Modules.AudioManagement.Player;
 using UnityEngine;
 
-namespace Modules.MusicManagement.Systems
+namespace Modules.AudioManagement.Systems
 {
     public sealed class MusicPlaySystem : IMusicPlaySystem
     {

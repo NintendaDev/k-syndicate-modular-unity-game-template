@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Modules.MusicManagement.Configurations
+namespace Modules.AudioManagement.Configurations
 {
     [CreateAssetMenu(fileName = "new MusicPlayerConfiguration", 
         menuName = "Modules/MusicManagement/MusicPlayerConfiguration")]

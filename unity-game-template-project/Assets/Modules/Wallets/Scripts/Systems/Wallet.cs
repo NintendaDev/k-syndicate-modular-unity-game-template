@@ -62,12 +62,10 @@ namespace Modules.Wallets.Systems
         {
             savedData = null;
 
-            WalletsData walletsData = progress.GetProgressData<WalletsData>();
-
-            if (walletsData == null || walletsData.Data == null)
+            if (progress.TryGetProgressData(out WalletsData data ) || data.Data == null)
                 return false;
 
-            savedData = walletsData.Data;
+            savedData = data.Data;
 
             return true;
         }

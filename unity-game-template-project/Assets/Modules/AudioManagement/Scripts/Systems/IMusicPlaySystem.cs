@@ -1,13 +1,15 @@
 using Cysharp.Threading.Tasks;
-using Modules.MusicManagement.Clip;
+using Modules.AudioManagement.Clip;
 using UnityEngine;
 
-namespace Modules.MusicManagement.Systems
+namespace Modules.AudioManagement.Systems
 {
     public interface IMusicPlaySystem : IMusicPlay
     {
+        public UniTask InitializeAsync(IAudioClip audioClip);
+        
         public UniTask InitializeAsync();
-
+        
         public void Set(AudioClip clip);
 
         public void Set(IAudioClip clip);
