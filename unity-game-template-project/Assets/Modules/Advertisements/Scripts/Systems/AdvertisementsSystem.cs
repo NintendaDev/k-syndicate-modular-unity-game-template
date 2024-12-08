@@ -1,6 +1,5 @@
 using Modules.Extensions;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Modules.Advertisements.Systems
@@ -8,17 +7,17 @@ namespace Modules.Advertisements.Systems
     public abstract class AdvertisementsSystem : IAdvertisementsSystem
     {
         private readonly TimeAndAudioState _timeAndAudioState = new();
-        private readonly Queue<Action> _interstitialCloseCallbacks = new();
-        private readonly Queue<Action> _rewardCloseCallbacks = new();
-        private readonly Queue<Action> _rewardSuccessCallbacks = new();
-        private bool _isDisabledInterstitialAdvertisements;
+        private bool _isEnabledInterstitial = true;
 
-        public virtual bool CanShowInterstitial => _isDisabledInterstitialAdvertisements == false;
+        public virtual bool CanShowInterstitial => _isEnabledInterstitial;
 
         public virtual bool CanShowReward => true;
 
         public void DisableInterstitial() =>
-            _isDisabledInterstitialAdvertisements = true;
+            _isEnabledInterstitial = false;
+        
+        public void EnableInterstitial() =>
+            _isEnabledInterstitial = true;
 
         public bool TryShowInterstitial(float probability, Action onCloseCallback)
         {
@@ -32,13 +31,8 @@ namespace Modules.Advertisements.Systems
         {
             if (CanShowInterstitial == false)
                 return false;
-
-            DisableSoundAndGameTime();
             
-            if (onCloseCallback != null)
-                _interstitialCloseCallbacks.Enqueue(onCloseCallback);
-            
-            StartInterstitialBehaviour();
+            StartInterstitialBehaviour(onCloseCallback);
 
             return true;
         }
@@ -48,42 +42,18 @@ namespace Modules.Advertisements.Systems
             if (CanShowReward == false)
                 return false;
             
-            _rewardCloseCallbacks.Enqueue(onCloseCallback);
-            _rewardSuccessCallbacks.Enqueue(onSuccessCallback);
-            
-            StartRewardBehaviour();
+            StartRewardBehaviour(onSuccessCallback, onCloseCallback);
 
             return true;
         }
 
-        protected abstract void StartInterstitialBehaviour();
+        protected abstract void StartInterstitialBehaviour(Action onCloseCallback);
 
-        protected abstract void StartRewardBehaviour();
+        protected abstract void StartRewardBehaviour(Action onSuccessCallback, Action onCloseCallback);
 
-        protected void ProcessCloseInterstitialCallbacks() =>
-            ProcessCallbacks(_interstitialCloseCallbacks);
+        protected void EnableSoundAndGameTime() => _timeAndAudioState.On();
 
-        protected void ProcessRewardCloseCallbacks() =>
-            ProcessCallbacks(_rewardCloseCallbacks);
-
-        protected void ProcessRewardSuccessCallbacks() =>
-            ProcessCallbacks(_rewardSuccessCallbacks);
-
-        protected void EnableSoundAndGameTime()
-        {
-            _timeAndAudioState.On();
-        }
-
-        private void DisableSoundAndGameTime()
-        {
-            _timeAndAudioState.Off();
-        }
-
-        private void ProcessCallbacks(Queue<Action> callbacks)
-        {
-            while (callbacks.Count > 0)
-                callbacks.Dequeue().Invoke();
-        }
+        protected void DisableSoundAndGameTime() => _timeAndAudioState.Off();
 
         private sealed class TimeAndAudioState
         {
