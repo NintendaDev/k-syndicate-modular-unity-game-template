@@ -7,20 +7,20 @@ namespace Modules.PopupsSystem.UI.Factories
 {
     public sealed class PopupFactory : IPopupFactory
     {
-        private readonly InfoPopupFabric _infoPopupFactory;
-        private readonly ErrorPopupFabric _errorPopupFabric;
+        private readonly InfoPopupFactory _infoPopupFactory;
+        private readonly ErrorPopupFactory _errorPopupFactory;
 
-        public PopupFactory(InfoPopupFabric infoPopupFactory, ErrorPopupFabric errorPopupFabric)
+        public PopupFactory(InfoPopupFactory infoPopupFactory, ErrorPopupFactory errorPopupFactory)
         {
             _infoPopupFactory = infoPopupFactory;
-            _errorPopupFabric = errorPopupFabric;
+            _errorPopupFactory = errorPopupFactory;
         }
 
         public async UniTask<SimplePopup> CreateInfoPopup(SimplePopupConfig config) =>
             await CreatePopup(config, _infoPopupFactory.CreateAsync);
 
         public async UniTask<SimplePopup> CreateErrorPopup(SimplePopupConfig config) =>
-            await CreatePopup(config, _errorPopupFabric.CreateAsync);
+            await CreatePopup(config, _errorPopupFactory.CreateAsync);
 
         private async UniTask<SimplePopup> CreatePopup(SimplePopupConfig config, Func<UniTask<SimplePopup>> popupCreateFunc)
         {

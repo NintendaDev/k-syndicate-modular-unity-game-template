@@ -5,7 +5,7 @@ using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
 using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System;
 using System.Collections.Generic;
-using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
 using Modules.Core.Systems;
 using Modules.EventBus;
@@ -15,30 +15,30 @@ using Zenject;
 
 namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
 {
-    public sealed class LevelViewFactory : PrefabFactoryAsync<LevelView>
+    public sealed class LevelViewFactory : IDisposable
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IEventBus _eventBus;
         private readonly LocalizedTermProcessorLinker _localizedTermProcessorLinker;
         private readonly DictionaryDatabase<LevelView, Action> _destroyCallbacks = new();
+        private readonly PrefabFactoryAsync<LevelView> _prefabFactory;
         private GameHubConfiguration _gameHubConfiguration;
         private List<IDisposable> _disposableObjects = new();
 
-        public LevelViewFactory(IInstantiator instantiator, IComponentAssetService componentAssetService,
+        public LevelViewFactory(IInstantiator instantiator, IAddressablesService addressablesService,
             IStaticDataService staticDataService, IEventBus eventBus,
-            LocalizedTermProcessorLinker localizedTermProcessorLinker) 
-            : base(instantiator, componentAssetService)
+            LocalizedTermProcessorLinker localizedTermProcessorLinker)
         {
             _staticDataService = staticDataService;
             _eventBus = eventBus;
+            _prefabFactory = new PrefabFactoryAsync<LevelView>(instantiator, addressablesService);
             _localizedTermProcessorLinker = localizedTermProcessorLinker;
         }
 
-        public override void Dispose()
+        public void Dispose()
         {
-            base.Dispose();
-
             _disposableObjects.ForEach(x => x.Dispose());
+            _prefabFactory.Dispose();
         }
 
         public async UniTask<LevelView> CreateAsync(LevelConfiguration levelConfiguration)
@@ -46,7 +46,7 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
             if (_gameHubConfiguration == null)
                 _gameHubConfiguration = _staticDataService.GetConfiguration<GameHubConfiguration>();
 
-            LevelView levelView = await CreateAsync(_gameHubConfiguration.LevelViewPrebafReference.AssetGUID);
+            LevelView levelView = await _prefabFactory.CreateAsync(_gameHubConfiguration.LevelViewPrebafReference);
             var presenter = new LevelPresenter(levelView, _eventBus);
             _disposableObjects.Add(presenter);
 
