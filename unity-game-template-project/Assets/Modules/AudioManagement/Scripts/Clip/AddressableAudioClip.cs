@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
-using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.AddressablesOperations;
 using UnityEngine;
 
 namespace Modules.AudioManagement.Clip
@@ -8,18 +8,16 @@ namespace Modules.AudioManagement.Clip
     public sealed class AddressableAudioClip : IDisposable, IAudioClip
     {
         private readonly IAddressablesService _addressablesService;
+        private IReferenceAudio _audioReferencer;
+        private bool _isInitialized;
 
         public AddressableAudioClip(IAddressablesService addressablesService)
         {
             _addressablesService = addressablesService;
         }
 
-        private IReferenceAudio _audioReferencer;
-
         public AudioClip Clip { get; private set; }
-
-        private bool _isInitialized;
-
+        
         public void Dispose()
         {
             if (_isInitialized == false)
@@ -35,7 +33,7 @@ namespace Modules.AudioManagement.Clip
                 return false;
 
             _audioReferencer = audioReferencer;
-            Clip = await _addressablesService.LoadAsync(_audioReferencer.AudioReference);
+            Clip = await _addressablesService.LoadAsync<AudioClip>(_audioReferencer.AudioReference);
             _isInitialized = true;
 
             return true;

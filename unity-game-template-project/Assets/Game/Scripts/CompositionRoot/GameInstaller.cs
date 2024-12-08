@@ -5,11 +5,10 @@ using GameTemplate.Infrastructure.SaveManagement.Defaults;
 using GameTemplate.Infrastructure.StateMachineComponents.Installers;
 using GameTemplate.Services.GameLevelLoader;
 using GameTemplate.Services.PlayerStatistics;
-using GameTemplate.Services.StaticData;
 using Modules.Advertisements.Systems;
 using Modules.Analytics;
 using Modules.LoadingCurtain;
-using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
 using Modules.Authorization.Interfaces;
@@ -81,11 +80,10 @@ namespace GameTemplate.CompositionRoot
         private void BindAssetsServices()
         {
             Container.BindInterfacesTo<AddressablesService>().AsSingle();
-            Container.BindInterfacesTo<ComponentAssetService>().AsSingle();
         }
             
         private void BindStaticDataService() =>
-            Container.BindInterfacesTo<GameTemplateStaticDataService>()
+            Container.BindInterfacesTo<StaticDataService>()
                 .AsSingle()
                 .WithArguments(_staticDataServiceConfiguration);
 
@@ -103,8 +101,8 @@ namespace GameTemplate.CompositionRoot
 
         private void BindPopupsService()
         {
-            Container.BindInterfacesAndSelfTo<InfoPopupFabric>().AsSingle().WhenInjectedInto<PopupFactory>();
-            Container.BindInterfacesAndSelfTo<ErrorPopupFabric>().AsSingle().WhenInjectedInto<PopupFactory>();
+            Container.BindInterfacesAndSelfTo<InfoPopupFactory>().AsSingle().WhenInjectedInto<PopupFactory>();
+            Container.BindInterfacesAndSelfTo<ErrorPopupFactory>().AsSingle().WhenInjectedInto<PopupFactory>();
             Container.Bind<IPopupFactory>().To<PopupFactory>().AsSingle();
 
             Container.BindInterfacesTo<Popups>().AsSingle();

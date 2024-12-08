@@ -1,5 +1,6 @@
+using System;
 using Cysharp.Threading.Tasks;
-using Modules.AssetsManagement.AddressablesServices;
+using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
 using Modules.ObjectsManagement.Factories;
 using Modules.PopupsSystem.Configurations;
@@ -8,16 +9,22 @@ using Zenject;
 
 namespace Modules.PopupsSystem.UI.Factories
 {
-    public sealed class ErrorPopupFabric : PrefabFactoryAsync<SimplePopup>
+    public sealed class InfoPopupFactory : IDisposable
     {
         private readonly IStaticDataService _staticDataService;
+        private readonly PrefabFactoryAsync<SimplePopup> _prefabFactory;
         private PopupsAssetsConfiguration _configuration;
 
-        public ErrorPopupFabric(IInstantiator instantiator, IComponentAssetService componentAssetService,
+        public InfoPopupFactory(IInstantiator instantiator, IAddressablesService addressablesService,
             IStaticDataService staticDataService)
-            : base(instantiator, componentAssetService)
         {
+            _prefabFactory = new PrefabFactoryAsync<SimplePopup>(instantiator, addressablesService);
             _staticDataService = staticDataService;
+        }
+
+        public void Dispose()
+        {
+            _prefabFactory.Dispose();
         }
 
         public async UniTask<SimplePopup> CreateAsync()
@@ -25,7 +32,7 @@ namespace Modules.PopupsSystem.UI.Factories
             if (_configuration == null)
                 _configuration = _staticDataService.GetConfiguration<PopupsAssetsConfiguration>();
 
-            return await CreateAsync(_configuration.ErrorPopup.AssetGUID);
+            return await _prefabFactory.CreateAsync(_configuration.InfoPopup);
         }
     }
 }

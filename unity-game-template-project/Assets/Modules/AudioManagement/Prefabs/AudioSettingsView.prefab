@@ -180,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 5190358430239812438, guid: b953dd20619df4d4f98a760632308834,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5190358430239812438, guid: b953dd20619df4d4f98a760632308834,
         type: 3}
@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 5190358430239812438, guid: b953dd20619df4d4f98a760632308834,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5190358430239812438, guid: b953dd20619df4d4f98a760632308834,
         type: 3}
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 5190358430239812438, guid: b953dd20619df4d4f98a760632308834,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5190358430239812438, guid: b953dd20619df4d4f98a760632308834,
         type: 3}
@@ -347,7 +347,7 @@ PrefabInstance:
     - target: {fileID: 473793422763438735, guid: 1050dccb8402ede4d9edce3d0e03dbbb,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 473793422763438735, guid: 1050dccb8402ede4d9edce3d0e03dbbb,
         type: 3}
@@ -357,7 +357,7 @@ PrefabInstance:
     - target: {fileID: 473793422763438735, guid: 1050dccb8402ede4d9edce3d0e03dbbb,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 473793422763438735, guid: 1050dccb8402ede4d9edce3d0e03dbbb,
         type: 3}
@@ -412,7 +412,7 @@ PrefabInstance:
     - target: {fileID: 473793422763438735, guid: 1050dccb8402ede4d9edce3d0e03dbbb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 473793422763438735, guid: 1050dccb8402ede4d9edce3d0e03dbbb,
         type: 3}
