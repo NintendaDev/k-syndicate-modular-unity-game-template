@@ -12,7 +12,7 @@ In the modular approach, the game is suggested to be built using integration cod
 
 The template includes a basic UI for level selection, game settings, and authorization, as well as a basic UI for gameplay scenes. The UI is implemented using the MVP Passive View pattern.
 
-This template is the result of working on a personal project [Geometry Dash](https://yandex.ru/games/app/361258)  for six months. The core structure was taken from it and refined into a universal template.
+This template is the result of working on a personal project [Geometry Dash](https://yandex.ru/games/app/378534). The core structure was taken from it and refined into a universal template.
 
 
 **A foundation is prepared for:**
