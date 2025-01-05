@@ -59,12 +59,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 110769c62b66f664080789ef165858ca
-    m_Address: EasySaveConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65b2e43e89312b641a9c17380b4ff9bd
     m_Address: WalletAssetsConfiguration
     m_ReadOnly: 0

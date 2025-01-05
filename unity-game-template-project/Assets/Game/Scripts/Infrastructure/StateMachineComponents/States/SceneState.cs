@@ -5,8 +5,8 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
 {
     public abstract class SceneState : DefaultState
     {
-        public SceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem) 
-            : base(stateMachine, eventBus, logSystem)
+        public SceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem) 
+            : base(stateMachine, signalBus, logSystem)
         {
         }
     }

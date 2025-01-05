@@ -20,7 +20,7 @@ namespace Modules.Localization.Systems.Demo
 
         private void OnDestroy()
         {
-            _localizedTermProcessorLinker.Unlink(_text);
+            _localizedTermProcessorLinker?.Unlink(_text);
         }
     }
 }

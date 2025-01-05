@@ -16,17 +16,17 @@ namespace GameTemplate.GameLifeCycle.GameHub.States
     public sealed class GameHubGameState : GameState
     {
         private readonly ILoadingCurtain _loadingCurtain;
-        private readonly ISceneLoader _sceneLoader;
+        private readonly ISingleSceneLoader _singleSceneLoader;
         private readonly IFastLoadInitialize _levelLoaderInitializer;
         private readonly GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
-        public GameHubGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
-            ILoadingCurtain loadingCurtain, ISceneLoader sceneLoader, IFastLoadInitialize levelLoaderInitializer,
+        public GameHubGameState(GameStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
+            ILoadingCurtain loadingCurtain, ISingleSceneLoader singleSceneLoader, IFastLoadInitialize levelLoaderInitializer,
             GameLoadingAssetsConfiguration gameLoadingAssetsConfiguration)
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
-            _sceneLoader = sceneLoader;
+            _singleSceneLoader = singleSceneLoader;
             _levelLoaderInitializer = levelLoaderInitializer;
             _gameLoadingAssetsConfiguration = gameLoadingAssetsConfiguration;
         }
@@ -35,17 +35,17 @@ namespace GameTemplate.GameLifeCycle.GameHub.States
         {
             await base.Enter();
 
-            _loadingCurtain.Show();
-            await _sceneLoader.Load(_gameLoadingAssetsConfiguration.GameHubScene);
+            _loadingCurtain.ShowWithoutProgressBar();
+            await _singleSceneLoader.Load(_gameLoadingAssetsConfiguration.GameHubScene);
 
-            StateEventBus.Subscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
+            StateSignalBus.Subscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
         }
 
         public override async UniTask Exit()
         {
             await base.Exit();
 
-            StateEventBus.Unsubscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
+            StateSignalBus.Unsubscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
         }
 
         private void OnLevelLoadEventRequest(LevelLoadSignal levelLoadSignal) =>

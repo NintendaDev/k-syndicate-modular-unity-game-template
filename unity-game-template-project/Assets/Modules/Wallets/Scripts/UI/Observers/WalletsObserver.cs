@@ -9,25 +9,23 @@ namespace Modules.Wallets.UI.Observers
     {
         private readonly WalletView _view;
         private readonly IWallet _wallet;
-        private readonly CurrencyType _currencyType;
 
         public WalletsObserver(WalletView view, IWallet wallet, CurrencyType currencyType)
         {
             _view = view;
             _wallet = wallet;
-            _currencyType = currencyType;
 
             _wallet.Updated += OnWalletUpdate;
-            UpdateView(_wallet.GetAmount(_currencyType));
+            UpdateView(_wallet.Get(currencyType));
         }
 
         public void Dispose() =>
             _wallet.Updated -= OnWalletUpdate;
 
-        private void OnWalletUpdate(CurrencyType type, long previousValue, long currentValue) =>
+        private void OnWalletUpdate(CurrencyType type, int currentValue) =>
             UpdateView(currentValue);
 
-        private void UpdateView(long currentValue) =>
+        private void UpdateView(int currentValue) =>
             _view.SetAmount(currentValue.ToString());
     }
 }

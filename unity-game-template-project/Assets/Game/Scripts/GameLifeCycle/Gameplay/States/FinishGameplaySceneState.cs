@@ -10,25 +10,23 @@ using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
 using Modules.AudioManagement.Systems;
-using Modules.SaveManagement.Interfaces;
+using Modules.SaveSystem.Signals;
 
 namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 {
     public sealed class FinishGameplaySceneState : LevelGameplayState
     {
         private readonly GameStateMachine _gameStateMachine;
-        private readonly ISaveSignal _saveSignaller;
         private readonly IAdvertisementsSystem _advertisementsSystem;
 
         public FinishGameplaySceneState(GameStateMachine gameStateMachine, SceneStateMachine sceneStateMachine, 
-            IEventBus eventBus, ILogSystem logSystem, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
-            ISaveSignal saveSignaller, IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
+            ISignalBus signalBus, ILogSystem logSystem, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
+            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
-            : base(sceneStateMachine, eventBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
+            : base(sceneStateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
                 loadingCurtain, levelConfigurator)
         {
             _gameStateMachine = gameStateMachine;
-            _saveSignaller = saveSignaller;
             _advertisementsSystem = advertisementsSystem;
         }
 
@@ -47,7 +45,7 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
 
         private async UniTask SaveAndSwitchGameHubState()
         {
-            _saveSignaller.SendSaveSignal();
+            StateSignalBus.Invoke<SaveSignal>();
 
             await Exit();
             await _gameStateMachine.SwitchState<GameHubGameState>();

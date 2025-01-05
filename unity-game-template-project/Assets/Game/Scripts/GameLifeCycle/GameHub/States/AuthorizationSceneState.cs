@@ -20,11 +20,11 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly IMusicPlaySystem _musicPlayService;
         private readonly IPopups _popups;
 
-        public AuthorizationSceneState(SceneStateMachine stateMachine, IEventBus eventBus, 
+        public AuthorizationSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, 
             GameStateMachine gameStateMachine, ILogSystem logSystem,
             IAuthorizationService authorizationService, ILoadingCurtain loadingCurtain, 
             IMusicPlaySystem musicPlayService, IPopups popups) 
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _gameStateMachine = gameStateMachine;
             _authorizationService = authorizationService;
@@ -38,7 +38,7 @@ namespace GameTemplate.GameLifeCycle.GameHub
             await base.Enter();
 
             _musicPlayService.Pause();
-            _loadingCurtain.Show();
+            _loadingCurtain.ShowWithoutProgressBar();
 
             _authorizationService.LoginCompleted += OnLoginCompleted;
             _authorizationService.LoginError += OnLoginError;

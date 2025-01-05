@@ -1,73 +1,39 @@
-﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using Modules.AssetsManagement.StaticData;
-using Modules.Logging;
-using Modules.SaveManagement.Data;
-using Modules.SaveManagement.Types;
-using Modules.Types.MemorizedValues.Core;
+﻿using System;
+using Modules.Storage;
 using Modules.Wallet.Types;
-using Modules.Wallets.Configurations;
-using Modules.Wallets.Data;
 
 namespace Modules.Wallets.Systems
 {
-    public sealed class Wallet : IncreasedSaveableObject<CurrencyType>, IWallet
+    public sealed class Wallet : IWallet
     {
-        private readonly IStaticDataService _staticDataService;
+        private readonly MultiValueAccounter<CurrencyType> _multiValueAccounter = new();
 
-        public Wallet(ILogSystem logSystem, IStaticDataService staticDataService) : base (logSystem)
+        public event Action<CurrencyType, int> Updated;
+
+        public bool TrySpend(CurrencyType currencyType, int price)
         {
-            _staticDataService = staticDataService;
-        }
-
-        public bool TrySpend(CurrencyType currencyType, long price)
-        {
-            long amount = GetAmount(currencyType);
-
-            if (amount < price)
+            if (_multiValueAccounter.TryDecrease(currencyType, price) == false)
                 return false;
-
-            amount -= price;
-            SetAmount(currencyType, amount);
-
-            return true;
-        }
-
-        public override async UniTask SaveProgress(PlayerProgress progress)
-        {
-            await base.SaveProgress(progress);
-
-            progress.SetProgressData(new WalletsData(Data));
-        }
             
-        protected override bool IsExistDefaultData(out Dictionary<int, LongMemorizedValue> defaultData)
-        {
-            DefaultWalletsAmountConfiguration defaultProgressAmountConfiguration = 
-                _staticDataService.GetConfiguration<DefaultWalletsAmountConfiguration>();
-            
-            defaultData = null;
-
-            if (defaultProgressAmountConfiguration.WalletsData.Count == 0)
-                return false;
-
-            defaultData = CreateEmptyData();
-
-            foreach(KeyValuePair<int, long> defailtDataPair in defaultProgressAmountConfiguration.WalletsData)
-                defaultData[defailtDataPair.Key] = new LongMemorizedValue(defailtDataPair.Value);
+            Updated?.Invoke(currencyType, Get(currencyType));
 
             return true;
         }
 
-        protected override bool IsExistSavedData(PlayerProgress progress, out IReadOnlyDictionary<int, LongMemorizedValue> savedData)
+        public void Add(CurrencyType currencyType, int amount)
         {
-            savedData = null;
+            _multiValueAccounter.Increase(currencyType, amount);
+            
+            Updated?.Invoke(currencyType, Get(currencyType));
+        }
 
-            if (progress.TryGetProgressData(out WalletsData data ) || data.Data == null)
-                return false;
+        public int Get(CurrencyType currencyType) => _multiValueAccounter.Get(currencyType);
 
-            savedData = data.Data;
-
-            return true;
+        public void Set(CurrencyType currencyType, int amount)
+        {
+            _multiValueAccounter.Set(currencyType, amount);
+            
+            Updated?.Invoke(currencyType, Get(currencyType));
         }
     }
 }

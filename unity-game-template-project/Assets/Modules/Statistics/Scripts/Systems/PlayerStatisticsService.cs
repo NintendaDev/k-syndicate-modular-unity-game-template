@@ -1,46 +1,29 @@
-using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
-using Modules.Logging;
-using Modules.SaveManagement.Data;
-using Modules.SaveManagement.Types;
-using Modules.Statistics.Data;
-using Modules.Statistics.Systems;
+using System;
 using Modules.Statistics.Types;
-using Modules.Types.MemorizedValues.Core;
+using Modules.Storage;
 
-namespace GameTemplate.Services.PlayerStatistics
+namespace Modules.Statistics.Systems
 {
-    public sealed class PlayerStatisticsService : IncreasedSaveableObject<StatisticType>, IPlayerStatisticsService
+    public sealed class PlayerStatisticsService : IPlayerStatisticsService
     {
-        public PlayerStatisticsService(ILogSystem logSystem) : base(logSystem)
+        private readonly MultiValueAccounter<StatisticType> _multiValueAccounter = new();
+        
+        public event Action<StatisticType, int> Updated;
+        
+        public void Add(StatisticType objectType, int amount)
         {
+            _multiValueAccounter.Increase(objectType, amount);
+
+            Updated?.Invoke(objectType, Get(objectType));
         }
 
-        public override UniTask SaveProgress(PlayerProgress progress)
+        public int Get(StatisticType objectType) => _multiValueAccounter.Get(objectType);
+
+        public void Set(StatisticType objectType, int amount)
         {
-            progress.SetProgressData(new StatisticsData(Data));
-
-            return UniTask.CompletedTask;
-        }
-
-        protected override bool IsExistDefaultData(out Dictionary<int, LongMemorizedValue> defaultData)
-        {
-            defaultData = null;
-
-            return false;
-        }
-
-        protected override bool IsExistSavedData(PlayerProgress progress, 
-            out IReadOnlyDictionary<int, LongMemorizedValue> savedData)
-        {
-            savedData = null;
-
-            if (progress.TryGetProgressData(out StatisticsData data) || data.Data == null)
-                return false;
-
-            savedData = data.Data;
-
-            return true;
+            _multiValueAccounter.Set(objectType, amount);
+            
+            Updated?.Invoke(objectType, Get(objectType));
         }
     }
 }

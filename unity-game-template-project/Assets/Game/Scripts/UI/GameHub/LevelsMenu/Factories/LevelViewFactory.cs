@@ -18,7 +18,7 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
     public sealed class LevelViewFactory : IDisposable
     {
         private readonly IStaticDataService _staticDataService;
-        private readonly IEventBus _eventBus;
+        private readonly ISignalBus _signalBus;
         private readonly LocalizedTermProcessorLinker _localizedTermProcessorLinker;
         private readonly DictionaryDatabase<LevelView, Action> _destroyCallbacks = new();
         private readonly PrefabFactoryAsync<LevelView> _prefabFactory;
@@ -26,11 +26,11 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
         private List<IDisposable> _disposableObjects = new();
 
         public LevelViewFactory(IInstantiator instantiator, IAddressablesService addressablesService,
-            IStaticDataService staticDataService, IEventBus eventBus,
+            IStaticDataService staticDataService, ISignalBus signalBus,
             LocalizedTermProcessorLinker localizedTermProcessorLinker)
         {
             _staticDataService = staticDataService;
-            _eventBus = eventBus;
+            _signalBus = signalBus;
             _prefabFactory = new PrefabFactoryAsync<LevelView>(instantiator, addressablesService);
             _localizedTermProcessorLinker = localizedTermProcessorLinker;
         }
@@ -47,7 +47,7 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
                 _gameHubConfiguration = _staticDataService.GetConfiguration<GameHubConfiguration>();
 
             LevelView levelView = await _prefabFactory.CreateAsync(_gameHubConfiguration.LevelViewPrebafReference);
-            var presenter = new LevelPresenter(levelView, _eventBus);
+            var presenter = new LevelPresenter(levelView, _signalBus);
             _disposableObjects.Add(presenter);
 
             Action destroyCallback = () => OnLevelViewDestroy(levelView);

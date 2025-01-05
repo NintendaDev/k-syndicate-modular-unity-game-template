@@ -8,17 +8,20 @@ namespace Modules.LoadingCurtain
     {
         [SerializeField, Required] private CanvasGroup _canvasGroup;
         [SerializeField, MinValue(0), Unit(Units.Second)] private float _fadeTime = 1f;
+        [SerializeField, Required] private ProgressBar _progressBar;
 
         private Coroutine _fadeInCoroutine;
 
-        [Button, DisableInEditorMode]
-        public void Show()
+        public void ShowWithoutProgressBar()
         {
-            if (_fadeInCoroutine != null)
-                StopCoroutine(_fadeInCoroutine);
+            Show();
+            DisableProgressBar();
+        }
 
-            gameObject.SetActive(true);
-            _canvasGroup.alpha = 1;
+        public void ShowWithProgressBar()
+        {
+            Show();
+            EnableProgressBar();
         }
 
         [Button, DisableInEditorMode]
@@ -32,7 +35,25 @@ namespace Modules.LoadingCurtain
 
             _fadeInCoroutine = StartCoroutine(FadeInCoroutine());
         }
-    
+
+        [Button, DisableInEditorMode]
+        public void SetProgress(float progress) => _progressBar.SetProgress(progress);
+
+        [Button, DisableInEditorMode]
+        public void EnableProgressBar() => _progressBar.Show();
+
+        [Button, DisableInEditorMode]
+        public void DisableProgressBar() => _progressBar.Hide();
+
+        private void Show()
+        {
+            if (_fadeInCoroutine != null)
+                StopCoroutine(_fadeInCoroutine);
+
+            gameObject.SetActive(true);
+            _canvasGroup.alpha = 1;
+        }
+
         private IEnumerator FadeInCoroutine()
         {
             while (_canvasGroup.alpha > 0)

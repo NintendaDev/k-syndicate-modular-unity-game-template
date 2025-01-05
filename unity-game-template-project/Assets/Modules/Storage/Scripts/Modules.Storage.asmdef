@@ -1,0 +1,14 @@
+{
+    "name": "Modules.Storage",
+    "rootNamespace": "Modules.Storage",
+    "references": ["GUID:875b3734f31aa92488c35d020287c8ae"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

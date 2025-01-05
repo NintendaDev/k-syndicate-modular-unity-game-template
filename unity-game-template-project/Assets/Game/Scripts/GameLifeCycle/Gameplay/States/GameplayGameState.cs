@@ -13,9 +13,9 @@ namespace GameTemplate.GameLifeCycle.Gameplay
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IFastLoadLevel _levelLoader;
 
-        public GameplayGameState(GameStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
+        public GameplayGameState(GameStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem,
             ILoadingCurtain loadingCurtain, IFastLoadLevel levelLoader) 
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _levelLoader = levelLoader;
@@ -25,7 +25,7 @@ namespace GameTemplate.GameLifeCycle.Gameplay
         {
             await base.Enter();
 
-            _loadingCurtain.Show();
+            _loadingCurtain.ShowWithoutProgressBar();
             await _levelLoader.FastLoadLevelAsync();
             _loadingCurtain.Hide();
         }

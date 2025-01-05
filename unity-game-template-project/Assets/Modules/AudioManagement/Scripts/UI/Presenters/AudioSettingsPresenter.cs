@@ -2,7 +2,8 @@ using System;
 using Modules.AudioManagement.Mixer;
 using Modules.AudioManagement.UI.Views;
 using Modules.ControllManagement.Detectors;
-using Modules.SaveManagement.Interfaces;
+using Modules.EventBus;
+using Modules.SaveSystem.Signals;
 using Zenject;
 
 namespace Modules.AudioManagement.UI.Presenters
@@ -12,16 +13,16 @@ namespace Modules.AudioManagement.UI.Presenters
         private readonly AudioSettingsView _view;
         private readonly IAudioMixerSystem _audioMixerSystem;
         private readonly ITouchDetector _touchDetector;
-        private readonly ISaveSignal _saveSignaller;
+        private readonly ISignalBus _signalBus;
         private bool _isRequiredSaving;
 
         public AudioSettingsPresenter(AudioSettingsView view, IAudioMixerSystem audioMixerSystem, 
-            ITouchDetector touchDetector, ISaveSignal saveSignaller)
+            ITouchDetector touchDetector, ISignalBus signalBus)
         {
             _view = view;
             _audioMixerSystem = audioMixerSystem;
             _touchDetector = touchDetector;
-            _saveSignaller = saveSignaller;
+            _signalBus = signalBus;
 
             _view.Initialize(_audioMixerSystem.MusicPercentVolume, _audioMixerSystem.EffectsPercentVolume);
             _view.MusicValueChanged += OnMusicValueChange;
@@ -44,7 +45,7 @@ namespace Modules.AudioManagement.UI.Presenters
 
         private void SetMusicVolume(float volume)
         {
-            _audioMixerSystem.SetMusicVolume(volume);
+            _audioMixerSystem.SetMusicPercentVolume(volume);
             _isRequiredSaving = true;
         }
 
@@ -53,7 +54,7 @@ namespace Modules.AudioManagement.UI.Presenters
 
         private void SetEffectsVolume(float volume)
         {
-            _audioMixerSystem.SetEffectsVolume(volume);
+            _audioMixerSystem.SetEffectsPercentVolume(volume);
             _isRequiredSaving = true;
         }
 
@@ -64,7 +65,7 @@ namespace Modules.AudioManagement.UI.Presenters
 
             if (_touchDetector.IsHold() == false)
             {
-                _saveSignaller.SendSaveSignal();
+                _signalBus.Invoke<SaveSignal>();
                 _isRequiredSaving = false;
             }
         }

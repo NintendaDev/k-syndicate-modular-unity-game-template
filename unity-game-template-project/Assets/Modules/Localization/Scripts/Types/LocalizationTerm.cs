@@ -2,6 +2,11 @@ namespace Modules.Localization.Types
 {
     public enum LocalizationTerm
     {
-        Ok, Info, Error, SuccessAuthorizationMessage, ErrorAuthorizationMessage
+        Ok, 
+        Info, 
+        Error, 
+        SuccessAuthorizationMessage, 
+        ErrorAuthorizationMessage,
+        FailedSetSceneForLoading
     }
 }

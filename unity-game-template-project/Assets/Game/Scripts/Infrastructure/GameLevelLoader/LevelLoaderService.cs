@@ -10,14 +10,14 @@ namespace GameTemplate.Services.GameLevelLoader
     public sealed class LevelLoaderService : ILevelLoaderService
     {
         private readonly IStaticDataService _staticDataService;
-        private readonly ISceneLoader _sceneLoader;
+        private readonly ISingleSceneLoader _singleSceneLoader;
         private LevelCode _levelCodeForFastLoading;
         private LevelsConfigurationsHub _levelsConfigurations;
 
-        public LevelLoaderService(IStaticDataService staticDataService, ISceneLoader sceneLoader)
+        public LevelLoaderService(IStaticDataService staticDataService, ISingleSceneLoader singleSceneLoader)
         {
             _staticDataService = staticDataService;
-            _sceneLoader = sceneLoader;
+            _singleSceneLoader = singleSceneLoader;
         }
 
         public LevelConfiguration CurrentLevelConfiguration { get; private set; }
@@ -41,7 +41,7 @@ namespace GameTemplate.Services.GameLevelLoader
 
             CurrentLevelConfiguration = levelConfiguration;
 
-            await _sceneLoader.Load(levelConfiguration.SceneAddress);
+            await _singleSceneLoader.Load(levelConfiguration.SceneAddress);
         }
 
         public void InitializeFastLoad(LevelCode levelCode)

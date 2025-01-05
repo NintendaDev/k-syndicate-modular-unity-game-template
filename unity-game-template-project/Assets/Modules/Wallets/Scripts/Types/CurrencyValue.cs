@@ -5,7 +5,7 @@ namespace Modules.Wallet.Types
     [System.Serializable]
     public class CurrencyValue
     {
-        public CurrencyValue(CurrencyType currencyType, long amount) 
+        public CurrencyValue(CurrencyType currencyType, int amount) 
         {
             CurrencyType = currencyType;
             Amount = amount;
@@ -13,6 +13,6 @@ namespace Modules.Wallet.Types
 
         [field: SerializeField] public CurrencyType CurrencyType { get; private set; }
 
-        [field: SerializeField] public long Amount { get; private set; }
+        [field: SerializeField] public int Amount { get; private set; }
     }
 }

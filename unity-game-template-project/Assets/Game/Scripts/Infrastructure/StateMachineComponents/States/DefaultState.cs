@@ -11,17 +11,17 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
     {
         private readonly Type _stateType;
 
-        public DefaultState(IStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem)
+        public DefaultState(IStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem)
         {
             StateMachine = stateMachine;
             LogSystem = logSystem;
-            StateEventBus = eventBus;
+            StateSignalBus = signalBus;
             _stateType = GetType();
         }
 
         protected IStateMachine StateMachine { get; }
 
-        protected IEventBus StateEventBus { get; }
+        protected ISignalBus StateSignalBus { get; }
 
         protected ILogSystem LogSystem { get; }
 

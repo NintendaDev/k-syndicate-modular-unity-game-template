@@ -11,9 +11,9 @@ namespace GameTemplate.GameLifeCycle.Loading
 {
     public sealed class FinishLoadingSceneState : AnalyticsGameState
     {
-        public FinishLoadingSceneState(GameStateMachine stateMachine, ILogSystem logSystem, IEventBus eventBus,
+        public FinishLoadingSceneState(GameStateMachine stateMachine, ILogSystem logSystem, ISignalBus signalBus,
             IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService) 
-            : base(stateMachine, eventBus, logSystem, analyticsSystem, staticDataService)
+            : base(stateMachine, signalBus, logSystem, analyticsSystem, staticDataService)
         {
         }
 

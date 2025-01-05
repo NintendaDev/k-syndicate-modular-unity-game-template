@@ -1,14 +1,11 @@
-using Cysharp.Threading.Tasks;
 using Modules.Specifications;
 using Modules.AssetsManagement.StaticData;
-using Modules.SaveManagement.Data;
-using Modules.SaveManagement.Interfaces;
 using Modules.Types.MemorizedValues.Core;
 using UnityEngine;
 
 namespace Modules.AudioManagement.Mixer
 {
-    public sealed class AudioMixerSystem : IAudioMixerSystem, IProgressLoader, IProgressSaver
+    public sealed class AudioMixerSystem : IAudioMixerSystem
     {
         private const float MinPercent = 0;
         private const float MaxPercent = 1;
@@ -32,45 +29,22 @@ namespace Modules.AudioManagement.Mixer
 
         public bool IsChanged => _lastEffectVolumePercent.IsChanged || _lastMusicVolumePercent.IsChanged;
 
-        public UniTask LoadProgress(PlayerProgress progress)
-        {
-            if (progress.TryGetProgressData(out AudioMixerServiceData data) == false)
-                return UniTask.CompletedTask;
-
-            SetMusicVolume(data.MusicPercentVolume);
-            SetEffectsVolume(data.EffectsPercentVolume);
-
-            _lastMusicVolumePercent.ResetChangeHistory();
-            _lastEffectVolumePercent.ResetChangeHistory();
-
-            return UniTask.CompletedTask;
-        }
-
-        public UniTask SaveProgress(PlayerProgress progress)
-        {
-            progress.SetProgressData(new AudioMixerServiceData(this));
-            _lastMusicVolumePercent.ResetChangeHistory();
-            _lastMusicVolumePercent.ResetChangeHistory();
-
-            return UniTask.CompletedTask;
-        }
-
         public void Initialize()
         {
             _mixerConfiguration = _staticDataService.GetConfiguration<AudioMixerConfiguration>();
             _audioMixer = _mixerConfiguration.AudioMixer;
 
-            SetMusicVolume(_mixerConfiguration.DefaultMusicVolumePercent);
-            SetEffectsVolume(_mixerConfiguration.DefaultEffectsVolumePercent);
+            SetMusicPercentVolume(_mixerConfiguration.DefaultMusicVolumePercent);
+            SetEffectsPercentVolume(_mixerConfiguration.DefaultEffectsVolumePercent);
         }
 
-        public void SetMusicVolume(float percent)
+        public void SetMusicPercentVolume(float percent)
         {
             _lastMusicVolumePercent.Set(percent);
             SetVolume(_mixerConfiguration.MusicMixerParameter, percent);
         }
             
-        public void SetEffectsVolume(float percent)
+        public void SetEffectsPercentVolume(float percent)
         {
             _lastEffectVolumePercent.Set(percent);
             SetVolume(_mixerConfiguration.EffectsMixerParameter, percent);
@@ -81,6 +55,12 @@ namespace Modules.AudioManagement.Mixer
 
         public void Unmute() =>
             SetVolume(_mixerConfiguration.MasterMixerParameter, MaxPercent);
+
+        public void Reset()
+        {
+            _lastMusicVolumePercent.ResetChangeHistory();
+            _lastMusicVolumePercent.ResetChangeHistory();
+        }
 
         private void SetVolume(string mixerParameter, float percent)
         {

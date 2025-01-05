@@ -11,9 +11,9 @@ namespace GameTemplate.Infrastructure.StateMachineComponents.States
     {
         private readonly IAnalyticsSystem _analyticsSystem;
 
-        public AnalyticsSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
+        public AnalyticsSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem,
             IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService)
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _analyticsSystem = analyticsSystem;
             AnalyticsConfiguration = staticDataService.GetConfiguration<AnalyticsConfiguration>();
