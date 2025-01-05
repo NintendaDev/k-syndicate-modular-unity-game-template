@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WalletAssetsConfiguration
   m_EditorClassIdentifier: 
   _currencySprites:
-  - CurrencyType: 1
+  - CurrencyType: 0
     Sprite: {fileID: 21300000, guid: e940498e956a994488ccd7c968748964, type: 3}
-  - CurrencyType: 2
+  - CurrencyType: 1
     Sprite: {fileID: 21300000, guid: 6149d61b75189464d83b86784c028c88, type: 3}
   <WalletViewPrefabReference>k__BackingField:
     m_AssetGUID: b67dcf7acb6587742b4a2029f791551f

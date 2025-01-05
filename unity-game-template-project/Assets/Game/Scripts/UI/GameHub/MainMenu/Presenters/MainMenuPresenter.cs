@@ -9,12 +9,12 @@ namespace GameTemplate.UI.GameHub.MainMenu.Presenters
     public sealed class MainMenuPresenter : IDisposable
     {
         private readonly MainMenuView _view;
-        private readonly IEventBus _eventBus;
+        private readonly ISignalBus _signalBus;
 
-        public MainMenuPresenter(MainMenuView view, IEventBus eventBus, ILoginInfo loginInformer) 
+        public MainMenuPresenter(MainMenuView view, ISignalBus signalBus, ILoginInfo loginInformer) 
         {
             _view = view;
-            _eventBus = eventBus;
+            _signalBus = signalBus;
 
             if (loginInformer.IsLogined)
                 view.DisableLoginButton();
@@ -28,6 +28,6 @@ namespace GameTemplate.UI.GameHub.MainMenu.Presenters
             _view.LoginClicked -= OnLoginClick;
 
         private void OnLoginClick() =>
-            _eventBus.Invoke<LoginSignal>();
+            _signalBus.Invoke<LoginSignal>();
     }
 }

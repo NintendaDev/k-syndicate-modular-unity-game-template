@@ -7,7 +7,7 @@ namespace Modules.AudioManagement.Clip
     public sealed class AddressableAudioClipFactory : IDisposable
     {
         private readonly DiContainer _diContainer;
-        private List<IDisposable> _disposableObjects = new();
+        private readonly List<IDisposable> _disposableObjects = new();
 
         public AddressableAudioClipFactory(DiContainer diContainer) =>
             _diContainer = diContainer;

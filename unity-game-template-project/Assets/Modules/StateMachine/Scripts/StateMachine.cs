@@ -9,16 +9,18 @@ namespace Modules.StateMachines
     {
         private readonly Dictionary<Type, IExitableState> _registeredStates = new();
         private IExitableState _currentState;
+        
+        public Type PreviousState { get; private set; }
 
         public async UniTask SwitchState<TState>() where TState : class, IState
         {
-            TState nextState = await GetNextStateWithSetCurrentState<TState>();
+            TState nextState = await GetAndPrepareNextState<TState>();
             await nextState.Enter();
         }
 
         public async UniTask SwitchState<TState, TPayload>(TPayload payload) where TState : class, IPaylodedState<TPayload>
         {
-            TState nextState = await GetNextStateWithSetCurrentState<TState>();
+            TState nextState = await GetAndPrepareNextState<TState>();
             await nextState.Enter(payload);
         }
 
@@ -32,13 +34,14 @@ namespace Modules.StateMachines
             _registeredStates.Add(stateType, state);
         }
             
-        private async UniTask<TState> GetNextStateWithSetCurrentState<TState>() where TState : class, IExitableState
+        private async UniTask<TState> GetAndPrepareNextState<TState>() where TState : class, IExitableState
         {
             TState nextState = GetState<TState>();
 
             if (_currentState != null)
                 await _currentState.Exit();
 
+            PreviousState = _currentState?.GetType();
             _currentState = nextState;
 
             return nextState;

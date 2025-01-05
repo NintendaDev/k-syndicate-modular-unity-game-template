@@ -14,9 +14,9 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IMusicPlaySystem _musicPlayService;
 
-        public MainSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
+        public MainSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
             ILoadingCurtain loadingCurtain, IMusicPlaySystem musicPlayService)
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _musicPlayService = musicPlayService;
@@ -26,7 +26,7 @@ namespace GameTemplate.GameLifeCycle.GameHub
         {
             await base.Enter();
 
-            StateEventBus.Subscribe<LoginSignal>(OnLoginSignal);
+            StateSignalBus.Subscribe<LoginSignal>(OnLoginSignal);
 
             if (_musicPlayService.IsPlaying == false)
                 _musicPlayService.PlayOrUnpause();
@@ -38,7 +38,7 @@ namespace GameTemplate.GameLifeCycle.GameHub
         {
             await base.Exit();
 
-            StateEventBus.Unsubscribe<LoginSignal>(OnLoginSignal);
+            StateSignalBus.Unsubscribe<LoginSignal>(OnLoginSignal);
         }
 
         private async void OnLoginSignal() =>

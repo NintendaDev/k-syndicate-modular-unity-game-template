@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultWalletsConfiguration
   m_EditorClassIdentifier: 
   _currencyValues:
-  - <CurrencyType>k__BackingField: 1
+  - <CurrencyType>k__BackingField: 0
     <Amount>k__BackingField: 1000
-  - <CurrencyType>k__BackingField: 2
+  - <CurrencyType>k__BackingField: 1
     <Amount>k__BackingField: 5

@@ -8,12 +8,12 @@ namespace GameTemplate.UI.Gameplay.PauseMenu.Presenters
     public sealed class PauseMenuPresenter : IDisposable
     {
         private readonly PauseMenuView _view;
-        private readonly IEventBus _eventBus;
+        private readonly ISignalBus _signalBus;
 
-        public PauseMenuPresenter(PauseMenuView view, IEventBus eventBus)
+        public PauseMenuPresenter(PauseMenuView view, ISignalBus signalBus)
         {
             _view = view;
-            _eventBus = eventBus;
+            _signalBus = signalBus;
 
             _view.BackButtonClicked += OnBackButtonClick;
             _view.ExitButtonClicked += OnExitButtonClick;
@@ -26,9 +26,9 @@ namespace GameTemplate.UI.Gameplay.PauseMenu.Presenters
         }
 
         private void OnBackButtonClick() =>
-            _eventBus.Invoke<PlaySignal>();
+            _signalBus.Invoke<PlaySignal>();
 
         private void OnExitButtonClick() =>
-            _eventBus.Invoke<ExitSignal>();
+            _signalBus.Invoke<ExitSignal>();
     }
 }

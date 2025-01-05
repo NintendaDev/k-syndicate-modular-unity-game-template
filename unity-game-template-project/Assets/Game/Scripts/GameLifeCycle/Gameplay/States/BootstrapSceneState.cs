@@ -18,10 +18,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
         private readonly ILoadingCurtain _loadingCurtain;
 
-        public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
+        public BootstrapSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
             ILoadingCurtain loadingCurtain, IMusicPlaySystem musicPlayService, 
             ICurrentLevelConfiguration levelConfigurator, AddressableAudioClipFactory addressableAudioClipFactory)
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
             _musicPlayService = musicPlayService;
@@ -33,7 +33,7 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         {
             await base.Enter();
 
-            _loadingCurtain.Show();
+            _loadingCurtain.ShowWithoutProgressBar();
             await Initialize();
 
             await StateMachine.SwitchState<StartGameplaySceneState>();

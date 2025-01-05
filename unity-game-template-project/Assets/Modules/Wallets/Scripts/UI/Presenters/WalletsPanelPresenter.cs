@@ -1,28 +1,30 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Modules.Wallet.Types;
-using Modules.Wallets.Systems;
 using Modules.Wallets.UI.Factories;
 using Modules.Wallets.UI.Views;
 
 namespace Modules.Wallets.UI.Presenters
 {
-    public sealed class WalletsPanelPresenter
+    public sealed class WalletsPanelPresenter : IDisposable
     {
         private readonly IWalletPanelView _walletsPanelView;
-        private readonly IWallet _wallet;
         private readonly WalletViewFactory _walletViewFactory;
         private CancellationTokenSource _cancellationTokenSource;
 
-        public WalletsPanelPresenter(IWalletPanelView walletsPanelView, IWallet wallet, 
-            WalletViewFactory walletViewFactory)
+        public WalletsPanelPresenter(IWalletPanelView walletsPanelView, WalletViewFactory walletViewFactory)
         {
             _walletsPanelView = walletsPanelView;
-            _wallet = wallet;
             _walletViewFactory = walletViewFactory;
 
             UpdateWalletViewsAsync().Forget();
+        }
+
+        public void Dispose()
+        {
+            _cancellationTokenSource?.Dispose();
         }
 
         private async UniTask UpdateWalletViewsAsync()
@@ -39,7 +41,7 @@ namespace Modules.Wallets.UI.Presenters
         {
             List<WalletView> levelViews = new();
 
-            foreach (CurrencyType currencyType in _wallet.AvailableTypes)
+            foreach (CurrencyType currencyType in Enum.GetValues(typeof(CurrencyType)))
             {
                 if (cancellationToken.IsCancellationRequested)
                     return levelViews;

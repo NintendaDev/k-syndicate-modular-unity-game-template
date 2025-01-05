@@ -15,10 +15,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
     public sealed class PauseGameplaySceneState : LevelGameplayState
     {
         public PauseGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
-            IEventBus eventBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
+            ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator)
-            : base(stateMachine, eventBus, logSystem, analyticsSystem, musicPlayer, 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, 
                   resetObjects, loadingCurtain, levelConfigurator)
         {
         }
@@ -27,8 +27,8 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         {
             await base.Enter();
 
-            StateEventBus.Subscribe<PlaySignal>(OnPlaySignal);
-            StateEventBus.Subscribe<ExitSignal>(OnExitSignal);
+            StateSignalBus.Subscribe<PlaySignal>(OnPlaySignal);
+            StateSignalBus.Subscribe<ExitSignal>(OnExitSignal);
 
             PauseMusic();
             StopGameTime();
@@ -38,8 +38,8 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         {
             await base.Exit();
 
-            StateEventBus.Unsubscribe<PlaySignal>(OnPlaySignal);
-            StateEventBus.Unsubscribe<ExitSignal>(OnExitSignal);
+            StateSignalBus.Unsubscribe<PlaySignal>(OnPlaySignal);
+            StateSignalBus.Unsubscribe<ExitSignal>(OnExitSignal);
         }
 
         private async void OnPlaySignal() =>

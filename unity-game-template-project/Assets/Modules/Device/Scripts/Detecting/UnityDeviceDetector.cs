@@ -9,7 +9,8 @@ namespace Modules.Device.Detecting
             if (Application.isEditor)
                 return false;
 
-            return Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer;
+            return Application.platform == RuntimePlatform.Android 
+                   || Application.platform == RuntimePlatform.IPhonePlayer;
         }
     }
 }

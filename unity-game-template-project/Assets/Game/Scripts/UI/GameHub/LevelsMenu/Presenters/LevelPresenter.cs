@@ -8,12 +8,12 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
     public sealed class LevelPresenter : IDisposable
     {
         private readonly LevelView _levelView;
-        private readonly IEventBus _eventBus;
+        private readonly ISignalBus _signalBus;
 
-        public LevelPresenter(LevelView levelView, IEventBus eventBus)
+        public LevelPresenter(LevelView levelView, ISignalBus signalBus)
         {
             _levelView = levelView;
-            _eventBus = eventBus;
+            _signalBus = signalBus;
 
             _levelView.Clicked += OnClick;
         }
@@ -24,6 +24,6 @@ namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
         }
 
         private void OnClick() =>
-            _eventBus.Invoke(new LevelLoadSignal(_levelView.LevelCode));
+            _signalBus.Invoke(new LevelLoadSignal(_levelView.LevelCode));
     }
 }

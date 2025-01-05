@@ -16,10 +16,10 @@ namespace GameTemplate.GameLifeCycle.GameHub
         private readonly IStaticDataService _staticDataService;
         private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
 
-        public BootstrapSceneState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem, 
+        public BootstrapSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
             IMusicPlaySystem musicPlayService, IStaticDataService staticDataService, 
             AddressableAudioClipFactory addressableAudioClipFactory)
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _musicPlayService = musicPlayService;
             _staticDataService = staticDataService;

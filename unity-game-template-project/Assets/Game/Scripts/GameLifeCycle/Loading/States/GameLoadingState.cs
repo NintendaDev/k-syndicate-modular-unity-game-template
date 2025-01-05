@@ -11,16 +11,16 @@ namespace GameTemplate.GameLifeCycle.Loading.States
 {
     public sealed class GameLoadingState : GameState
     {
-        private ISceneLoader _sceneLoader;
+        private ISingleSceneLoader _singleSceneLoader;
         private ILoadingCurtain _loadingCurtain;
         private GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
-        public GameLoadingState(GameStateMachine stateMachine, IEventBus eventBus, ISceneLoader sceneLoader, 
+        public GameLoadingState(GameStateMachine stateMachine, ISignalBus signalBus, ISingleSceneLoader singleSceneLoader, 
             ILoadingCurtain loadingCurtain, ILogSystem logSystem, 
             GameLoadingAssetsConfiguration gameLoadingAssetsConfiguration)
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
-            _sceneLoader = sceneLoader;
+            _singleSceneLoader = singleSceneLoader;
             _loadingCurtain = loadingCurtain;
             _gameLoadingAssetsConfiguration = gameLoadingAssetsConfiguration;
         }
@@ -29,10 +29,8 @@ namespace GameTemplate.GameLifeCycle.Loading.States
         {
             await base.Enter();
 
-            _loadingCurtain.Show();
-            await _sceneLoader.Load(_gameLoadingAssetsConfiguration.GameLoadingScene);
-
-            _loadingCurtain.Hide();
+            _loadingCurtain.ShowWithoutProgressBar();
+            await _singleSceneLoader.Load(_gameLoadingAssetsConfiguration.GameLoadingScene);
         }
     }
 }

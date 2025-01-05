@@ -20,10 +20,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly IEnumerable<IReset> _resetObjects;
         private readonly ILoadingCurtain _loadingCurtain;
 
-        public LevelGameplayState(SceneStateMachine stateMachine, IEventBus eventBus, ILogSystem logSystem,
+        public LevelGameplayState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem,
             IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, IEnumerable<IReset> resetObjects, 
             ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator) 
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             MusicPlay = musicPlayer;
             _originalTimeScale = Time.timeScale;
@@ -58,7 +58,7 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             MusicPlay.Pause();
 
         protected void ShowCurtain() =>
-            _loadingCurtain.Show();
+            _loadingCurtain.ShowWithoutProgressBar();
 
         protected void HideCurtain() =>
             _loadingCurtain.Hide();

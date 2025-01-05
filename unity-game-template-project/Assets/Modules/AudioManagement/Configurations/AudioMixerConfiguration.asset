@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff47dc537dc5874b8487645388b1a99, type: 3}
   m_Name: AudioMixerConfiguration
   m_EditorClassIdentifier: 
-  <AudioMixer>k__BackingField: {fileID: 24100000, guid: 52e78bd0bc9495c4fad930dc466308a6, type: 2}
+  <AudioMixer>k__BackingField: {fileID: 24100000, guid: 52e78bd0bc9495c4fad930dc466308a6,
+    type: 2}
   <MasterMixerParameter>k__BackingField: Master
   <MusicMixerParameter>k__BackingField: Music
   <EffectsMixerParameter>k__BackingField: Effects
-  <DefaultMusicVolumePercent>k__BackingField: 1
+  <DefaultMusicVolumePercent>k__BackingField: 0.9
   <DefaultEffectsVolumePercent>k__BackingField: 1

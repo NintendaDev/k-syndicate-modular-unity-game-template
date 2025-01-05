@@ -1,0 +1,19 @@
+{
+    "name": "Modules.SaveSystem",
+    "rootNamespace": "Modules.SaveSystem",
+    "references": [
+        "GUID:b373334a8cf85824794495d6c1277263",
+        "GUID:7b4e2ade025c15544be4f5927c4eef9a",
+        "GUID:77221876cc6b8244180b96e320b1bcd4",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

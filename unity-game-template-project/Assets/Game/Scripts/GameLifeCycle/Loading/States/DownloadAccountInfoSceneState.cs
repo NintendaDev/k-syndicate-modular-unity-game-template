@@ -11,9 +11,9 @@ namespace GameTemplate.GameLifeCycle.Loading
     {
         private readonly INetworkAccount _networkAccount;
 
-        public DownloadAccountInfoSceneState(SceneStateMachine stateMachine, IEventBus eventBus,
+        public DownloadAccountInfoSceneState(SceneStateMachine stateMachine, ISignalBus signalBus,
             ILogSystem logSystem, INetworkAccount networkAccount) 
-            : base(stateMachine, eventBus, logSystem)
+            : base(stateMachine, signalBus, logSystem)
         {
             _networkAccount = networkAccount;
         }

@@ -7,15 +7,17 @@
         public float MusicPercentVolume { get; }
 
         public bool IsChanged { get; }
-
+        
         public void Initialize();
 
-        public void SetEffectsVolume(float percent);
+        public void SetEffectsPercentVolume(float percent);
 
-        public void SetMusicVolume(float percent);
+        public void SetMusicPercentVolume(float percent);
 
         public void Mute();
 
         public void Unmute();
+
+        public void Reset();
     }
 }

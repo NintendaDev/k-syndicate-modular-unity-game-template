@@ -17,10 +17,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly IAdvertisementsSystem _advertisementsSystem;
 
         public StartGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
-            IEventBus eventBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
+            ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
-            : base(stateMachine, eventBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
             _advertisementsSystem = advertisementsSystem;
