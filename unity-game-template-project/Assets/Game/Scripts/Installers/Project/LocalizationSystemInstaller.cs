@@ -1,5 +1,5 @@
-﻿using Modules.Localization.Detectors;
-using Modules.Localization.Systems.Demo;
+﻿using Game.Application.Localization;
+using Modules.Localization.Detectors;
 using Zenject;
 
 namespace Game.Installers.Project
@@ -9,7 +9,7 @@ namespace Game.Installers.Project
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<UnityLanguageDetector>().AsSingle();
-            Container.BindInterfacesTo<SimpleLocalizationSystem>().AsSingle();
+            Container.BindInterfacesTo<I2LocalizationSystem>().AsSingle();
         }
     }
 }

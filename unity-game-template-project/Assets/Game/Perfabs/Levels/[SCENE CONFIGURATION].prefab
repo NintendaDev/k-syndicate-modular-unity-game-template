@@ -1084,11 +1084,60 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3546017833179257243}
+    - targetCorrespondingSourceObject: {fileID: 8300623481461429326, guid: 71da8707c98f8474a8b476e523294d8b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4106930591187001432}
     - targetCorrespondingSourceObject: {fileID: 9551787674909497, guid: 71da8707c98f8474a8b476e523294d8b,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7195705726470540984}
   m_SourcePrefab: {fileID: 100100000, guid: 71da8707c98f8474a8b476e523294d8b, type: 3}
+--- !u!1 &2972367546925556554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8300623481461429326, guid: 71da8707c98f8474a8b476e523294d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6489200644214486788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4106930591187001432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972367546925556554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: Pause
+  mTermSecondary: 
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  AllowParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!224 &4198945354111221526 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6938889342000597010, guid: 71da8707c98f8474a8b476e523294d8b,
