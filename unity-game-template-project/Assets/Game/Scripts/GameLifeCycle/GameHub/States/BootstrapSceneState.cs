@@ -6,7 +6,7 @@ using Modules.AudioManagement.Types;
 using Modules.EventBus;
 using Modules.Logging;
 
-namespace Game.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub.States
 {
     public sealed class BootstrapSceneState : SceneState
     {

@@ -1,11 +1,8 @@
 using Cysharp.Threading.Tasks;
-using Game.GameLifeCycle.Gameplay;
 using Game.Infrastructure.Configurations;
-using Game.Infrastructure.Levels;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Infrastructure.StateMachineComponents.States;
 using Game.Services.GameLevelLoader;
-using Game.UI.GameHub.Signals;
 using Modules.SceneManagement;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
@@ -17,7 +14,6 @@ namespace Game.GameLifeCycle.GameHub.States
     {
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly ISingleSceneLoader _singleSceneLoader;
-        private readonly IFastLoadInitialize _levelLoaderInitializer;
         private readonly GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
         public GameHubGameState(GameStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
@@ -27,7 +23,6 @@ namespace Game.GameLifeCycle.GameHub.States
         {
             _loadingCurtain = loadingCurtain;
             _singleSceneLoader = singleSceneLoader;
-            _levelLoaderInitializer = levelLoaderInitializer;
             _gameLoadingAssetsConfiguration = gameLoadingAssetsConfiguration;
         }
 
@@ -37,24 +32,6 @@ namespace Game.GameLifeCycle.GameHub.States
 
             _loadingCurtain.ShowWithoutProgressBar();
             await _singleSceneLoader.Load(_gameLoadingAssetsConfiguration.GameHubScene);
-
-            StateSignalBus.Subscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
-        }
-
-        public override async UniTask Exit()
-        {
-            await base.Exit();
-
-            StateSignalBus.Unsubscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
-        }
-
-        private void OnLevelLoadEventRequest(LevelLoadSignal levelLoadSignal) =>
-            LoadLevelAndSwitchStateAsync(levelLoadSignal.LevelCode).Forget();
-            
-        private async UniTask LoadLevelAndSwitchStateAsync(LevelCode levelCode)
-        {
-            _levelLoaderInitializer.InitializeFastLoad(levelCode);
-            await StateMachine.SwitchState<GameplayGameState>();
         }
     }
 }

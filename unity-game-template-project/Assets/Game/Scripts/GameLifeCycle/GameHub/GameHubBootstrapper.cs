@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Game.GameLifeCycle.GameHub.States;
 using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
 using Zenject;
@@ -21,6 +22,8 @@ namespace Game.GameLifeCycle.GameHub
             _sceneStateMachine.RegisterState(_statesFactory.Create<BootstrapSceneState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<MainSceneState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<AuthorizationSceneState>());
+            _sceneStateMachine.RegisterState(_statesFactory.Create<FinishSceneState>());
+            
             _sceneStateMachine.SwitchState<BootstrapSceneState>().Forget();
         }
     }

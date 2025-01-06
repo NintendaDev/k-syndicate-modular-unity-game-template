@@ -10,7 +10,7 @@ using Modules.Localization.Types;
 using Modules.Logging;
 using Modules.PopupsSystem;
 
-namespace Game.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub.States
 {
     public sealed class AuthorizationSceneState : SceneState
     {
@@ -58,6 +58,8 @@ namespace Game.GameLifeCycle.GameHub
         {
             await _popups.ShowInfoAsync(LocalizationTerm.Info, LocalizationTerm.SuccessAuthorizationMessage, 
                 LocalizationTerm.Ok);
+
+            base.Exit();
             
             await _gameStateMachine.SwitchState<GameLoadingState>();
         }
