@@ -1,9 +1,9 @@
-using GameTemplate.UI.Gameplay.PauseMenu.Views;
-using GameTemplate.UI.Gameplay.Signals;
 using System;
+using Game.UI.Gameplay.PauseMenu.Views;
+using Game.UI.Gameplay.Signals;
 using Modules.EventBus;
 
-namespace GameTemplate.UI.Gameplay.PauseMenu.Presenters
+namespace Game.UI.Gameplay.PauseMenu.Presenters
 {
     public sealed class PauseMenuPresenter : IDisposable
     {

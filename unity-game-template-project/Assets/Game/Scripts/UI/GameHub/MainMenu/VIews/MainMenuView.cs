@@ -6,7 +6,7 @@ using Modules.Core.UI;
 using Modules.Wallets.UI.Views;
 using UnityEngine;
 
-namespace GameTemplate.UI.GameHub.MainMenu.Views
+namespace Game.UI.GameHub.MainMenu.Views
 {
     public sealed class MainMenuView : EnableDisableBehaviour, IWalletPanelView
     {

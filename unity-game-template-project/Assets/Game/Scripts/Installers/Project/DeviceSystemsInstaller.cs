@@ -3,7 +3,7 @@ using Modules.Device.Detecting;
 using Modules.Device.Performance;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class DeviceSystemsInstaller : Installer<DeviceSystemsInstaller>
     {

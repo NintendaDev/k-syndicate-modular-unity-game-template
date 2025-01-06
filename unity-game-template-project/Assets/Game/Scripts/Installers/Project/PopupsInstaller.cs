@@ -2,7 +2,7 @@
 using Modules.PopupsSystem.UI.Factories;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class PopupsInstaller : Installer<PopupsInstaller>
     {

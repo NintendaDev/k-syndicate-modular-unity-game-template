@@ -1,7 +1,7 @@
 ﻿using Modules.AudioManagement.Mixer;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class AudioInstaller : Installer<AudioInstaller>
     {

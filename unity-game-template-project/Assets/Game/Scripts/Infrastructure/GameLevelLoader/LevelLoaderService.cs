@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
+using Game.Infrastructure.Levels;
+using Game.Infrastructure.Levels.Configurations;
+using Game.Level.Configurations;
 using Modules.SceneManagement;
-using GameTemplate.Infrastructure.Levels;
-using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.Level.Configurations;
 using Modules.AssetsManagement.StaticData;
 
-namespace GameTemplate.Services.GameLevelLoader
+namespace Game.Services.GameLevelLoader
 {
     public sealed class LevelLoaderService : ILevelLoaderService
     {

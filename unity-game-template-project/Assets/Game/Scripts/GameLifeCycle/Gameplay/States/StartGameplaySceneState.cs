@@ -1,26 +1,26 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.GameLevelLoader;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Services.GameLevelLoader;
 using Modules.Advertisements.Systems;
 using Modules.Analytics;
+using Modules.AudioManagement.Player;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
+namespace Game.GameLifeCycle.Gameplay.States
 {
     public sealed class StartGameplaySceneState : LevelGameplayState
     {
         private readonly IAdvertisementsSystem _advertisementsSystem;
 
         public StartGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
-            ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
+            ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IAudioAssetPlayer audioAssetPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
-            : base(stateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem, audioAssetPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
             _advertisementsSystem = advertisementsSystem;

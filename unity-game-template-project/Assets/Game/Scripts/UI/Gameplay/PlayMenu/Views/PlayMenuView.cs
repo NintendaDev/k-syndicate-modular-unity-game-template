@@ -4,7 +4,7 @@ using Modules.Core.Systems;
 using Modules.Core.UI;
 using UnityEngine;
 
-namespace GameTemplate.UI.Gameplay.PlayMenu.Views
+namespace Game.UI.Gameplay.PlayMenu.Views
 {
     public sealed class PlayMenuView : EnableDisableBehaviour
     {

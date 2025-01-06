@@ -1,13 +1,13 @@
-using GameTemplate.GameLifeCycle.Gameplay;
-using GameTemplate.UI.Gameplay.PauseMenu.Presenters;
-using GameTemplate.UI.Gameplay.PauseMenu.Views;
-using GameTemplate.UI.Gameplay.PlayMenu.Views;
-using GameTemplate.UI.Gameplay.Presenters;
+using Game.GameLifeCycle.Gameplay;
+using Game.UI.Gameplay.PauseMenu.Presenters;
+using Game.UI.Gameplay.PauseMenu.Views;
+using Game.UI.Gameplay.PlayMenu.Views;
+using Game.UI.Gameplay.Presenters;
 using Sirenix.OdinInspector;
 
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.ContextInstallers.Gameplay
+namespace Game.Infrastructure.ContextInstallers.Gameplay
 {
     public sealed class GameplayInfrastructureInstaller : InfrastructureInstaller
     {

@@ -1,6 +1,6 @@
 using Modules.EventBus;
 
-namespace GameTemplate.UI.Gameplay.Signals
+namespace Game.UI.Gameplay.Signals
 {
     public sealed class ExitSignal : ISimpleSignal
     {

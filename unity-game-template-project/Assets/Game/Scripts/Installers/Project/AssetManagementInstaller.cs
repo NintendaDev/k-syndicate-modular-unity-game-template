@@ -1,9 +1,9 @@
-﻿using GameTemplate.Infrastructure.Configurations;
+﻿using Game.Infrastructure.Configurations;
 using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class AssetManagementInstaller 
         : Installer<GameLoadingAssetsConfiguration, StaticDataServiceConfiguration, AssetManagementInstaller>

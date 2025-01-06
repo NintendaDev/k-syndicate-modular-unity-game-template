@@ -1,6 +1,6 @@
-﻿using GameTemplate.Infrastructure.Levels.Configurations;
+﻿using Game.Infrastructure.Levels.Configurations;
 
-namespace GameTemplate.Services.GameLevelLoader
+namespace Game.Services.GameLevelLoader
 {
     public interface ICurrentLevelConfiguration
     {

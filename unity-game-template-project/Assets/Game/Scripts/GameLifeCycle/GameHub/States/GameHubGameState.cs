@@ -1,23 +1,19 @@
 using Cysharp.Threading.Tasks;
+using Game.Infrastructure.Configurations;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Game.Services.GameLevelLoader;
 using Modules.SceneManagement;
-using GameTemplate.GameLifeCycle.Gameplay;
-using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Infrastructure.Levels;
-using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.UI.GameHub.Signals;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
 
-namespace GameTemplate.GameLifeCycle.GameHub.States
+namespace Game.GameLifeCycle.GameHub.States
 {
     public sealed class GameHubGameState : GameState
     {
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly ISingleSceneLoader _singleSceneLoader;
-        private readonly IFastLoadInitialize _levelLoaderInitializer;
         private readonly GameLoadingAssetsConfiguration _gameLoadingAssetsConfiguration;
 
         public GameHubGameState(GameStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
@@ -27,7 +23,6 @@ namespace GameTemplate.GameLifeCycle.GameHub.States
         {
             _loadingCurtain = loadingCurtain;
             _singleSceneLoader = singleSceneLoader;
-            _levelLoaderInitializer = levelLoaderInitializer;
             _gameLoadingAssetsConfiguration = gameLoadingAssetsConfiguration;
         }
 
@@ -37,24 +32,6 @@ namespace GameTemplate.GameLifeCycle.GameHub.States
 
             _loadingCurtain.ShowWithoutProgressBar();
             await _singleSceneLoader.Load(_gameLoadingAssetsConfiguration.GameHubScene);
-
-            StateSignalBus.Subscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
-        }
-
-        public override async UniTask Exit()
-        {
-            await base.Exit();
-
-            StateSignalBus.Unsubscribe<LevelLoadSignal>(OnLevelLoadEventRequest);
-        }
-
-        private void OnLevelLoadEventRequest(LevelLoadSignal levelLoadSignal) =>
-            LoadLevelAndSwitchStateAsync(levelLoadSignal.LevelCode).Forget();
-            
-        private async UniTask LoadLevelAndSwitchStateAsync(LevelCode levelCode)
-        {
-            _levelLoaderInitializer.InitializeFastLoad(levelCode);
-            await StateMachine.SwitchState<GameplayGameState>();
         }
     }
 }

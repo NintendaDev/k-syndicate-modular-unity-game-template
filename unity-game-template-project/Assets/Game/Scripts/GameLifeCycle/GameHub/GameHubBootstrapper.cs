@@ -1,9 +1,10 @@
 using Cysharp.Threading.Tasks;
+using Game.GameLifeCycle.GameHub.States;
+using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
-using GameTemplate.Infrastructure.StateMachineComponents;
 using Zenject;
 
-namespace GameTemplate.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub
 {
     public sealed class GameHubBootstrapper : IInitializable
     {
@@ -21,6 +22,8 @@ namespace GameTemplate.GameLifeCycle.GameHub
             _sceneStateMachine.RegisterState(_statesFactory.Create<BootstrapSceneState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<MainSceneState>());
             _sceneStateMachine.RegisterState(_statesFactory.Create<AuthorizationSceneState>());
+            _sceneStateMachine.RegisterState(_statesFactory.Create<FinishSceneState>());
+            
             _sceneStateMachine.SwitchState<BootstrapSceneState>().Forget();
         }
     }

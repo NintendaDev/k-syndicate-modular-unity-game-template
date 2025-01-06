@@ -78,25 +78,31 @@ MonoBehaviour:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d47b1978041a4545a51f5147176b91f
-    m_Address: Assets/Modules/MusicManagement/Configurations/MusicPlayerConfiguration.asset
+    m_Address: MusicPlayerConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5f7911b9696b5543b852998604d7692
-    m_Address: Assets/Modules/LoadingCurtain/Configurations/LoadingCurtainConfiguration.asset
+    m_Address: LoadingCurtainConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8552c86d8ce3ae54ba3333b033d54164
-    m_Address: Assets/Modules/Advertisements/Configurations/AdvertisimentsConfiguration.asset
+    m_Address: AdvertisimentsConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e6f19312de4f0c4cb2260221bde3411
-    m_Address: Assets/Modules/Analytics/Configurations/AnalyticsConfiguration.asset
+    m_Address: AnalyticsConfiguration
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a90ed366427fb2408283bb4439f6380
+    m_Address: SoundConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations

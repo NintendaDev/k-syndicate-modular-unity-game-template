@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class RepositoryInstaller : Installer<RepositoryInstaller.RepositoryConfiguration, RepositoryInstaller>
     {

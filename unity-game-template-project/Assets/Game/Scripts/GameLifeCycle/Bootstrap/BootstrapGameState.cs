@@ -1,8 +1,8 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.GameLifeCycle.Loading.States;
-using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Infrastructure.StateMachineComponents;
+using Game.GameLifeCycle.Loading.States;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Game.Services.GameLevelLoader;
 using Modules.Analytics;
 using Modules.AssetsManagement.StaticData;
 using Modules.AudioManagement.Mixer;
@@ -13,7 +13,7 @@ using Modules.LoadingCurtain;
 using Modules.Localization.Systems;
 using Modules.Logging;
 
-namespace GameTemplate.GameLifeCycle.Bootstrap
+namespace Game.GameLifeCycle.Bootstrap
 {
     public sealed class BootstrapGameState : GameState
     {

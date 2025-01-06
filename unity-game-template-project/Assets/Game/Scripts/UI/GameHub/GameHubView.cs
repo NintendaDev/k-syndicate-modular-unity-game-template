@@ -1,9 +1,9 @@
-using GameTemplate.UI.GameHub.LevelsMenu.Views;
-using GameTemplate.UI.GameHub.SettingsMenu;
+using Game.UI.GameHub.LevelsMenu.Views;
+using Game.UI.GameHub.SettingsMenu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GameTemplate.UI.GameHub.MainMenu.Views
+namespace Game.UI.GameHub.MainMenu.Views
 {
     public sealed class GameHubView : MonoBehaviour
     {

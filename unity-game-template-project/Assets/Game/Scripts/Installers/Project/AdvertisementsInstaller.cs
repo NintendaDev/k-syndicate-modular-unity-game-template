@@ -1,7 +1,7 @@
 ﻿using Modules.Advertisements.Systems;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class AdvertisementsInstaller : Installer<AdvertisementsInstaller>
     {

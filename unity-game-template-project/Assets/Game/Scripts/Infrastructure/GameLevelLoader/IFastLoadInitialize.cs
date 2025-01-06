@@ -1,6 +1,6 @@
-﻿using GameTemplate.Infrastructure.Levels;
+﻿using Game.Infrastructure.Levels;
 
-namespace GameTemplate.Services.GameLevelLoader
+namespace Game.Services.GameLevelLoader
 {
     public interface IFastLoadInitialize
     {

@@ -2,7 +2,7 @@ using Modules.Localization.Processors;
 using Modules.Localization.Processors.Factories;
 using Zenject;
 
-namespace GameTemplate.Infrastructure.ContextInstallers 
+namespace Game.Infrastructure.ContextInstallers 
 {
     public sealed class LocalizationProcessorsInstaller : Installer<LocalizationProcessorsInstaller>
     {

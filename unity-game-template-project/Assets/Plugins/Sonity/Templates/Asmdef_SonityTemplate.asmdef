@@ -1,0 +1,17 @@
+{
+    "name": "TemplateSonity",
+    "rootNamespace": "",
+    "references": [
+        "Sonity.Public.Runtime",
+        "Sonity.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

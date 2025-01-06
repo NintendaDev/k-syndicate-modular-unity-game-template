@@ -1,8 +1,8 @@
-﻿using GameTemplate.Services.GameLevelLoader;
+﻿using Game.Services.GameLevelLoader;
 using Modules.SceneManagement;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class SceneManagementInstaller : Installer<SceneManagementInstaller>
     {

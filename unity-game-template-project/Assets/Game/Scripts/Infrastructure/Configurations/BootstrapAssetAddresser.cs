@@ -1,4 +1,4 @@
-namespace GameTemplate.Infrastructure
+namespace Game.Infrastructure
 {
     public sealed class BootstrapAssetAddresser
     {

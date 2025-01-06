@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 3217031354551676399, guid: c7c8e18224ddea544ad2ca0dbed04d4d,
         type: 3}
       propertyPath: m_Name
-      value: Button - Settings Variant
+      value: Button - Settings
       objectReference: {fileID: 0}
     - target: {fileID: 4374832905329924505, guid: c7c8e18224ddea544ad2ca0dbed04d4d,
         type: 3}

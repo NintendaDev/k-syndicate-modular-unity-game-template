@@ -2,7 +2,7 @@
 using Modules.NetworkAccount;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class AuthInstaller : Installer<AuthInstaller>
     {

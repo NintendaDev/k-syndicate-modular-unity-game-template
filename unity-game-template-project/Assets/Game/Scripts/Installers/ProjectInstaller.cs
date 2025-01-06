@@ -1,11 +1,11 @@
-﻿using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Installers.Project;
+﻿using Game.Infrastructure.Configurations;
+using Game.Installers.Project;
 using Modules.AssetsManagement.StaticData;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace GameTemplate.Installers
+namespace Game.Installers
 {
     [CreateAssetMenu(fileName = "new ProjectInstaller", menuName = "GameTemplate/Installers/ProjectInstaller")]
     public class ProjectInstaller : ScriptableObjectInstaller<ProjectInstaller>

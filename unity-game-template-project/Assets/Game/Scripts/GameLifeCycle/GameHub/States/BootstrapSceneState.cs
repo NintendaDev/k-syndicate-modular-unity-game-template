@@ -1,45 +1,36 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using Modules.AssetsManagement.StaticData;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Modules.AudioManagement.Player;
+using Modules.AudioManagement.Types;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Clip;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub.States
 {
     public sealed class BootstrapSceneState : SceneState
     {
-        private readonly IMusicPlaySystem _musicPlayService;
-        private readonly IStaticDataService _staticDataService;
-        private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
+        private readonly IAudioAssetPlayer _audioAssetPlayer;
 
         public BootstrapSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
-            IMusicPlaySystem musicPlayService, IStaticDataService staticDataService, 
-            AddressableAudioClipFactory addressableAudioClipFactory)
+            IAudioAssetPlayer audioAssetPlayer)
             : base(stateMachine, signalBus, logSystem)
         {
-            _musicPlayService = musicPlayService;
-            _staticDataService = staticDataService;
-            _addressableAudioClipFactory = addressableAudioClipFactory;
+            _audioAssetPlayer = audioAssetPlayer;
         }
 
         public async override UniTask Enter()
         {
             await base.Enter();
 
-            GameHubConfiguration gameHubConfiguration = _staticDataService.GetConfiguration<GameHubConfiguration>();
-
-            await _musicPlayService.InitializeAsync();
-
-            AddressableAudioClip addressableAudioClip = _addressableAudioClipFactory.Create();
-
-            if (await addressableAudioClip.TryInitializeAsync(gameHubConfiguration))
-                _musicPlayService.Set(addressableAudioClip);
-
+            await InitializeAudioAssetPlayer();
             await StateMachine.SwitchState<MainSceneState>();
+        }
+
+        private async UniTask InitializeAudioAssetPlayer()
+        {
+            _audioAssetPlayer.Initialize();
+            await _audioAssetPlayer.WarmupAsync(AudioCode.GameHubMusic);
         }
     }
 }

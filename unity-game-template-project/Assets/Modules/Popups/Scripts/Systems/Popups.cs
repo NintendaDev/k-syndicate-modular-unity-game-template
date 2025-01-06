@@ -22,16 +22,20 @@ namespace Modules.PopupsSystem
             _cancellationTokenSource = new CancellationTokenSource();
         }
 
-        public async UniTask ShowInfoAsync(LocalizationTerm headerTerm, LocalizationTerm messageTerm, 
-            LocalizationTerm buttonTerm) =>
-           await ShowPopupAsync(headerTerm, messageTerm, buttonTerm, _popupFactory.CreateInfoPopup);
-
+        public async UniTask ShowInfoAsync(LocalizationTerm headerTerm, LocalizationTerm messageTerm,
+            LocalizationTerm buttonTerm)
+        {
+            await ShowPopupAsync(headerTerm, messageTerm, buttonTerm, _popupFactory.CreateInfoPopup);
+        }
+        
         public async UniTask ShowInfoAsync(string messageHeader, string messageBody, string buttonText = "Ok") =>
             await ShowPopupAsync(messageHeader, messageBody, buttonText, _popupFactory.CreateInfoPopup);
 
-        public async UniTask ShowErrorAsync(LocalizationTerm headerTerm, LocalizationTerm messageTerm, 
-            LocalizationTerm buttonTerm) =>
-           await ShowPopupAsync(headerTerm, messageTerm, buttonTerm, _popupFactory.CreateErrorPopup);
+        public async UniTask ShowErrorAsync(LocalizationTerm headerTerm, LocalizationTerm messageTerm,
+            LocalizationTerm buttonTerm)
+        {
+            await ShowPopupAsync(headerTerm, messageTerm, buttonTerm, _popupFactory.CreateErrorPopup);
+        }
 
         public async UniTask ShowErrorAsync(string messageHeader, string messageBody, string buttonText = "Ok") =>
             await ShowPopupAsync(messageHeader, messageBody, buttonText, _popupFactory.CreateErrorPopup);

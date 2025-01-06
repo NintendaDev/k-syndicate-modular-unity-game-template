@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
-using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System;
 using System.Collections.Generic;
+using Game.Infrastructure.Configurations;
+using Game.Infrastructure.Levels.Configurations;
+using Game.UI.GameHub.LevelsMenu.Presenters;
+using Game.UI.GameHub.LevelsMenu.Views;
 using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
 using Modules.Core.Systems;
@@ -13,7 +13,7 @@ using Modules.Localization.Processors;
 using Modules.ObjectsManagement.Factories;
 using Zenject;
 
-namespace GameTemplate.UI.GameHub.LevelsMenu.Factories
+namespace Game.UI.GameHub.LevelsMenu.Factories
 {
     public sealed class LevelViewFactory : IDisposable
     {

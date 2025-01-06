@@ -1,6 +1,6 @@
 ﻿using Modules.StateMachines;
 
-namespace GameTemplate.Infrastructure.StateMachineComponents
+namespace Game.Infrastructure.StateMachineComponents
 {
     public sealed class SceneStateMachine : StateMachine
     {

@@ -1,13 +1,13 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.Level.Configurations;
-using GameTemplate.UI.GameHub.LevelsMenu.Factories;
-using GameTemplate.UI.GameHub.LevelsMenu.Views;
 using System.Collections.Generic;
 using System.Threading;
+using Game.Infrastructure.Levels.Configurations;
+using Game.Level.Configurations;
+using Game.UI.GameHub.LevelsMenu.Factories;
+using Game.UI.GameHub.LevelsMenu.Views;
 using Modules.AssetsManagement.StaticData;
 
-namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
+namespace Game.UI.GameHub.LevelsMenu.Presenters
 {
     public sealed class LevelsMenuPresenter
     {

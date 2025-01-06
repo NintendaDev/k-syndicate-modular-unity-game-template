@@ -1,10 +1,10 @@
-﻿using GameTemplate.Application.SaveLoad;
+﻿using Game.Application.SaveLoad;
 using Modules.AudioManagement.Mixer;
 using Modules.SaveSystem.SaveLoad;
 using Modules.Wallets.Systems;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class SaveLoadInstaller : Installer<SaveLoadInstaller>
     {

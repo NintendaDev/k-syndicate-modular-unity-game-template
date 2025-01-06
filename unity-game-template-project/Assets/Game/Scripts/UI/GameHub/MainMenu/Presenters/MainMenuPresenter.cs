@@ -1,10 +1,10 @@
-using GameTemplate.UI.GameHub.MainMenu.Views;
-using GameTemplate.UI.GameHub.Signals;
 using System;
+using Game.UI.GameHub.MainMenu.Views;
+using Game.UI.GameHub.Signals;
 using Modules.Authorization.Interfaces;
 using Modules.EventBus;
 
-namespace GameTemplate.UI.GameHub.MainMenu.Presenters
+namespace Game.UI.GameHub.MainMenu.Presenters
 {
     public sealed class MainMenuPresenter : IDisposable
     {

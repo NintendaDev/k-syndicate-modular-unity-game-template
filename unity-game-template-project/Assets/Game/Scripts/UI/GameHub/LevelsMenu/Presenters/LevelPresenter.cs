@@ -1,9 +1,9 @@
-using GameTemplate.UI.GameHub.LevelsMenu.Views;
-using GameTemplate.UI.GameHub.Signals;
 using System;
+using Game.UI.GameHub.LevelsMenu.Views;
+using Game.UI.GameHub.Signals;
 using Modules.EventBus;
 
-namespace GameTemplate.UI.GameHub.LevelsMenu.Presenters
+namespace Game.UI.GameHub.LevelsMenu.Presenters
 {
     public sealed class LevelPresenter : IDisposable
     {

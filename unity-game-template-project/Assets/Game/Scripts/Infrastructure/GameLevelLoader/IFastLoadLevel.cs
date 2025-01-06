@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace GameTemplate.Services.GameLevelLoader
+namespace Game.Services.GameLevelLoader
 {
     public interface IFastLoadLevel
     {

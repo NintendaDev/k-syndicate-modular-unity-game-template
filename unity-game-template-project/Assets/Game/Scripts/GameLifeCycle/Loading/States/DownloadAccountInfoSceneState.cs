@@ -1,11 +1,11 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
 using Modules.EventBus;
 using Modules.Logging;
 using Modules.NetworkAccount;
 
-namespace GameTemplate.GameLifeCycle.Loading
+namespace Game.GameLifeCycle.Loading
 {
     public sealed class DownloadAccountInfoSceneState : SceneState
     {

@@ -1,7 +1,7 @@
 using Modules.StateMachines;
 using Zenject;
 
-namespace GameTemplate.Infrastructure.StateMachineComponents.Installers
+namespace Game.Infrastructure.StateMachineComponents.Installers
 {
     public sealed class GameStateMachineInstaller : Installer<GameStateMachineInstaller>
     {

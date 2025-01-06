@@ -1,4 +1,4 @@
-namespace GameTemplate.Infrastructure.Levels
+namespace Game.Infrastructure.Levels
 {
     public enum LevelCode 
     {

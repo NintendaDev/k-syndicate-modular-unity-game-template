@@ -1,32 +1,27 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Levels.Configurations;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Services.GameLevelLoader;
+using Game.External.AudioManagement;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Modules.AssetsManagement.StaticData;
+using Modules.AudioManagement.Player;
+using Modules.AudioManagement.Types;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Clip;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
+namespace Game.GameLifeCycle.Gameplay.States
 {
     public sealed class BootstrapSceneState : SceneState
     {
-        private readonly IMusicPlaySystem _musicPlayService;
-        private readonly LevelConfiguration _currentLevelConfiguration;
-        private readonly AddressableAudioClipFactory _addressableAudioClipFactory;
+        private readonly IAudioAssetPlayer _audioAssetPlayer;
         private readonly ILoadingCurtain _loadingCurtain;
 
         public BootstrapSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
-            ILoadingCurtain loadingCurtain, IMusicPlaySystem musicPlayService, 
-            ICurrentLevelConfiguration levelConfigurator, AddressableAudioClipFactory addressableAudioClipFactory)
+            ILoadingCurtain loadingCurtain, IAudioAssetPlayer audioAssetPlayer)
             : base(stateMachine, signalBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
-            _musicPlayService = musicPlayService;
-            _currentLevelConfiguration = levelConfigurator.CurrentLevelConfiguration;
-            _addressableAudioClipFactory = addressableAudioClipFactory;
+            _audioAssetPlayer = audioAssetPlayer;
         }
 
         public override async UniTask Enter()
@@ -34,19 +29,20 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             await base.Enter();
 
             _loadingCurtain.ShowWithoutProgressBar();
-            await Initialize();
+            await InitializeAsync();
 
             await StateMachine.SwitchState<StartGameplaySceneState>();
         }
 
-        private async UniTask Initialize()
+        private async UniTask InitializeAsync()
         {
-            await _musicPlayService.InitializeAsync();
+            await InitializeAudioAssetPlayerAsync();
+        }
 
-            AddressableAudioClip addressableAudioClip = _addressableAudioClipFactory.Create();
-
-            if (await addressableAudioClip.TryInitializeAsync(_currentLevelConfiguration))
-                _musicPlayService.Set(addressableAudioClip);
+        private async UniTask InitializeAudioAssetPlayerAsync()
+        {
+            _audioAssetPlayer.Initialize();
+            await _audioAssetPlayer.WarmupAsync(AudioCode.LevelMusic);
         }
     }
 }

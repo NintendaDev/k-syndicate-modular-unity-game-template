@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1576988032187696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4796163816734636}
+  - component: {fileID: -2683738262453034793}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4796163816734636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576988032187696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2683738262453034793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576988032187696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d735f3e75ea19614b84757e8e6a5c2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  internals:
+    settings:
+      settingExpandBase: 1
+      settingsExpandAdvanced: 0
+      disablePlayingSounds: 0
+      soundTimeScale: 0
+      globalPause: 0
+      globalVolumeRatio: 1
+      globalVolumeDecibel: 0
+      volumeIncreaseEnable: 0
+      dontDestroyOnLoad: 1
+      debugWarnings: 1
+      debugInPlayMode: 1
+      guiWarnings: 1
+      adressableAudioMixerUse: 0
+      globalSoundTag: {fileID: 0}
+      distanceScale: 1
+      overrideListenerDistance: 0
+      overrideListenerDistanceAmount: 100
+      speedOfSoundEnabled: 0
+      speedOfSoundScale: 1
+      voicePreload: 32
+      voiceLimit: 32
+      voiceStopTime: 5
+      voiceEffectLimit: 32
+    editorTools:
+      editorToolExpand: 1
+      editorToolSelectionHistoryEnable: 0
+      editorToolReferenceFinderEnable: 0
+      editorToolSelectSameTypeEnable: 0
+    debug:
+      debugExpand: 1
+      logSoundEventsEnabled: 0
+      logSoundEventsLogType: 0
+      logSoundEventsSelectObject: 0
+      logSoundEventsPlay: 1
+      logSoundEventsStop: 1
+      logSoundEventsPool: 0
+      logSoundEventsPause: 1
+      logSoundEventsUnpause: 1
+      logSoundEventsGlobalPause: 0
+      logSoundEventsGlobalUnpause: 0
+      logSoundEventsSoundParametersOnce: 1
+      logSoundEventsSoundParametersContinious: 0
+      drawSoundEventsInSceneViewEnabled: 0
+      drawSoundEventsInGameViewEnabled: 0
+      drawSoundEventsHideIfCloserThan: 0.01
+      drawSoundEventsFontSize: 16
+      drawSoundEventsVolumeToOpacity: 0.5
+      drawSoundEventsLifetimeToOpacity: 0.75
+      drawSoundEventsLifetimeFadeLength: 1
+      drawSoundEventsColorStart: {r: 1, g: 0.705, b: 0, a: 1}
+      drawSoundEventsColorEnd: {r: 1, g: 0, b: 0.2550001, a: 1}
+      drawSoundEventsColorOutline: {r: 0, g: 0, b: 0, a: 1}
+    statistics:
+      statisticsExpandBase: 1
+      statisticsExpandInstances: 1
+      statisticsSorting: 0
+      statisticsShowVoices: 1
+      statisticsShowVolume: 1
+      statisticsShowActive: 0
+      statisticsShowDisabled: 0
+      statisticsShowPlays: 0

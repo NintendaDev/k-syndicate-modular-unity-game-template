@@ -1,13 +1,13 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.GameLifeCycle.GameHub.States;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
+using Game.GameLifeCycle.GameHub.States;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
 using Modules.Analytics;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
 
-namespace GameTemplate.GameLifeCycle.Loading
+namespace Game.GameLifeCycle.Loading
 {
     public sealed class FinishLoadingSceneState : AnalyticsGameState
     {

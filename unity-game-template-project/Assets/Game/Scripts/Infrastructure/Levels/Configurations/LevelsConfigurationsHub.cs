@@ -1,11 +1,11 @@
-using GameTemplate.Infrastructure.Levels;
-using GameTemplate.Infrastructure.Levels.Configurations;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Infrastructure.Levels;
+using Game.Infrastructure.Levels.Configurations;
 using UnityEngine;
 
-namespace GameTemplate.Level.Configurations
+namespace Game.Level.Configurations
 {
     [CreateAssetMenu(fileName = "new LevelsConfigurationsHub", menuName = "GameTemplate/Levels/LevelsConfigurationsHub")]
     public sealed class LevelsConfigurationsHub : ScriptableObject

@@ -1,9 +1,9 @@
-using GameTemplate.GameLifeCycle.GameHub;
-using GameTemplate.UI.GameHub.LevelsMenu.Factories;
-using GameTemplate.UI.GameHub.LevelsMenu.Presenters;
-using GameTemplate.UI.GameHub.LevelsMenu.Views;
-using GameTemplate.UI.GameHub.MainMenu.Presenters;
-using GameTemplate.UI.GameHub.MainMenu.Views;
+using Game.GameLifeCycle.GameHub;
+using Game.UI.GameHub.LevelsMenu.Factories;
+using Game.UI.GameHub.LevelsMenu.Presenters;
+using Game.UI.GameHub.LevelsMenu.Views;
+using Game.UI.GameHub.MainMenu.Presenters;
+using Game.UI.GameHub.MainMenu.Views;
 using Modules.AudioManagement.UI.Presenters;
 using Modules.AudioManagement.UI.Views;
 using Modules.Wallets.UI.Factories;
@@ -11,7 +11,7 @@ using Modules.Wallets.UI.Presenters;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GameTemplate.Infrastructure.ContextInstallers.GameHub
+namespace Game.Infrastructure.ContextInstallers.GameHub
 {
     public sealed class GameHubInfrastructureInstaller : InfrastructureInstaller
     {

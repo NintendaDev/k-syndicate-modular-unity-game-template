@@ -3,7 +3,7 @@ using System;
 using Modules.Core.UI;
 using UnityEngine;
 
-namespace GameTemplate.UI.Gameplay.PauseMenu.Views
+namespace Game.UI.Gameplay.PauseMenu.Views
 {
     public sealed class PauseMenuView : ViewWithBackButton
     {

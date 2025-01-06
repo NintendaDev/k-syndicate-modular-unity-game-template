@@ -1,9 +1,9 @@
+using Game.GameLifeCycle.Loading;
+using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
-using GameTemplate.GameLifeCycle.Loading;
-using GameTemplate.Infrastructure.StateMachineComponents;
 using Zenject;
 
-namespace GameTemplate.Infrastructure.ContextInstallers.Loading
+namespace Game.Infrastructure.ContextInstallers.Loading
 {
     public sealed class GameLoadingSceneInstaller : MonoInstaller
     {

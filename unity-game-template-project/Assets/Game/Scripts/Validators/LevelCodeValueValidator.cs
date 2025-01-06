@@ -1,5 +1,5 @@
 using System;
-using GameTemplate.Infrastructure.Levels;
+using Game.Infrastructure.Levels;
 
 #if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor.Validation;

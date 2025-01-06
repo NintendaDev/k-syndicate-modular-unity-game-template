@@ -5,7 +5,7 @@ using Modules.Wallet.Types;
 using Modules.Wallets.Configurations;
 using Modules.Wallets.Systems;
 
-namespace GameTemplate.Application.SaveLoad
+namespace Game.Application.SaveLoad
 {
     public sealed class DefaultSaveLoader : IDefaultSaveLoader
     {

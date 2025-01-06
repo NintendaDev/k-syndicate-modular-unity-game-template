@@ -1,7 +1,7 @@
-﻿using GameTemplate.Infrastructure.Bootstrap;
+﻿using Game.Infrastructure.Bootstrap;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class GameBootstrapInstaller : Installer<GameBootstrapInstaller>
     {
