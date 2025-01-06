@@ -28,12 +28,16 @@ This template is the result of working on a personal project [Geometry Dash](htt
 
 **Dependencies:**
 
-- Zenject
-- Addressables
-- UniTask
-- TextMesh Pro
-- Odin Inspector
-- Odin Validator
+- Zenject (free)
+- Addressables (free)
+- UniTask (free)
+- TextMesh Pro (free)
+- Odin Inspector (paid)
+- Odin Validator (paid)
+- I2 Localization (paid)
+- Sonity (paid)
+
+Paid assets require a purchase. In the project, they are included solely for the purpose of demonstrating functionality.
 
 **Design Patterns Used:**
 
@@ -51,15 +55,8 @@ This template is the result of working on a personal project [Geometry Dash](htt
 ## Flow Description
 ![Flow](/images/flow-scheme.png)
 
-**Entry Point Scene**
-
-This is the entry point of the game.
-The purpose of this scene is simply to load the Bootstrap scene, which is placed in Addressables. 
-The goal is to prevent asset duplication from Addressables groups. 
-Therefore, this scene does not contain any assets from the project and only loads the Bootstrap scene.
-
 **Bootstrap Scene**
-
+This is the entry point of the game.
 It creates the game's state machine and sequentially initializes all services to ensure their correct operation.
 
 **Loading Scene**
