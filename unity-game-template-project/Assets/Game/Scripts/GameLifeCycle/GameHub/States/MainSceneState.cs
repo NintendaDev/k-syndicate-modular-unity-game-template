@@ -1,25 +1,30 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.UI.GameHub.Signals;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Game.UI.GameHub.Signals;
+using Modules.AudioManagement.Mixer;
+using Modules.AudioManagement.Player;
+using Modules.AudioManagement.Types;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub
 {
     public sealed class MainSceneState : SceneState
     {
         private readonly ILoadingCurtain _loadingCurtain;
-        private readonly IMusicPlaySystem _musicPlayService;
+        private readonly IAudioMixerSystem _audioMixerSystem;
+        private readonly IAudioAssetPlayer _audioAssetPlayer;
 
         public MainSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem, 
-            ILoadingCurtain loadingCurtain, IMusicPlaySystem musicPlayService)
+            ILoadingCurtain loadingCurtain, IAudioMixerSystem audioMixerSystem, 
+            IAudioAssetPlayer audioAssetPlayer)
             : base(stateMachine, signalBus, logSystem)
         {
             _loadingCurtain = loadingCurtain;
-            _musicPlayService = musicPlayService;
+            _audioMixerSystem = audioMixerSystem;
+            _audioAssetPlayer = audioAssetPlayer;
         }
 
         public async override UniTask Enter()
@@ -27,9 +32,10 @@ namespace GameTemplate.GameLifeCycle.GameHub
             await base.Enter();
 
             StateSignalBus.Subscribe<LoginSignal>(OnLoginSignal);
+            _audioMixerSystem.Unmute();
 
-            if (_musicPlayService.IsPlaying == false)
-                _musicPlayService.PlayOrUnpause();
+            if (_audioAssetPlayer.IsPlaying(AudioCode.GameHubMusic) == false)
+                await _audioAssetPlayer.TryPlayAsync(AudioCode.GameHubMusic);
 
             _loadingCurtain.Hide();
         }

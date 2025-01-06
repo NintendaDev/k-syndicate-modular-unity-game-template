@@ -1,8 +1,8 @@
-using GameTemplate.Infrastructure.Bootstrappers;
+using Game.Infrastructure.Bootstrappers;
 using UnityEngine;
 using Zenject;
 
-namespace GameTemplate.Infrastructure.Bootstrap
+namespace Game.Infrastructure.Bootstrap
 {
     public sealed class GameRunner : MonoBehaviour
     {

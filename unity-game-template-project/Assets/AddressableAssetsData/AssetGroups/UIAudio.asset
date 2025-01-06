@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UIAudio
+  m_EditorClassIdentifier: 
+  m_GroupName: UIAudio
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 00690ed9df908f34c9149641528df56b
+  m_SerializeEntries:
+  - m_GUID: 288e1ac46de9f97429ba3a42aded65b2
+    m_Address: Assets/Game/Configurations/Audio/SonityEvents/Mouse Hover Glass A
+      SC.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92b2f4c30eed94747afd3e27ff24ce3f
+    m_Address: Assets/Game/Configurations/Audio/SonityEvents/Mouse Hover Glass A
+      SE.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64aaf7a397df4a24f90d0e4713733602
+    m_Address: Accepting Key SC
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45dbb47a53779ea47a2abc5aeb10bc4c
+    m_Address: Accepting Key SE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76321b1bbea0af144be732232186accb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6425794239362684183a58a0cb8fde8c, type: 2}
+    - {fileID: 11400000, guid: f7ffa55344a9bdb469b7cf08f421c52f, type: 2}

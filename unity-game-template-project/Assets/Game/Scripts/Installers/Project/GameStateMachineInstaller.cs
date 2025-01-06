@@ -1,8 +1,8 @@
-﻿using GameTemplate.Infrastructure.StateMachineComponents;
+﻿using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
 using Zenject;
 
-namespace GameTemplate.Installers
+namespace Game.Installers
 {
     public class GameStateMachineInstaller : Installer<GameStateMachineInstaller>
     {

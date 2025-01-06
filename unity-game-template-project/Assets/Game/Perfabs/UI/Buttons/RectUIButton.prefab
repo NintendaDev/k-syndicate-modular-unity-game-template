@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6490448773954187263}
   - component: {fileID: 8204772669984741603}
   - component: {fileID: 485590043600845293}
+  - component: {fileID: 5741675006814616412}
   m_Layer: 5
   m_Name: RectUIButton
   m_TagString: Untagged
@@ -136,6 +137,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 8204772669984741603}
   _buttonTitle: {fileID: 4986740038169105208}
+--- !u!114 &5741675006814616412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460605346383454430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e25a359fb949039b200c8d82a498a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 8204772669984741603}
+  _clickSound: 3
+  _highlightSound: 4
 --- !u!1 &9197510819109962059
 GameObject:
   m_ObjectHideFlags: 0

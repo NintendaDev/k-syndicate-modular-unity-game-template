@@ -2,7 +2,7 @@
 using Modules.Localization.Systems.Demo;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class LocalizationSystemInstaller : Installer<LocalizationSystemInstaller>
     {

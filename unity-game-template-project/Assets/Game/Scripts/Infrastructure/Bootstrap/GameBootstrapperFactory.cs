@@ -1,11 +1,11 @@
 using System;
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.Bootstrappers;
+using Game.Infrastructure.Bootstrappers;
 using Modules.AssetsManagement.AddressablesOperations;
 using Modules.ObjectsManagement.Factories;
 using Zenject;
 
-namespace GameTemplate.Infrastructure.Bootstrap
+namespace Game.Infrastructure.Bootstrap
 {
     public sealed class GameBootstrapperFactory : IDisposable
     {

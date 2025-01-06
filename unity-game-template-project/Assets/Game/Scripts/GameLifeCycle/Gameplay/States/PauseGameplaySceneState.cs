@@ -1,24 +1,24 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.UI.Gameplay.Signals;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Services.GameLevelLoader;
+using Game.UI.Gameplay.Signals;
 using Modules.Analytics;
+using Modules.AudioManagement.Player;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
+namespace Game.GameLifeCycle.Gameplay.States
 {
     public sealed class PauseGameplaySceneState : LevelGameplayState
     {
         public PauseGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
-            ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
+            ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IAudioAssetPlayer audioAssetPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator)
-            : base(stateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem, audioAssetPlayer, 
                   resetObjects, loadingCurtain, levelConfigurator)
         {
         }
@@ -30,7 +30,7 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             StateSignalBus.Subscribe<PlaySignal>(OnPlaySignal);
             StateSignalBus.Subscribe<ExitSignal>(OnExitSignal);
 
-            PauseMusic();
+            PauseAllSounds();
             StopGameTime();
         }
 

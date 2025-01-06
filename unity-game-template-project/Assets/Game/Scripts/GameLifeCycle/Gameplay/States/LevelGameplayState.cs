@@ -1,18 +1,19 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Game.Infrastructure.Levels.Configurations;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Game.Services.GameLevelLoader;
 using UnityEngine;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.Levels.Configurations;
 using Modules.Analytics;
+using Modules.AudioManagement.Player;
+using Modules.AudioManagement.Types;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
+namespace Game.GameLifeCycle.Gameplay.States
 {
     public abstract class LevelGameplayState : SceneState
     {
@@ -21,11 +22,11 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly ILoadingCurtain _loadingCurtain;
 
         public LevelGameplayState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem,
-            IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, IEnumerable<IReset> resetObjects, 
+            IAnalyticsSystem analyticsSystem, IAudioAssetPlayer audioAssetPlayer, IEnumerable<IReset> resetObjects, 
             ILoadingCurtain loadingCurtain, ICurrentLevelConfiguration levelConfigurator) 
             : base(stateMachine, signalBus, logSystem)
         {
-            MusicPlay = musicPlayer;
+            AudioAssetPlayer = audioAssetPlayer;
             _originalTimeScale = Time.timeScale;
             _resetObjects = resetObjects;
             _loadingCurtain = loadingCurtain;
@@ -33,7 +34,7 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             AnalyticsSystem = analyticsSystem;
         }
 
-        protected IMusicPlay MusicPlay { get; private set; }
+        protected IAudioAssetPlayer AudioAssetPlayer { get; private set; }
 
         protected LevelConfiguration CurrentLevelConfiguration { get; private set; }
 
@@ -51,11 +52,14 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         protected void RestoreGameTime() =>
             Time.timeScale = _originalTimeScale;
 
-        protected void PlayMusic() =>
-            MusicPlay.PlayOrUnpause();
+        protected void PlayOrUnpauseSound(AudioCode audioCode) =>
+            AudioAssetPlayer.TryPlayAsync(audioCode).Forget();
 
-        protected void PauseMusic() =>
-            MusicPlay.Pause();
+        protected void PauseAllSounds() =>
+            AudioAssetPlayer.PauseAll();
+        
+        protected void UnpauseAllSounds() =>
+            AudioAssetPlayer.UnpauseAll();
 
         protected void ShowCurtain() =>
             _loadingCurtain.ShowWithoutProgressBar();

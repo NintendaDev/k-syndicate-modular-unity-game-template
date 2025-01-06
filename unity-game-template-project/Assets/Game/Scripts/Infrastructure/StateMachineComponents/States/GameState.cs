@@ -1,7 +1,7 @@
 using Modules.EventBus;
 using Modules.Logging;
 
-namespace GameTemplate.Infrastructure.StateMachineComponents.States
+namespace Game.Infrastructure.StateMachineComponents.States
 {
     public abstract class GameState : DefaultState
     {

@@ -5,7 +5,7 @@ using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
 
-namespace GameTemplate.Infrastructure.StateMachineComponents.States
+namespace Game.Infrastructure.StateMachineComponents.States
 {
     public class AnalyticsGameState : GameState
     {

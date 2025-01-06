@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
+using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
-using GameTemplate.Infrastructure.StateMachineComponents;
 using Zenject;
 
-namespace GameTemplate.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub
 {
     public sealed class GameHubBootstrapper : IInitializable
     {

@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
+using Game.GameLifeCycle.Gameplay.States;
+using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
-using GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates;
-using GameTemplate.Infrastructure.StateMachineComponents;
 using Zenject;
 
-namespace GameTemplate.GameLifeCycle.Gameplay
+namespace Game.GameLifeCycle.Gameplay
 {
     public sealed class GameplayBootstrapper : IInitializable
     {

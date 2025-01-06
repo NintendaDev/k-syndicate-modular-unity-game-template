@@ -1,35 +1,35 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.GameLifeCycle.Loading.States;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
+using Game.GameLifeCycle.Loading.States;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Modules.AudioManagement.Mixer;
 using Modules.Authorization.Interfaces;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Localization.Types;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 using Modules.PopupsSystem;
 
-namespace GameTemplate.GameLifeCycle.GameHub
+namespace Game.GameLifeCycle.GameHub
 {
     public sealed class AuthorizationSceneState : SceneState
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly IAuthorizationService _authorizationService;
         private readonly ILoadingCurtain _loadingCurtain;
-        private readonly IMusicPlaySystem _musicPlayService;
         private readonly IPopups _popups;
+        private readonly IAudioMixerSystem _audioMixerSystem;
 
         public AuthorizationSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, 
             GameStateMachine gameStateMachine, ILogSystem logSystem,
             IAuthorizationService authorizationService, ILoadingCurtain loadingCurtain, 
-            IMusicPlaySystem musicPlayService, IPopups popups) 
+            IAudioMixerSystem audioMixerSystem, IPopups popups) 
             : base(stateMachine, signalBus, logSystem)
         {
             _gameStateMachine = gameStateMachine;
             _authorizationService = authorizationService;
             _loadingCurtain = loadingCurtain;
-            _musicPlayService = musicPlayService;
+            _audioMixerSystem = audioMixerSystem;
             _popups = popups;
         }
 
@@ -37,7 +37,7 @@ namespace GameTemplate.GameLifeCycle.GameHub
         {
             await base.Enter();
 
-            _musicPlayService.Pause();
+            _audioMixerSystem.Mute();
             _loadingCurtain.ShowWithoutProgressBar();
 
             _authorizationService.LoginCompleted += OnLoginCompleted;

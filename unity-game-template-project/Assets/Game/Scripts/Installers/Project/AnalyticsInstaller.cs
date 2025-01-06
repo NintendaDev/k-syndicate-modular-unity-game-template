@@ -1,7 +1,7 @@
 ﻿using Modules.Analytics;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public sealed class AnalyticsInstaller : Installer<AnalyticsInstaller>
     {

@@ -1,10 +1,10 @@
 using Cysharp.Threading.Tasks;
+using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
-using GameTemplate.Infrastructure.StateMachineComponents;
 using Modules.Logging;
 using Zenject;
 
-namespace GameTemplate.GameLifeCycle.Loading
+namespace Game.GameLifeCycle.Loading
 {
     public sealed class GameLoadingSceneBootstrapper : IInitializable
     {

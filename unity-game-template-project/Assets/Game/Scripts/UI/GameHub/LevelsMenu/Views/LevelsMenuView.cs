@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Modules.Core.UI;
 using UnityEngine;
 
-namespace GameTemplate.UI.GameHub.LevelsMenu.Views
+namespace Game.UI.GameHub.LevelsMenu.Views
 {
     public sealed class LevelsMenuView : ViewWithBackButton
     {

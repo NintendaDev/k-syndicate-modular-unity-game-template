@@ -1,9 +1,9 @@
-using GameTemplate.UI.Gameplay.PauseMenu.Views;
-using GameTemplate.UI.Gameplay.PlayMenu.Views;
+using Game.UI.Gameplay.PauseMenu.Views;
+using Game.UI.Gameplay.PlayMenu.Views;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GameTemplate.UI.Gameplay
+namespace Game.UI.Gameplay
 {
     public sealed class GameplayMenuView : MonoBehaviour
     {

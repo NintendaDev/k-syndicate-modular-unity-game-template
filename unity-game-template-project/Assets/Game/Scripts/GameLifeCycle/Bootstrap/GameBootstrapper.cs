@@ -1,14 +1,14 @@
 using Cysharp.Threading.Tasks;
+using Game.GameLifeCycle.Bootstrap;
+using Game.GameLifeCycle.GameHub.States;
+using Game.GameLifeCycle.Gameplay;
+using Game.GameLifeCycle.Loading.States;
+using Game.Infrastructure.StateMachineComponents;
 using Modules.StateMachines;
-using GameTemplate.GameLifeCycle.Bootstrap;
-using GameTemplate.GameLifeCycle.GameHub.States;
-using GameTemplate.GameLifeCycle.Gameplay;
-using GameTemplate.GameLifeCycle.Loading.States;
-using GameTemplate.Infrastructure.StateMachineComponents;
 using UnityEngine;
 using Zenject;
 
-namespace GameTemplate.Infrastructure.Bootstrappers
+namespace Game.Infrastructure.Bootstrappers
 {
     public sealed class GameBootstrapper : MonoBehaviour
     {

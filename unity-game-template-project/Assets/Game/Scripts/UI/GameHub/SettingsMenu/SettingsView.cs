@@ -1,6 +1,6 @@
 using Modules.Core.UI;
 
-namespace GameTemplate.UI.GameHub.SettingsMenu
+namespace Game.UI.GameHub.SettingsMenu
 {
     public sealed class SettingsView : ViewWithBackButton
     {

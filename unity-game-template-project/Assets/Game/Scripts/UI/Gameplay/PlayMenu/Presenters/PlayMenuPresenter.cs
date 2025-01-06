@@ -1,9 +1,9 @@
-using GameTemplate.UI.Gameplay.PlayMenu.Views;
-using GameTemplate.UI.Gameplay.Signals;
 using System;
+using Game.UI.Gameplay.PlayMenu.Views;
+using Game.UI.Gameplay.Signals;
 using Modules.EventBus;
 
-namespace GameTemplate.UI.Gameplay.Presenters
+namespace Game.UI.Gameplay.Presenters
 {
     public sealed class PlayMenuPresenter : IDisposable
     {

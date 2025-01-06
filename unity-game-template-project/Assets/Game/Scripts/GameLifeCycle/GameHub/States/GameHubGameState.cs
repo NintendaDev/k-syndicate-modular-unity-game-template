@@ -1,17 +1,17 @@
 using Cysharp.Threading.Tasks;
+using Game.GameLifeCycle.Gameplay;
+using Game.Infrastructure.Configurations;
+using Game.Infrastructure.Levels;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Infrastructure.StateMachineComponents.States;
+using Game.Services.GameLevelLoader;
+using Game.UI.GameHub.Signals;
 using Modules.SceneManagement;
-using GameTemplate.GameLifeCycle.Gameplay;
-using GameTemplate.Infrastructure.Configurations;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Infrastructure.StateMachineComponents.States;
-using GameTemplate.Infrastructure.Levels;
-using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.UI.GameHub.Signals;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
 using Modules.Logging;
 
-namespace GameTemplate.GameLifeCycle.GameHub.States
+namespace Game.GameLifeCycle.GameHub.States
 {
     public sealed class GameHubGameState : GameState
     {

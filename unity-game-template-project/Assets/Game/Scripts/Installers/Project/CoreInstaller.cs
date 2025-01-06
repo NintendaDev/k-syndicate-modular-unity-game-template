@@ -2,7 +2,7 @@
 using Modules.Logging;
 using Zenject;
 
-namespace GameTemplate.Installers.Project
+namespace Game.Installers.Project
 {
     public class CoreInstaller : Installer<CoreInstaller>
     {

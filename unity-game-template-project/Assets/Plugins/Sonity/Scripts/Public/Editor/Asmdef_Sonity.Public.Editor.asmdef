@@ -1,0 +1,20 @@
+{
+    "name": "Sonity.Public.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Sonity.Editor",
+        "Sonity.Public.Runtime",
+        "Sonity.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

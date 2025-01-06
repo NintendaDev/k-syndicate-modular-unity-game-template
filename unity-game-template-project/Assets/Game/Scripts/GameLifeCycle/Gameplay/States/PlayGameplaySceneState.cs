@@ -1,24 +1,25 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.GameLevelLoader;
-using GameTemplate.UI.Gameplay.Signals;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Services.GameLevelLoader;
+using Game.UI.Gameplay.Signals;
 using Modules.Analytics;
+using Modules.AudioManagement.Player;
+using Modules.AudioManagement.Types;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 
-namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
+namespace Game.GameLifeCycle.Gameplay.States
 {
     public sealed class PlayGameplaySceneState : LevelGameplayState
     {
         public PlayGameplaySceneState(SceneStateMachine stateMachine, ISignalBus signalBus,
-            ILogSystem logSystem, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
+            ILogSystem logSystem, IAnalyticsSystem analyticsSystem, IAudioAssetPlayer audioAssetPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator)
-            : base(stateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem, audioAssetPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
         }
@@ -30,7 +31,8 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
             StateSignalBus.Subscribe<PauseSignal>(OnPauseSignal);
 
             RestoreGameTime();
-            PlayMusic();
+            UnpauseAllSounds();
+            PlayOrUnpauseSound(AudioCode.LevelMusic);
             HideCurtain();
         }
 

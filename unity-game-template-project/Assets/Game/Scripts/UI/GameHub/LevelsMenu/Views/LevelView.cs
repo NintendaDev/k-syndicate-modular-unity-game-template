@@ -1,9 +1,9 @@
 using System;
-using GameTemplate.Infrastructure.Levels;
+using Game.Infrastructure.Levels;
 using Modules.Core.Systems;
 using Modules.Core.UI;
 
-namespace GameTemplate.UI.GameHub.LevelsMenu.Views
+namespace Game.UI.GameHub.LevelsMenu.Views
 {
     public sealed class LevelView : UITextButton, IDestroyEvent
     {

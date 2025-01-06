@@ -1,18 +1,18 @@
 using Cysharp.Threading.Tasks;
-using GameTemplate.GameLifeCycle.GameHub.States;
-using GameTemplate.Infrastructure.StateMachineComponents;
-using GameTemplate.Services.GameLevelLoader;
 using Modules.LoadingCurtain;
 using System.Collections.Generic;
+using Game.GameLifeCycle.GameHub.States;
+using Game.Infrastructure.StateMachineComponents;
+using Game.Services.GameLevelLoader;
 using Modules.Advertisements.Systems;
 using Modules.Analytics;
+using Modules.AudioManagement.Player;
 using Modules.Core.Systems;
 using Modules.EventBus;
 using Modules.Logging;
-using Modules.AudioManagement.Systems;
 using Modules.SaveSystem.Signals;
 
-namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
+namespace Game.GameLifeCycle.Gameplay.States
 {
     public sealed class FinishGameplaySceneState : LevelGameplayState
     {
@@ -20,10 +20,10 @@ namespace GameTemplate.GameLifeCycle.Gameplay.StandardLevelStates
         private readonly IAdvertisementsSystem _advertisementsSystem;
 
         public FinishGameplaySceneState(GameStateMachine gameStateMachine, SceneStateMachine sceneStateMachine, 
-            ISignalBus signalBus, ILogSystem logSystem, IAnalyticsSystem analyticsSystem, IMusicPlay musicPlayer, 
-            IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
+            ISignalBus signalBus, ILogSystem logSystem, IAnalyticsSystem analyticsSystem, 
+            IAudioAssetPlayer audioAssetPlayer, IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
             ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
-            : base(sceneStateMachine, signalBus, logSystem, analyticsSystem, musicPlayer, resetObjects, 
+            : base(sceneStateMachine, signalBus, logSystem, analyticsSystem, audioAssetPlayer, resetObjects, 
                 loadingCurtain, levelConfigurator)
         {
             _gameStateMachine = gameStateMachine;
