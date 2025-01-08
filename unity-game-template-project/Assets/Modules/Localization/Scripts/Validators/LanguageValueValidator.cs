@@ -1,18 +1,18 @@
 using System;
+using Modules.Localization.Types;
 
 #if UNITY_EDITOR
-using Modules.Localization.Types;
 using Sirenix.OdinInspector.Editor.Validation;
 #endif
 
 #if UNITY_EDITOR
-[assembly: RegisterValidator(typeof(languageValueValidator))]
+[assembly: RegisterValidator(typeof(LanguageValueValidator))]
 
-public class languageValueValidator : AttributeValidator<IsNotNoneLanguageAttribute, Language>
+public class LanguageValueValidator : AttributeValidator<IsNotNoneLanguageAttribute, Language>
 {
     protected override void Validate(ValidationResult result)
     {
-        if (this.Attribute.NoneLanguage == this.Value)
+        if (Attribute.NoneLanguage == this.Value)
             result.AddError($"Language cannot be None");
     }
 }

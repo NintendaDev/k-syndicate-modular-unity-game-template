@@ -1,4 +1,6 @@
-﻿using Modules.Analytics;
+﻿using Game.External.Analytics;
+using Modules.Analytics;
+using Modules.Analytics.GA;
 using Zenject;
 
 namespace Game.Installers.Project
@@ -7,7 +9,15 @@ namespace Game.Installers.Project
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<DummyAnalyticsSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameAnalyticsSystem>().
+                AsSingle()
+                .WhenInjectedInto<AnalyticsSystemProxy>();
+            
+            Container.BindInterfacesAndSelfTo<StubAnalyticsSystem>().
+                AsSingle()
+                .WhenInjectedInto<AnalyticsSystemProxy>();
+            
+            Container.BindInterfacesTo<AnalyticsSystemProxy>().AsSingle();
         }
     }
 }

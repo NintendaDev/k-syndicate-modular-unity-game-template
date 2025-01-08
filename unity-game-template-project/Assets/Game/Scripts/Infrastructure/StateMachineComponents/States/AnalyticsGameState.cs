@@ -1,5 +1,4 @@
 using Modules.Analytics;
-using Modules.Analytics.Configurations;
 using Modules.Analytics.Types;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
@@ -16,12 +15,9 @@ namespace Game.Infrastructure.StateMachineComponents.States
             : base(stateMachine, signalBus, logSystem)
         {
             _analyticsSystem = analyticsSystem;
-            AnalyticsConfiguration = staticDataService.GetConfiguration<AnalyticsConfiguration>();
         }
 
-        protected AnalyticsConfiguration AnalyticsConfiguration { get; }
-
-        protected void SendAnalyticsEvent(DesignEventData eventData) =>
-            _analyticsSystem.SendDesignEvent(eventData);
+        protected void SendAnalyticsEvent(EventCode eventCode) =>
+            _analyticsSystem.SendCustomEvent(eventCode);
     }
 }

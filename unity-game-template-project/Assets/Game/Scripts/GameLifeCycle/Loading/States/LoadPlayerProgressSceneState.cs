@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Infrastructure.StateMachineComponents.States;
 using Modules.Analytics;
+using Modules.Analytics.Types;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
@@ -27,7 +28,7 @@ namespace Game.GameLifeCycle.Loading
         {
             await base.Enter();
 
-            SendAnalyticsEvent(AnalyticsConfiguration.LoadProgressStageEvent);
+            SendAnalyticsEvent(EventCode.GameBootLoadProgress);
 
             if (await _gameSaveLoader.TryLoadAsync() == false)
                 _defaultSaveLoader.LoadDefaultSave();

@@ -3,6 +3,7 @@ using Game.GameLifeCycle.GameHub.States;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Infrastructure.StateMachineComponents.States;
 using Modules.Analytics;
+using Modules.Analytics.Types;
 using Modules.AssetsManagement.StaticData;
 using Modules.EventBus;
 using Modules.Logging;
@@ -21,7 +22,7 @@ namespace Game.GameLifeCycle.Loading
         {
             await base.Enter();
             await StateMachine.SwitchState<GameHubGameState>();
-            SendAnalyticsEvent(AnalyticsConfiguration.MainMenuStageEvent);
+            SendAnalyticsEvent(EventCode.GameBootGameHub);
         }
     }
 }

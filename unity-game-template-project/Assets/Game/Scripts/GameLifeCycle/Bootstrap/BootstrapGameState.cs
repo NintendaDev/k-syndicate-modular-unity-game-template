@@ -56,12 +56,12 @@ namespace Game.GameLifeCycle.Bootstrap
         private async UniTask InitializeServices()
         {
             await _staticDataService.InitializeAsync();
+            await _analyticsSystem.InitializeAsync();
             _devicePerformaceConfigurator.Initialize();
             _performanceSetter.Initialize();
             _gameLevelLoaderService.Initialize();
             _audioMixerSystem.Initialize();
             _localizationSystem.Initialize();
-            _analyticsSystem.Initialize();
         }
     }
 }

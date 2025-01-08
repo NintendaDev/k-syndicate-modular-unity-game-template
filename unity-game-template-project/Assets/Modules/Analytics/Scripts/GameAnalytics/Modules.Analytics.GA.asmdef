@@ -1,0 +1,22 @@
+{
+    "name": "Modules.Analytics.GA",
+    "rootNamespace": "Modules.Analytics.GA",
+    "references": [
+        "GUID:93228971017a10b4291c2c6829344874",
+        "GUID:2a41333a2df1bf84d92a130bd478a1ff",
+        "GUID:f8c64bb88d959406689053ae3f31183d",
+        "GUID:a1394e044482765449ce7a4bd4fd2869",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:798b4cf279db65346a8453758a51f54b",
+        "GUID:0064defb34cb85b47aba0950ed7512a2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

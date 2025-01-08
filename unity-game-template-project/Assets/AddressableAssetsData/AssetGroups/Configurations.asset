@@ -95,8 +95,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7e6f19312de4f0c4cb2260221bde3411
-    m_Address: AnalyticsConfiguration
+  - m_GUID: 66f85e95ea666fd41b7fbff0720921ae
+    m_Address: Assets/Modules/Analytics/Configurations/CustomEventsConfiguration.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
