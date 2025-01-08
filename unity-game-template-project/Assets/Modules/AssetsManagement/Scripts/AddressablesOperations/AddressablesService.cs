@@ -93,7 +93,9 @@ namespace Modules.AssetsManagement.AddressablesOperations
         {
             if (_assetRequests.TryGetValue(address, out var handler))
             {
-                Addressables.Release(handler);
+                if (handler.IsValid())
+                    Addressables.Release(handler);
+                
                 _assetRequests.Remove(address);
             }
         }
