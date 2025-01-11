@@ -47,16 +47,16 @@ By default, analytics is implemented using GameAnalytics. Firebase Analytics is 
 
 - Dependency Injection (DI)
 - State
-- EventBus
+- Event Bus
 - Factory
 - Model View Presenter Passive View
 - Model View Observable
 - Facade
 - Template Method
 - Proxy
+- Repository
+- Chain of responsibility
 - and more
-
-
 
 ## Flow Description
 ![Flow](/images/flow-scheme.png)
