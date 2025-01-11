@@ -17,9 +17,9 @@ This template is the result of working on a personal project [Geometry Dash](htt
 
 **A foundation is prepared for:**
 
-- Integrating analytics (e.g., GameAnalytics)
-- Implementing ads
-- Localization system
+- Integrating analytics (GameAnalytics, Firebase)
+- Implementing ads (AppLovin)
+- Localization system (I2)
 - Authorization integration
 - Music management and volume control
 - Progress saving
@@ -36,8 +36,11 @@ This template is the result of working on a personal project [Geometry Dash](htt
 - Odin Validator (paid)
 - I2 Localization (paid)
 - Sonity (paid)
+- GameAnalytics (free)
 
 Paid assets require a purchase. In the project, they are included solely for the purpose of demonstrating functionality.
+
+By default, analytics is implemented using GameAnalytics. Firebase Analytics is available as an additional addon in .unitypackage format. The AppLovin ad network is also implemented as an addon. Both addons are located in the Assets/Addons folder.
 
 **Design Patterns Used:**
 
@@ -51,6 +54,8 @@ Paid assets require a purchase. In the project, they are included solely for the
 - Template Method
 - Proxy
 - and more
+
+
 
 ## Flow Description
 ![Flow](/images/flow-scheme.png)
