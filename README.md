@@ -31,6 +31,7 @@ This template is the result of working on a personal project [Geometry Dash](htt
 - Zenject (free)
 - Addressables (free)
 - UniTask (free)
+- R3 (free)
 - TextMesh Pro (free)
 - Odin Inspector (paid)
 - Odin Validator (paid)
