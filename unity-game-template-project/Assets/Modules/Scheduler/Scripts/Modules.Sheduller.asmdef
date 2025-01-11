@@ -1,0 +1,16 @@
+{
+    "name": "Modules.Sheduller",
+    "rootNamespace": "Modules.Sheduller",
+    "references": [
+        "GUID:f28d430ef9dd60644af15e051a867632"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
