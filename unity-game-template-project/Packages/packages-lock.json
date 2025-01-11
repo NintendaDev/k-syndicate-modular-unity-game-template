@@ -16,12 +16,27 @@
       "dependencies": {},
       "hash": "f057abff0f4ea52e4c9699c2831808d6c0a27bcc"
     },
+    "com.gameanalytics.sdk": {
+      "version": "7.10.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.google.external-dependency-manager": "1.2.168"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.github-glitchenzo.nugetforunity": {
       "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "69f500fe0ddb26ed95acc3c06c4465b590e05550"
+    },
+    "com.google.external-dependency-manager": {
+      "version": "file:../ExternalPackages/com.google.external-dependency-manager-1.2.183.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

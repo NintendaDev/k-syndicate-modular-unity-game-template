@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Infrastructure.StateMachineComponents.States;
 using Modules.Analytics;
-using Modules.AssetsManagement.StaticData;
+using Modules.Analytics.Types;
 using Modules.EventBus;
 using Modules.Logging;
 using Modules.SaveSystem.SaveLoad;
@@ -15,9 +15,8 @@ namespace Game.GameLifeCycle.Loading
         private readonly IDefaultSaveLoader _defaultSaveLoader;
 
         public LoadPlayerProgressSceneState(SceneStateMachine stateMachine, ISignalBus signalBus, ILogSystem logSystem,
-            IGameSaveLoader gameSaveLoader, IDefaultSaveLoader defaultSaveLoader, IAnalyticsSystem analyticsSystem, 
-            IStaticDataService staticDataService) 
-            : base(stateMachine, signalBus, logSystem, analyticsSystem, staticDataService)
+            IGameSaveLoader gameSaveLoader, IDefaultSaveLoader defaultSaveLoader, IAnalyticsSystem analyticsSystem) 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem)
         {
             _gameSaveLoader = gameSaveLoader;
             _defaultSaveLoader = defaultSaveLoader;
@@ -27,7 +26,7 @@ namespace Game.GameLifeCycle.Loading
         {
             await base.Enter();
 
-            SendAnalyticsEvent(AnalyticsConfiguration.LoadProgressStageEvent);
+            SendAnalyticsEvent(AnalyticsEventCode.GameBootLoadProgress);
 
             if (await _gameSaveLoader.TryLoadAsync() == false)
                 _defaultSaveLoader.LoadDefaultSave();

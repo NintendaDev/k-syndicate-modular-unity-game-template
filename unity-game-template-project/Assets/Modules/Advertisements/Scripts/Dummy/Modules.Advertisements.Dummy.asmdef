@@ -1,0 +1,18 @@
+{
+    "name": "Modules.Advertisements.Dummy",
+    "rootNamespace": "Modules.Advertisements.Dummy",
+    "references": [
+        "GUID:d2675a8295c37514186e15b79fb4710d",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:798b4cf279db65346a8453758a51f54b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,4 +1,6 @@
 ﻿using Modules.Analytics;
+using Modules.Analytics.GA;
+using Modules.Analytics.Stub;
 using Zenject;
 
 namespace Game.Installers.Project
@@ -7,7 +9,13 @@ namespace Game.Installers.Project
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<DummyAnalyticsSystem>().AsSingle();
+            Container.BindInterfacesTo<ParallelAnalyticsSystem>()
+                .FromMethod(context =>
+                {
+                    return new ParallelAnalyticsSystem(context.Container.Instantiate<GameAnalyticsSystem>(),
+                        context.Container.Instantiate<StubAnalyticsSystem>());
+                })
+                .AsSingle();
         }
     }
 }

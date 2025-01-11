@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using Modules.Localization.Types;
+using Modules.Localization.Core.Types;
 
 namespace Modules.PopupsSystem
 {

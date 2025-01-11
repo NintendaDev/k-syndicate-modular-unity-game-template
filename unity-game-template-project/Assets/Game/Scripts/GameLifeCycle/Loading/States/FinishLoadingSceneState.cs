@@ -3,7 +3,7 @@ using Game.GameLifeCycle.GameHub.States;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Infrastructure.StateMachineComponents.States;
 using Modules.Analytics;
-using Modules.AssetsManagement.StaticData;
+using Modules.Analytics.Types;
 using Modules.EventBus;
 using Modules.Logging;
 
@@ -12,8 +12,8 @@ namespace Game.GameLifeCycle.Loading
     public sealed class FinishLoadingSceneState : AnalyticsGameState
     {
         public FinishLoadingSceneState(GameStateMachine stateMachine, ILogSystem logSystem, ISignalBus signalBus,
-            IAnalyticsSystem analyticsSystem, IStaticDataService staticDataService) 
-            : base(stateMachine, signalBus, logSystem, analyticsSystem, staticDataService)
+            IAnalyticsSystem analyticsSystem) 
+            : base(stateMachine, signalBus, logSystem, analyticsSystem)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Game.GameLifeCycle.Loading
         {
             await base.Enter();
             await StateMachine.SwitchState<GameHubGameState>();
-            SendAnalyticsEvent(AnalyticsConfiguration.MainMenuStageEvent);
+            SendAnalyticsEvent(AnalyticsEventCode.GameBootGameHub);
         }
     }
 }

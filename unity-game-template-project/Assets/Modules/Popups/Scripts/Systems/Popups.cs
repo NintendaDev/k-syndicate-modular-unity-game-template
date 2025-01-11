@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Modules.Localization.Systems;
-using Modules.Localization.Types;
+using Modules.Localization.Core.Systems;
+using Modules.Localization.Core.Types;
 using Modules.PopupsSystem.Configurations;
 using Modules.PopupsSystem.UI.Factories;
 using Modules.PopupsSystem.UI.Simple;

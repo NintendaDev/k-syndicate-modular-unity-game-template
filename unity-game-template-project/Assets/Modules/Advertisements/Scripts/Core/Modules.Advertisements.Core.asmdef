@@ -1,0 +1,20 @@
+{
+    "name": "Modules.Advertisements.Core",
+    "rootNamespace": "Modules.Advertisements.Core",
+    "references": [
+        "GUID:b373334a8cf85824794495d6c1277263",
+        "GUID:a1394e044482765449ce7a4bd4fd2869",
+        "GUID:93228971017a10b4291c2c6829344874",
+        "GUID:798b4cf279db65346a8453758a51f54b",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

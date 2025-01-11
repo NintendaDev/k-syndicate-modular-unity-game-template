@@ -10,7 +10,7 @@ using Modules.Device.Performance;
 using Modules.Device.Performance.Configurations;
 using Modules.EventBus;
 using Modules.LoadingCurtain;
-using Modules.Localization.Systems;
+using Modules.Localization.Core.Systems;
 using Modules.Logging;
 
 namespace Game.GameLifeCycle.Bootstrap
@@ -56,12 +56,12 @@ namespace Game.GameLifeCycle.Bootstrap
         private async UniTask InitializeServices()
         {
             await _staticDataService.InitializeAsync();
+            await _analyticsSystem.InitializeAsync();
             _devicePerformaceConfigurator.Initialize();
             _performanceSetter.Initialize();
             _gameLevelLoaderService.Initialize();
             _audioMixerSystem.Initialize();
             _localizationSystem.Initialize();
-            _analyticsSystem.Initialize();
         }
     }
 }
