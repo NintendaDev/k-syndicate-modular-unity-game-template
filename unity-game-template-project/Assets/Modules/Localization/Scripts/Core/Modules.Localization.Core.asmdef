@@ -1,0 +1,17 @@
+{
+    "name": "Modules.Localization.Core",
+    "rootNamespace": "Modules.Localization.Core",
+    "references": [
+        "GUID:1c12157aaa29fdb45bbb405ff2a5d629",
+        "GUID:a1394e044482765449ce7a4bd4fd2869"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

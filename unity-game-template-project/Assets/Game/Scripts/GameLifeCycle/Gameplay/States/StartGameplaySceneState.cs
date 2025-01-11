@@ -3,7 +3,8 @@ using Modules.LoadingCurtain;
 using System.Collections.Generic;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Services.GameLevelLoader;
-using Modules.Advertisements.Systems;
+using Modules.Advertisements.AnalyticsAddon;
+using Modules.Advertisements.Types;
 using Modules.Analytics;
 using Modules.AudioManagement.Player;
 using Modules.Core.Systems;
@@ -14,16 +15,16 @@ namespace Game.GameLifeCycle.Gameplay.States
 {
     public sealed class StartGameplaySceneState : LevelGameplayState
     {
-        private readonly IAdvertisementsSystem _advertisementsSystem;
+        private readonly AdvertisementsFacade _advertisementsFacade;
 
         public StartGameplaySceneState(SceneStateMachine stateMachine, ILogSystem logSystem,
             ISignalBus signalBus, IAnalyticsSystem analyticsSystem, IAudioAssetPlayer audioAssetPlayer, 
             IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
-            ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
+            ICurrentLevelConfiguration levelConfigurator, AdvertisementsFacade _advertisementsFacade)
             : base(stateMachine, signalBus, logSystem, analyticsSystem, audioAssetPlayer, resetObjects, 
                   loadingCurtain, levelConfigurator)
         {
-            _advertisementsSystem = advertisementsSystem;
+            this._advertisementsFacade = _advertisementsFacade;
         }
 
         public override async UniTask Enter()
@@ -33,8 +34,11 @@ namespace Game.GameLifeCycle.Gameplay.States
             ShowCurtain();
             ResetGameplay();
 
-            if (_advertisementsSystem.TryShowInterstitial(onCloseCallback: OnInterstitialFinished) == false)
+            if (_advertisementsFacade.TryShowInterstitial(AdvertisementPlacement.StartLevel,
+                    onCloseCallback: OnInterstitialFinished) == false)
+            {
                 await SwitchNextState();
+            }
         }
 
         private async void OnInterstitialFinished() =>

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Game.GameLifeCycle.GameHub.States;
 using Game.Infrastructure.StateMachineComponents;
 using Game.Services.GameLevelLoader;
-using Modules.Advertisements.Systems;
+using Modules.Advertisements.AnalyticsAddon;
+using Modules.Advertisements.Types;
 using Modules.Analytics;
 using Modules.AudioManagement.Player;
 using Modules.Core.Systems;
@@ -17,17 +18,17 @@ namespace Game.GameLifeCycle.Gameplay.States
     public sealed class FinishGameplaySceneState : LevelGameplayState
     {
         private readonly GameStateMachine _gameStateMachine;
-        private readonly IAdvertisementsSystem _advertisementsSystem;
+        private readonly AdvertisementsFacade _advertisementsFacade;
 
         public FinishGameplaySceneState(GameStateMachine gameStateMachine, SceneStateMachine sceneStateMachine, 
             ISignalBus signalBus, ILogSystem logSystem, IAnalyticsSystem analyticsSystem, 
             IAudioAssetPlayer audioAssetPlayer, IEnumerable<IReset> resetObjects, ILoadingCurtain loadingCurtain, 
-            ICurrentLevelConfiguration levelConfigurator, IAdvertisementsSystem advertisementsSystem)
+            ICurrentLevelConfiguration levelConfigurator, AdvertisementsFacade advertisementsFacade)
             : base(sceneStateMachine, signalBus, logSystem, analyticsSystem, audioAssetPlayer, resetObjects, 
                 loadingCurtain, levelConfigurator)
         {
             _gameStateMachine = gameStateMachine;
-            _advertisementsSystem = advertisementsSystem;
+            _advertisementsFacade = advertisementsFacade;
         }
 
         public override async UniTask Enter()
@@ -36,8 +37,11 @@ namespace Game.GameLifeCycle.Gameplay.States
 
             RestoreGameTime();
 
-            if (_advertisementsSystem.TryShowInterstitial(onCloseCallback: OnAdvertisimentFinish) == false)
+            if (_advertisementsFacade.TryShowInterstitial(AdvertisementPlacement.EndLevel,
+                    onCloseCallback: OnAdvertisimentFinish) == false)
+            {
                 await SaveAndSwitchGameHubState();
+            }
         }
 
         private async void OnAdvertisimentFinish() =>

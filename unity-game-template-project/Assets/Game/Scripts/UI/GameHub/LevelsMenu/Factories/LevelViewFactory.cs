@@ -9,7 +9,7 @@ using Modules.AssetsManagement.AddressablesOperations;
 using Modules.AssetsManagement.StaticData;
 using Modules.Core.Systems;
 using Modules.EventBus;
-using Modules.Localization.Processors;
+using Modules.Localization.Core.Processors;
 using Modules.ObjectsManagement.Factories;
 using Zenject;
 

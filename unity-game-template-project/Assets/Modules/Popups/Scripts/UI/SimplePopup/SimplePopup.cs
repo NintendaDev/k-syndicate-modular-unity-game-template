@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Modules.Core.UI;
-using Modules.Localization.Systems;
+using Modules.Localization.Core.Systems;
 using Modules.PopupsSystem.Configurations;
 using UnityEngine;
 using Zenject;

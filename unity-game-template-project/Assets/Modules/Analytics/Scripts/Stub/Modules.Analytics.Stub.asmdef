@@ -1,0 +1,20 @@
+{
+    "name": "Modules.Analytics.Stub",
+    "rootNamespace": "Modules.Analytics.Stub",
+    "references": [
+        "GUID:93228971017a10b4291c2c6829344874",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:798b4cf279db65346a8453758a51f54b",
+        "GUID:a1394e044482765449ce7a4bd4fd2869",
+        "GUID:2a41333a2df1bf84d92a130bd478a1ff"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

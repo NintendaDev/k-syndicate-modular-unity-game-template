@@ -2,9 +2,10 @@
 {
     public enum AnalyticsSystemCode
     {
-        None,
-        GameAnalytics,
-        AppMetrica,
-        Firebase
+        None = 0,
+        GameAnalytics = 1,
+        Firebase = 2,
+        AppMetrica = 3,
+        Amplitude = 4,
     }
 }

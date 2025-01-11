@@ -1,5 +1,5 @@
-using Modules.Localization.Processors;
-using Modules.Localization.Processors.Factories;
+using Modules.Localization.Core.Processors;
+using Modules.Localization.Core.Processors.Factories;
 using Zenject;
 
 namespace Game.Infrastructure.ContextInstallers 

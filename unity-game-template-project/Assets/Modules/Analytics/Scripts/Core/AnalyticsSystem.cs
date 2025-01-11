@@ -14,7 +14,7 @@ namespace Modules.Analytics
     {
         private readonly StringBuilder _builder = new();
         private readonly IStaticDataService _staticDataService;
-        private CustomEventsConfiguration _configuration;
+        private CustomAnalyticsEventsHub _hub;
 
         public AnalyticsSystem(ILogSystem logSystem, IStaticDataService staticDataService)
         {
@@ -24,20 +24,22 @@ namespace Modules.Analytics
 
         protected TemplateLogger LogSystem { get; }
 
-        protected string DefaultParameterName => _configuration.DefaultParameterName;
-        
+        protected DefaultAnalyticsParamsNames DefaultParamsNames { get; private set; }
+
         public virtual UniTask InitializeAsync()
         {
-            _configuration = _staticDataService.GetConfiguration<CustomEventsConfiguration>();
+            _hub = _staticDataService.GetConfiguration<CustomAnalyticsEventsHub>();
+
+            DefaultParamsNames = _staticDataService.GetConfiguration<DefaultAnalyticsParamsNames>();
 
             return UniTask.CompletedTask;
         }
-        
-        public abstract void SendCustomEvent(EventCode eventCode);
 
-        public abstract void SendCustomEvent(EventCode eventCode, Dictionary<string, object> data);
+        public abstract void SendCustomEvent(AnalyticsEventCode eventCode);
+
+        public abstract void SendCustomEvent(AnalyticsEventCode eventCode, Dictionary<string, object> data);
         
-        public abstract void SendCustomEvent(EventCode eventCode, float value);
+        public abstract void SendCustomEvent(AnalyticsEventCode eventCode, float value);
 
         public abstract void SendInterstitialEvent(AdvertisementAction advertisementAction,
             AdvertisementPlacement placement, AdvertisementsPlatform platform);
@@ -52,10 +54,10 @@ namespace Modules.Analytics
         public abstract void SendProgressEvent(ProgressStatus progressStatus, string levelType, string levelName,
             int progressPercent);
 
-        protected bool IsExistEventName(EventCode eventCode, AnalyticsSystemCode analyticsSystemCode,
+        protected bool IsExistEventName(AnalyticsEventCode eventCode, AnalyticsSystemCode analyticsSystemCode,
             out string eventName)
         {
-            bool isExist = _configuration.IsExistEventName(eventCode, analyticsSystemCode, out eventName);
+            bool isExist = _hub.IsExistEventName(eventCode, analyticsSystemCode, out eventName);
             
             if (isExist == false)
                 LogSystem.LogWarning($"The metric name for analyticsSystemCode={analyticsSystemCode} " +
@@ -64,7 +66,7 @@ namespace Modules.Analytics
             return isExist;
         }
 
-        protected void LogEvent(EventCode eventCode)
+        protected void LogEvent(AnalyticsEventCode eventCode)
         {
             _builder.Clear();
             
@@ -119,6 +121,20 @@ namespace Modules.Analytics
             _builder.Append($"{nameof(amount)}={amount}, ");
             _builder.Append($"{nameof(itemType)}={itemType}, ");
             _builder.Append($"{nameof(itemId)}={itemId}");
+            LogSystem.Log(_builder.ToString());
+        }
+        
+        protected void LogEvent(AdvertisementRevenue revenue)
+        {
+            _builder.Clear();
+
+            _builder.Append("Advertisement Revenue event have been sent: ");
+            _builder.Append($"{nameof(revenue.Revenue)} = {revenue.Revenue}, ");
+            _builder.Append($"{nameof(revenue.Currency)}={revenue.Currency}, ");
+            _builder.Append($"{nameof(revenue.Platform)}={revenue.Platform}, ");
+            _builder.Append($"{nameof(revenue.AdvertisementUnitName)}={revenue.AdvertisementUnitName}, ");
+            _builder.Append($"{nameof(revenue.Format)}={revenue.Format}, ");
+            _builder.Append($"{nameof(revenue.Source)}={revenue.Source}");
             LogSystem.Log(_builder.ToString());
         }
     }

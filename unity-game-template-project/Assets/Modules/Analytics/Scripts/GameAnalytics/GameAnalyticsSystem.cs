@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Modules.Analytics.GA
 {
-    public sealed class GameAnalyticsSystem : AnalyticsSystem
+    public sealed class GameAnalyticsSystem : AnalyticsSystem, IGameAnalyticsATTListener
     {
         public GameAnalyticsSystem(ILogSystem logSystem, IStaticDataService staticDataService) 
             : base(logSystem, staticDataService)
@@ -20,13 +20,25 @@ namespace Modules.Analytics.GA
         public override async UniTask InitializeAsync()
         {
             await base.InitializeAsync();
-
-            GameAnalytics.Initialize();
-            GameAnalytics.SetBuildAllPlatforms(Application.version);
+            
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                GameAnalytics.RequestTrackingAuthorization(this);
+            }
+            else
+            {
+                InitializeSDK();
+            }
+            
             LogSystem.SetPrefix("[GameAnalytics] ");
-        } 
+        }
 
-        public override void SendCustomEvent(EventCode eventCode)
+        public void EnableAppLovinIntegration()
+        {
+            GameAnalyticsILRD.SubscribeMaxImpressions();
+        }
+
+        public override void SendCustomEvent(AnalyticsEventCode eventCode)
         {
             if (IsExistEventName(eventCode, AnalyticsSystemCode.GameAnalytics, out string eventName) == false)
                 return;
@@ -42,7 +54,7 @@ namespace Modules.Analytics.GA
             LogEvent(eventCode);
         }
 
-        public override void SendCustomEvent(EventCode eventCode, Dictionary<string, object> data)
+        public override void SendCustomEvent(AnalyticsEventCode eventCode, Dictionary<string, object> data)
         {
             if (IsExistEventName(eventCode, AnalyticsSystemCode.GameAnalytics, out string eventName) == false)
                 return;
@@ -58,7 +70,7 @@ namespace Modules.Analytics.GA
             LogEvent(eventCode);
         }
 
-        public override void SendCustomEvent(EventCode eventCode, float value)
+        public override void SendCustomEvent(AnalyticsEventCode eventCode, float value)
         {
             if (IsExistEventName(eventCode, AnalyticsSystemCode.GameAnalytics, out string eventName) == false)
                 return;
@@ -77,6 +89,13 @@ namespace Modules.Analytics.GA
         public override void SendInterstitialEvent(AdvertisementAction advertisementAction,
             AdvertisementPlacement placement, AdvertisementsPlatform platform)
         {
+            if (Application.isEditor)
+            {
+                LogEvent(advertisementAction, placement, platform);
+
+                return;
+            }
+            
             SendAdvertisementEvent(advertisementAction, placement, platform, GAAdType.Interstitial);
             LogEvent(advertisementAction, placement, platform);
         }
@@ -84,12 +103,26 @@ namespace Modules.Analytics.GA
         public override void SendRewardEvent(AdvertisementAction advertisementAction, AdvertisementPlacement placement, 
             AdvertisementsPlatform platform)
         {
+            if (Application.isEditor)
+            {
+                LogEvent(advertisementAction, placement, platform);
+
+                return;
+            }
+            
             SendAdvertisementEvent(advertisementAction, placement, platform, GAAdType.RewardedVideo);
             LogEvent(advertisementAction, placement, platform);
         }
 
         public override void SendErrorEvent(LogLevel logLevel, string message)
         {
+            if (Application.isEditor)
+            {
+                LogEvent(logLevel, message);
+
+                return;
+            }
+            
             GameAnalytics.NewErrorEvent(logLevel.ToGameAnalytics(), message);
             LogEvent(logLevel, message);
         }
@@ -117,7 +150,7 @@ namespace Modules.Analytics.GA
             
             LogEvent(progressStatus, levelType, levelName, progressPercent);
         }
-        
+
         private void SendResourceEvent(ResourceFlowType flowType, CurrencyType currencyType, float amount, 
             string itemType, string itemId)
         {
@@ -149,5 +182,31 @@ namespace Modules.Analytics.GA
             
             LogEvent(advertisementAction, placement, advertisementsPlatform);
         }
+
+        public void GameAnalyticsATTListenerNotDetermined()
+        {
+            InitializeSDK();
+        }
+
+        public void GameAnalyticsATTListenerRestricted()
+        {
+            InitializeSDK();
+        }
+
+        public void GameAnalyticsATTListenerDenied()
+        {
+            InitializeSDK();
+        }
+
+        public void GameAnalyticsATTListenerAuthorized()
+        {
+            InitializeSDK();
+        }
+
+        private void InitializeSDK()
+        {
+            GameAnalytics.Initialize();
+            GameAnalytics.SetBuildAllPlatforms(Application.version);
+        } 
     }
 }

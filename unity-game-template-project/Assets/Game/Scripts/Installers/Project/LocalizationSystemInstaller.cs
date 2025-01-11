@@ -1,5 +1,5 @@
-﻿using Game.Application.Localization;
-using Modules.Localization.Detectors;
+﻿using Modules.Localization.Core.Detectors;
+using Modules.Localization.I2System;
 using Zenject;
 
 namespace Game.Installers.Project

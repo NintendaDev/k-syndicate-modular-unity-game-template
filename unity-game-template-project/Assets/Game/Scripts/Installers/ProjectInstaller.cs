@@ -30,8 +30,8 @@ namespace Game.Installers
             RepositoryInstaller.Install(Container, _repositoryConfiguration);
             SaveLoadInstaller.Install(Container);
             SceneManagementInstaller.Install(Container);
-            AdvertisementsInstaller.Install(Container);
             AnalyticsInstaller.Install(Container);
+            AdvertisementsInstaller.Install(Container);
             GameBootstrapInstaller.Install(Container);
             GameStateMachineInstaller.Install(Container);
         }

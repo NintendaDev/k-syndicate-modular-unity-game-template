@@ -10,7 +10,7 @@ using Modules.Device.Performance;
 using Modules.Device.Performance.Configurations;
 using Modules.EventBus;
 using Modules.LoadingCurtain;
-using Modules.Localization.Systems;
+using Modules.Localization.Core.Systems;
 using Modules.Logging;
 
 namespace Game.GameLifeCycle.Bootstrap

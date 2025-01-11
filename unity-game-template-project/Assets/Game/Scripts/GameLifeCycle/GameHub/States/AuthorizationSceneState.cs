@@ -6,7 +6,7 @@ using Modules.AudioManagement.Mixer;
 using Modules.Authorization.Interfaces;
 using Modules.LoadingCurtain;
 using Modules.EventBus;
-using Modules.Localization.Types;
+using Modules.Localization.Core.Types;
 using Modules.Logging;
 using Modules.PopupsSystem;
 

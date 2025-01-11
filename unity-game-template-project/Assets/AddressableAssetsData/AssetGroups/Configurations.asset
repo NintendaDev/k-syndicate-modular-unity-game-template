@@ -77,12 +77,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4d47b1978041a4545a51f5147176b91f
-    m_Address: MusicPlayerConfiguration
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - configurations
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5f7911b9696b5543b852998604d7692
     m_Address: LoadingCurtainConfiguration
     m_ReadOnly: 0
@@ -95,14 +89,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 66f85e95ea666fd41b7fbff0720921ae
-    m_Address: Assets/Modules/Analytics/Configurations/CustomEventsConfiguration.asset
+  - m_GUID: 3a90ed366427fb2408283bb4439f6380
+    m_Address: SoundConfiguration
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3a90ed366427fb2408283bb4439f6380
-    m_Address: SoundConfiguration
+  - m_GUID: cf96d1f94a6fbc342bae70a6d41bd345
+    m_Address: Assets/Game/Configurations/Analytics/CustomEventsHub.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - configurations
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07cbb6579ca2d514eb794a5dcf0d208d
+    m_Address: Assets/Modules/Analytics/Configurations/DefaultAnalyticsParamsNames.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - configurations
