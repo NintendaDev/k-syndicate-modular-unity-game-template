@@ -21,7 +21,7 @@ This template is the result of working on a personal project [Geometry Dash](htt
 - Implementing ads (AppLovin)
 - Localization system (I2)
 - Authorization integration
-- Music management and volume control
+- Music management and volume control (Sonity)
 - Progress saving
 - Managing in-game currency and player statistics
 - And more
